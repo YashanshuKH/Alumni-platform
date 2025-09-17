@@ -1,0 +1,103 @@
+/* Navbar.module.css */
+
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #ffffff;
+  padding: 0.8rem 1rem;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease-in-out;
+}
+
+/* Add space below fixed navbar so content is visible */
+:global(body) {
+  margin-top: 68px;
+}
+
+/* Brand styling */
+.navbar :global(.navbar-brand) {
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #1f026b !important;
+  transition: transform 0.3s ease;
+}
+
+.navbar :global(.navbar-brand:hover) {
+  transform: scale(1.05);
+  color: #1f026b !important;
+}
+
+/* Nav Links */
+.navbar :global(.nav-link) {
+  color:#0cb0fc !important;
+  font-weight: 500;
+  margin: 0 10px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar :global(.nav-link:hover) {
+  color:#1f026b !important;
+}
+
+/* Animated underline */
+.navbar :global(.nav-link::after) {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color:#1f026b;
+  transition: width 0.3s;
+  margin: auto;
+}
+
+.navbar :global(.nav-link:hover::after) {
+  width: 100%;
+}
+
+/* Active link */
+.navbar :global(.nav-link.active) {
+  color:#1f026b !important;
+  font-weight: 600;
+}
+
+.get_Started{
+  padding: 10px 22px;
+  color: #fff;
+  background-color: #0cb0fc; /* vibrant orange */
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-items: center;
+
+}
+.get_Started:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(83, 82, 84, 0.25);
+}
+
+.link {
+  text-decoration: none;
+  color: inherit; /* inherit from button */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Mobile optimization */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar :global(.nav-link) {
+    margin: 8px 0;
+    display: block;
+    text-align: center;
+  }
+}
