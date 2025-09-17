@@ -1,5 +1,6 @@
 .dashboard {
   width: 81.9vw;
+
   position: absolute;
   right: 0;
   color: #1b263b;
@@ -8,8 +9,6 @@
 
 .dashboard0 {
   width: 81.9vw;
-  height: 100vh;
-  position: absolute;
   right: 0;
   background-color:#add5f9;
   display: flex;
@@ -17,15 +16,21 @@
 }
 
 .dashboard1 {
-  width:40%;
-  height: 40% ;
+  width:30%;
+  height: 30% ;
   display: inline-block;
-  border: 0.5px solid grey;
-  border-radius: 2%;
-  background-color:azure ;
-  /* box-shadow: 0px 0px 5px grey; */
-  transition: all 0.5s ease-in-out;
-  /* margin: 20px; */
+  border: none;
+  border-radius: 4%;
+  background-color:rgb(240, 243, 243);
+  box-shadow: 0px 0px 5px grey;
+  transition: all 0.4s ease-in-out;
+  margin: 20px;
+  text-align: center;
+}
+
+.dashboard1:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
 }
 
 .dashboardheader {
@@ -51,42 +56,50 @@
   
 }
 
-.bankacc{
-  height: 40%;
-  margin-top: 0px;
-
-}
-.loans{
-  height: 30%;
-  
-}
-.insurance{
-  height: 30%;
-  
-}
-.income{
-  height: 60%;
-  margin-top: 0;
-  padding: 0;
-}
-.flow{
-  height: 40%;
-  padding: 0;
-}
-.expense{
-  height: 50%;
-  margin-top: 0;
-  padding: 0;
-}
-.mutual{
-  height: 25%;
-  
-}
-.equity{
-  height: 25%;
-}
-
-.bank{
+.field{
+  font-size: 1.2rem;
   font-weight: bold;
-  padding-top: 20px;
+  text-align: center;
+  margin-top:20%;
+}
+.data{
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 10%;;
+}
+
+.dashboard2{
+  width:45%;
+  height: 20vh ;
+  border: none;
+  display: inline-block;
+  border-radius: 2%;
+  background-color:rgb(240, 243, 243);
+  box-shadow: 0px 0px 5px grey;
+  transition: all 0.4s ease-in-out;
+  margin: 20px;
+  text-align: center;
+}
+
+.notice{
+  width:79vw;
+  height: 10vh ;
+  border: none;
+  color: aliceblue;
+  border-radius: 2%;
+  background-color:#0cb0fc;
+  box-shadow: 0px 0px 5px rgb(200, 200, 200);
+  transition: all 0.4s ease-in-out;
+  margin: 20px;
+  padding: 2%;
+}
+
+.dashboard2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+.link{
+    text-decoration: none;
 }
