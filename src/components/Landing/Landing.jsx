@@ -10,7 +10,7 @@ import Dashboard from "../Dashboard/Dashboard";
 const Landing = () => {
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       {/* Offcanvas */}
 
       <div className={`text-center p-5 ${styles.banner}`}>
@@ -58,7 +58,7 @@ const Landing = () => {
       </section>
 
       <section id="contact">
-      {/* <Footer /> */}
+      <Footer />
       </section>
       
      
