@@ -1,0 +1,92 @@
+.dashboard {
+  width: 81.9vw;
+  position: absolute;
+  right: 0;
+  color: #1b263b;
+  background-color:#add5f9;
+}
+
+.dashboard0 {
+  width: 81.9vw;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  background-color:#add5f9;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.dashboard1 {
+  width:40%;
+  height: 40% ;
+  display: inline-block;
+  border: 0.5px solid grey;
+  border-radius: 2%;
+  background-color:azure ;
+  /* box-shadow: 0px 0px 5px grey; */
+  transition: all 0.5s ease-in-out;
+  /* margin: 20px; */
+}
+
+.dashboardheader {
+  font-size: 5rem;
+  margin: 20px;
+  margin-left: 25px;
+}
+.heading {
+  font-size: 1.5rem;
+}
+.boxes {
+  width: 80vw;
+}
+
+.overall{
+  width: auto;
+  border: 0.5px solid grey;
+  box-shadow: 0px 0px 4px black ;
+  border-radius: 10px;
+  margin:15px;
+  padding: 20px;
+  h5{font-weight: bold;};
+  
+}
+
+.bankacc{
+  height: 40%;
+  margin-top: 0px;
+
+}
+.loans{
+  height: 30%;
+  
+}
+.insurance{
+  height: 30%;
+  
+}
+.income{
+  height: 60%;
+  margin-top: 0;
+  padding: 0;
+}
+.flow{
+  height: 40%;
+  padding: 0;
+}
+.expense{
+  height: 50%;
+  margin-top: 0;
+  padding: 0;
+}
+.mutual{
+  height: 25%;
+  
+}
+.equity{
+  height: 25%;
+}
+
+.bank{
+  font-weight: bold;
+  padding-top: 20px;
+}
