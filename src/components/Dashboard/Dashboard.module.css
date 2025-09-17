@@ -8,8 +8,8 @@
 
 .dashboard0 {
   width: 81.9vw;
-  height: 100vh;
-  position: absolute;
+  /* height: 100vh; */
+  /* position: absolute; */
   right: 0;
   background-color:#add5f9;
   display: flex;
@@ -68,7 +68,6 @@
   
 }
 
-
 .field{
   font-size: 1.2rem;
   font-weight: bold;
@@ -115,45 +114,5 @@
 
 .link{
     text-decoration: none;
-}
-=======
-.bankacc{
-  height: 40%;
-  margin-top: 0px;
-
-}
-.loans{
-  height: 30%;
-  
-}
-.insurance{
-  height: 30%;
-  
-}
-.income{
-  height: 60%;
-  margin-top: 0;
-  padding: 0;
-}
-.flow{
-  height: 40%;
-  padding: 0;
-}
-.expense{
-  height: 50%;
-  margin-top: 0;
-  padding: 0;
-}
-.mutual{
-  height: 25%;
-  
-}
-.equity{
-  height: 25%;
-}
-
-.bank{
-  font-weight: bold;
-  padding-top: 20px;
 }
 
