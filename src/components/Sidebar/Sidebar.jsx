@@ -2,14 +2,15 @@ import styles from "./Sidebar.module.css";
 import { HashLink } from "react-router-hash-link";
 import {
   FaHome,
-  FaExchangeAlt,
-  FaChartPie,
+  FaRegUser,
+  FaUserFriends,
+  FaBriefcase,
   FaCog,
-  FaMoneyCheck,
-  FaFileInvoice,
-  FaShieldAlt,
-  FaChartBar
+
 } from "react-icons/fa";
+import { MdEmojiEvents } from "react-icons/md";
+import { FaMessage } from "react-icons/fa6";
+
 
 const Sidebar=()=> {
   return (
@@ -18,36 +19,16 @@ const Sidebar=()=> {
 
       <ul className={styles.sidebar_menu}>
         <li className="active"><FaHome className="icon" /><HashLink className={styles.sidebar_link} smooth to="/dashboard">Dashboard</HashLink></li>
-        <li><FaExchangeAlt className="icon" /><span>Transactions</span></li>
-        <li><FaChartPie className="icon" /><span>Investments</span></li>
+        <li className="active"><FaRegUser className="icon" /><HashLink className={styles.sidebar_link} smooth to="/profile">Profile</HashLink></li>
+        <li className="active"><FaUserFriends className="icon" /><HashLink className={styles.sidebar_link} smooth to="/profile">My Networks</HashLink></li>
+        <li className="active"><MdEmojiEvents className="icon" /><HashLink className={styles.sidebar_link} smooth to="/profile">Events</HashLink></li>
+        <li className="active"><FaBriefcase className="icon" /><HashLink className={styles.sidebar_link} smooth to="/profile">Jobs</HashLink></li>
+        <li className="active"><FaMessage className="icon" /><HashLink className={styles.sidebar_link} smooth to="/profile">Messages</HashLink></li>
         
-          <div className={styles.section}>
-        <h4>Loans</h4>
-        <ul className={styles.sidebar_menu}>
-          <li><FaMoneyCheck className="icon" /><span>Loan 1</span></li>
-        </ul>
-      </div>
-
-      <div className={styles.section}>
-        <h4>Insurance</h4>
-        <ul className={styles.sidebar_menu}>
-          <li><FaFileInvoice className="icon" /><HashLink className={styles.sidebar_link} smooth to="/insurance#life">Life</HashLink></li>
-          <li><FaFileInvoice className="icon" /><HashLink className={styles.sidebar_link} smooth to="/insurance#medical">Medical</HashLink></li>
-          <li><FaFileInvoice className="icon" /><HashLink className={styles.sidebar_link} smooth to="/insurance#vehicle">Vehicle</HashLink></li>
-        </ul>
-      </div>
-
-      <div className={styles.section}>
-        <h4>Mutual Funds</h4>
-        <ul className={styles.sidebar_menu}>
-          <li><FaShieldAlt className="icon" /><span>Enquiry Fund</span></li>
-        </ul>
-      </div>
+          
 
       <hr />
-
-        <li><FaChartBar className="icon" /><span>Reports</span></li>
-        <li><FaCog className="icon" /><span>Settings</span></li>
+        <li className="active"><FaCog className="icon" /><HashLink className={styles.sidebar_link} smooth to="/profile">Settings</HashLink></li>
       </ul>
 
     </aside>

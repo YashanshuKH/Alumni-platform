@@ -1,8 +1,8 @@
 .sidebar {
   width: 17vw;
   height: 91vh;
-  background: #1e1e2f;
-  color: #fff;
+  background-color: #fff;
+  color: #1f026b;
   position: fixed;
   top: 0;
   left: 0;
@@ -24,7 +24,7 @@
 .section h4 {
   margin: 8px 0 4px;
   font-size: 12px;
-  color: #bbb;
+  color:#3c2e5e;
   text-transform: uppercase;
 }
 
@@ -37,7 +37,7 @@
 
 .sidebar_link{
   text-decoration: none;
-  color: #fff;
+  color:#1f026b;
 }
 
 
@@ -53,7 +53,7 @@
 
 .sidebar_menu li .icon { font-size: 16px; }
 
-.sidebar_menu li:hover { background: #2a2f34; }
-.sidebar_menu li.active { background: #353b3a; }
+.sidebar_menu li:hover { background: #d1d1d1; }
+.sidebar_menu li.active { background: #dcdbdb; }
 
 
