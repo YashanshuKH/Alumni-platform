@@ -1,0 +1,31 @@
+.footer {
+  background: linear-gradient(135deg, #4e6a86, #35516b);
+  color: #f1f1f1;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.95rem;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.link:hover {
+  color: #00c4ff;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column !important;
+    text-align: center ;
+    gap: 1rem;
+  }
+
+  .footer .text-end {
+    text-align: center !important;
+  }
+}

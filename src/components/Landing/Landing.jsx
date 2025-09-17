@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import Dashboard from "../Dashboard/Dashboard";
 
 
 const Landing = () => {
@@ -58,6 +59,7 @@ const Landing = () => {
       <section id="contact">
       <Footer />
       </section>
+      
      
     </div>
   );
