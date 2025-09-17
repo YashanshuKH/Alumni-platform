@@ -1,6 +1,7 @@
 import styles from "./Landing.module.css";
 import { Link } from "react-router-dom";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import Dashboard from "../Dashboard/Dashboard";
@@ -9,7 +10,7 @@ import Dashboard from "../Dashboard/Dashboard";
 const Landing = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       {/* Offcanvas */}
 
       <div className={`text-center p-5 ${styles.banner}`}>
@@ -57,7 +58,7 @@ const Landing = () => {
       </section>
 
       <section id="contact">
-      <Footer />
+      {/* <Footer /> */}
       </section>
       
      
