@@ -38,6 +38,7 @@
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 15px;
+  text-align: left;
 }
 
 .text {
@@ -47,20 +48,23 @@
 }
 
 /* Get Started Button */
-.get_started {
+.get_Started{
   position: relative;
-  z-index: 2;
-  padding: 14px 28px;
-  font-size: 1.4rem;
-  font-weight: 600;
-  border: none;
-  background: linear-gradient(135deg, #d5dbd5, #f5f5f5);
-  color: #111;
-  letter-spacing: 0.15rem;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  z-index: 2; /* keep button above blur */
   margin-left: 40px;
+  padding: 12px 28px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #0cb0fc; /* vibrant orange */
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+
 }
 
 .get_started:hover {
@@ -127,9 +131,6 @@
   transform: scale(1.1);
   filter: blur(6px) brightness(0.7);
 }
-.whyusbox:hover .userexp {
-  opacity: 1;
-}
 
 /* Text overlay */
 .userexp {
@@ -141,7 +142,7 @@
   color: #fff;
   text-align: center;
   line-height: 1.4rem;
-  opacity: 0;
+
 
 }
 
