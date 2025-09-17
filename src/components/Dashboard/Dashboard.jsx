@@ -3,6 +3,8 @@ import Sidebar from "../Sidebar/Sidebar";
 import UNavbar from "../UNavbar/UNavbar";
 import { Link } from "react-router-dom";
 
+
+
 const Dashboard = () => {
   return (
     <div className={styles.main}>
@@ -12,6 +14,7 @@ const Dashboard = () => {
       </div>
       <div className={styles.dashboard}>
         <div className={styles.dashboardheader}>
+
           <h3>Quick Stats</h3>
         </div>
         <div className={styles.dashboard0}>
@@ -38,6 +41,26 @@ const Dashboard = () => {
             <Link  className={styles.link} to="/news3"><div className={styles.dashboard2}></div></Link>
             <Link className={styles.link} to="/news4"><div className={styles.dashboard2}></div></Link>
         </div>
+
+          <h3>Dashboard</h3>
+        </div>
+        <div className={styles.dashboard0}>
+          <div className={styles.dashboard1}>
+            mf hb,b
+            
+
+            
+            
+          </div>
+          <div className={styles.dashboard1}>
+            
+          </div>
+          <div className={styles.dashboard1}>
+            
+            
+           
+          </div>
+        </div
       </div>
     </div>
   );

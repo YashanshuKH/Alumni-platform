@@ -1,6 +1,7 @@
 import styles from "./Landing.module.css";
 import { Link } from "react-router-dom";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import Dashboard from "../Dashboard/Dashboard";
