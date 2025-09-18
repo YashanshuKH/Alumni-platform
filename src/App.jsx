@@ -9,8 +9,12 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<ResetPassword />} />
+      <Route path="/" element={<Landing />} />
       <Route path="/login" element={<Login />} />
+      {/* <Route path="/signup" element={<Signup />} /> */}
+      <Route path="/reset" element={<Login />} />
+      <Route path="/login" element={<Login />} />
+
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/random" element={<Event />} />
     </Routes>
