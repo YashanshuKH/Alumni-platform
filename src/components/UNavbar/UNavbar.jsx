@@ -1,7 +1,7 @@
 import styles from "./Navbar.module.css"; // custom CSS Module
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const UNavbar = () => {
   return (
     <nav className={`navbar navbar-expand-lg navbar-dark ${styles.navbar}`}>
       <div className="container-fluid">
@@ -52,4 +52,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default UNavbar;
