@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./Reset.module.css";
 import Navbar from "../Navbar/Navbar";
 
+import styles from "./Reset.module.css";
+
 const ResetPassword = () => {
   return (
     <div className={styles.resetContainer}>
