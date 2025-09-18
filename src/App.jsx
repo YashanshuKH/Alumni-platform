@@ -5,6 +5,7 @@ import Login from './components/Login/login'
 import Dashboard from './components/Dashboard/Dashboard';
 import Event from './components/Event/Event';
 import ResetPassword from './components/Reset/Reset'
+import Profile from './components/Profile/Profile';
 function App() {
 
   return (
@@ -16,6 +17,8 @@ function App() {
       <Route path="/login" element={<Login />} />
 
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/profile" element={<Profile />} />
+
       <Route path="/random" element={<Event />} />
     </Routes>
 

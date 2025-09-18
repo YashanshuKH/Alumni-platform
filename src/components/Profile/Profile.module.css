@@ -11,7 +11,7 @@
   background: #f5f7fa;
 }
 
-/* Sidebar */
+/* Sidebar (if you add later) */
 .sidebar {
   width: 220px;
   background: #fff;
@@ -25,11 +25,11 @@
   color: #004a8f;
 }
 
-.sidebar-menu {
+.sidebarMenu {
   list-style: none;
 }
 
-.sidebar-menu li {
+.sidebarMenu li {
   margin: 15px 0;
   display: flex;
   align-items: center;
@@ -38,7 +38,7 @@
   color: #333;
 }
 
-.sidebar-menu li:hover {
+.sidebarMenu li:hover {
   color: #007bff;
 }
 
@@ -59,21 +59,21 @@
   margin-bottom: 20px;
 }
 
-.topbar nav a {
+.nav a {
   margin: 0 12px;
   text-decoration: none;
   color: #004a8f;
   font-weight: bold;
 }
 
-.top-icons {
+.topIcons {
   display: flex;
   align-items: center;
   gap: 15px;
   font-size: 18px;
 }
 
-.profile-img {
+.profileImg {
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -86,7 +86,7 @@
   margin-bottom: 20px;
 }
 
-.stats .card {
+.card {
   flex: 1;
   background: #d7ecff;
   border-radius: 10px;
@@ -94,13 +94,13 @@
   text-align: center;
 }
 
-.stats .card h3 {
+.card h3 {
   margin-bottom: 8px;
   font-size: 16px;
   color: #333;
 }
 
-.stats .card p {
+.card p {
   font-size: 20px;
   font-weight: bold;
   color: #004a8f;
@@ -121,31 +121,31 @@
   margin-bottom: 20px;
 }
 
-.feed-grid {
+.feedGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
 }
 
-.feed-card {
+.feedCard {
   background: #fff;
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.feed-card h4 {
+.feedCard h4 {
   margin-bottom: 8px;
   font-size: 16px;
   color: #004a8f;
 }
 
-.feed-card p {
+.feedCard p {
   font-size: 14px;
   color: #666;
 }
 
-.feed-card img {
+.feedCard img {
   width: 100%;
   border-radius: 8px;
   margin-bottom: 10px;
