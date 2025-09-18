@@ -8,18 +8,19 @@ import ResetPassword from "./components/Reset/Reset";
 import ForgotPassword from "./components/Forgot/forgot";
 import Profile from "./components/Profile/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Signup from "./components/Signup/Signup";
 
 function App() {
-    const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
   return (
     <Routes>
-<Route
+      <Route
         path="/"
         element={token ? <Navigate to="/dashboard" replace /> : <Landing />}
       />
-            <Route path="/login" element={<Login />} />
-      {/* <Route path="/signup" element={<Signup />} /> */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
       <Route path="/forgot" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
 
