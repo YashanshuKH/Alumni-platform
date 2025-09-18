@@ -4,12 +4,12 @@ import Landing from './components/Landing/Landing';
 import Login from './components/Login/login'
 import Dashboard from './components/Dashboard/Dashboard';
 import Event from './components/Event/Event';
-
+import ResetPassword from './components/Reset/Reset'
 function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Landing />} />
+      <Route path="/" element={<ResetPassword />} />
       <Route path="/login" element={<Login />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/random" element={<Event />} />

@@ -1,5 +1,5 @@
 /* Background */
-.reset-container {
+.resetContainer {
   height: 100vh;
   width: 100%;
   display: flex;
@@ -11,7 +11,7 @@
 }
 
 /* Box styling */
-.reset-box {
+.resetBox {
   background: rgba(255, 255, 255, 0.9);
   padding: 40px;
   width: 360px;
@@ -20,21 +20,21 @@
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.reset-box h2 {
+.resetBox h2 {
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 10px;
   color: #1a1a1a;
 }
 
-.reset-box p {
+.resetBox p {
   font-size: 14px;
   margin-bottom: 20px;
   color: #444;
 }
 
 /* Inputs */
-.reset-box input {
+.resetBox input {
   width: 100%;
   padding: 12px;
   margin-bottom: 15px;
@@ -44,7 +44,7 @@
 }
 
 /* Button */
-.reset-box button {
+.resetBox button {
   width: 100%;
   padding: 12px;
   background: #007bff;
@@ -57,21 +57,21 @@
   transition: background0.3s;
 }
 
-.reset-box button:hover {
+.resetBox button:hover {
   background: #0056b3;
 }
 
 /* Links */
-.reset-links {
+.resetLinks {
   margin-top: 15px;
   font-size: 13px;
 }
 
-.reset-links a {
+.resetLinks a {
   color: #007bff;
   text-decoration: none;
 }
 
-.reset-links a:hover {
+.resetLinks a:hover {
   text-decoration: underline;
 }

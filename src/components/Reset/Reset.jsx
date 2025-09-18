@@ -1,18 +1,20 @@
 import React from "react";
-import "./ResetPassword.css";
+import styles from "./Reset.module.css";
+import Navbar from "../Navbar/Navbar";
 
 const ResetPassword = () => {
   return (
-    <div className="reset-container">
-      <div className="reset-box">
+    <div className={styles.resetContainer}>
+      <Navbar />
+      <div className={styles.resetBox}>
         <h2>RESET YOUR PASSWORD</h2>
         <p>Enter your new password below</p>
         <form>
           <input type="password" placeholder="New Password" required />
           <input type="password" placeholder="Confirm New Password" required />
-          <button type="submit">REST PASSWORD</button>
+          <button type="submit">RESET PASSWORD</button>
         </form>
-        <div className="reset-links">
+        <div className={styles.resetLinks}>
           <a href="/login">Back to Login</a>
           <span> | </span>
           <a href="/signup">Need an account? Sign Up</a>
