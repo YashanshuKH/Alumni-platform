@@ -1,28 +1,36 @@
-import { useState } from 'react'
-import { Routes, Route } from "react-router-dom";
-import Landing from './components/Landing/Landing';
-import Login from './components/Login/login'
-import Dashboard from './components/Dashboard/Dashboard';
-import Event from './components/Event/Event';
-import ResetPassword from './components/Reset/Reset'
-import Profile from './components/Profile/Profile';
+import { useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Landing from "./components/Landing/Landing";
+import Login from "./components/Login/login";
+import Dashboard from "./components/Dashboard/Dashboard";
+import Event from "./components/Event/Event";
+import ResetPassword from "./components/Reset/Reset";
+import ForgotPassword from "./components/Forgot/forgot";
+import Profile from "./components/Profile/Profile";
+import ProtectedRoute from "./components/ProtectedRoute";
+
 function App() {
+    const token = localStorage.getItem("token");
 
   return (
     <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route path="/login" element={<Login />} />
+<Route
+        path="/"
+        element={token ? <Navigate to="/dashboard" replace /> : <Landing />}
+      />
+            <Route path="/login" element={<Login />} />
       {/* <Route path="/signup" element={<Signup />} /> */}
-      <Route path="/reset" element={<Login />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/forgot" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
 
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/profile" element={<Profile />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/profile" element={<Profile />} />
 
-      <Route path="/random" element={<Event />} />
+        <Route path="/random" element={<Event />} />
+      </Route>
     </Routes>
-
-  )
+  );
 }
 
-export default App
+export default App;
