@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Landing from './components/Landing/Landing';
 import Login from './components/Login/login'
 import Dashboard from './components/Dashboard/Dashboard';
+import Event from './components/Event/Event';
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
       <Route path="/" element={<Landing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/random" element={<Event />} />
     </Routes>
 
   )
