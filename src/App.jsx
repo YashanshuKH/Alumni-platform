@@ -9,6 +9,7 @@ import ForgotPassword from "./components/Forgot/forgot";
 import Profile from "./components/Profile/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Signup from "./components/Signup/Signup";
+import Admin from "./components/Admin/Admin";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -19,6 +20,7 @@ function App() {
         path="/"
         element={token ? <Navigate to="/dashboard" replace /> : <Landing />}
       />
+      <Route path="/admin" element={<Admin />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/forgot" element={<ForgotPassword />} />
