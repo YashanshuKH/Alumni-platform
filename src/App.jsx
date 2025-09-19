@@ -27,8 +27,7 @@ function App() {
       <Route element={<ProtectedRoute />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
-
-        <Route path="/random" element={<Event />} />
+        <Route path="/events" element={<Event />} />
       </Route>
     </Routes>
   );

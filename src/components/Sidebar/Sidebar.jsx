@@ -36,7 +36,7 @@ const Sidebar = () => {
         </li>
         <li className="active">
           <MdEmojiEvents className="icon" />
-          <HashLink className={styles.sidebar_link} smooth to="/profile">
+          <HashLink className={styles.sidebar_link} smooth to="/events">
             Events
           </HashLink>
         </li>
