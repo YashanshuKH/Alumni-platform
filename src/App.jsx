@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Landing from "./components/Getstarted/Landing/Landing";
 import Login from "./components/Auth/Login/login";
-import Dashboard from "./components/Authority/Dashboard/Dashboard";
+import Dashboard from "./components/Alumni/Dashboard/Dashboard";
 import Event from "./components/Alumni/Event/Event";
 import ResetPassword from "./components/Auth/Reset/Reset";
 import ForgotPassword from "./components/Auth/Forgot/forgot";
