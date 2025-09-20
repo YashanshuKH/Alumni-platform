@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Landing from "./components/Getstarted/Landing/Landing";
 import Login from "./components/Auth/Login/login";
-import Dashboard from "./components/Authority/Dashboard/Dashboard";
+import Dashboard from "./components/Alumni/Dashboard/Dashboard";
 import Event from "./components/Alumni/Event/Event";
 import ResetPassword from "./components/Auth/Reset/Reset";
 import ForgotPassword from "./components/Auth/Forgot/forgot";
@@ -12,6 +12,7 @@ import Signup from "./components/Auth/Signup/Signup";
 import Admin from "./components/Authority/Admin/Admin";
 import Alumni from "./components/Authority/Alumni_Database/AlumniData";  
 import AlumniData from "./components/Authority/Alumni_Database/AlumniData";
+import StudentData from "./components/Authority/Student_Database/StudentData";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
       <Route path="/forgot" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/alumni" element={<Alumni />} />
+      <Route path="/student" element={<StudentData />} />
 
 
         <Route path="/database" element={<AlumniData />} />

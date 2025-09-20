@@ -1,0 +1,259 @@
+.studentLayout {
+  display: flex;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f5fc;
+}
+
+.studentMainContent {
+  margin-left: 17vw;
+  padding: 30px;
+  background: linear-gradient(135deg, #fdfbff, #f7f1fb);
+  min-height: 100vh;
+  width: 83vw;
+  animation: fadeIn 0.9s ease-in-out;
+  transition: all 0.4s ease;
+}
+
+.studentTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #9121c4;
+  margin-bottom: 25px;
+  animation: slideInLeft 0.8s ease-in-out;
+}
+
+.studentTitle span {
+  font-size: 16px;
+  color: #6a0dad;
+}
+
+.studentActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 12px;
+}
+
+.studentImportExport {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.importBtn,
+.exportBtn,
+.aiBtn,
+.addBtn {
+  padding: 12px 26px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.4s ease;
+  box-shadow: 0 6px 16px rgba(145, 33, 196, 0.25);
+}
+
+.importBtn {
+  background: linear-gradient(135deg, #9121c4, #6a0dad);
+  color: #fff;
+}
+.importBtn:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 8px 20px rgba(145, 33, 196, 0.5);
+}
+
+.exportBtn {
+  background: linear-gradient(135deg, #6a0dad, #9121c4);
+  color: #fff;
+}
+.exportBtn:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 8px 20px rgba(106, 13, 173, 0.5);
+}
+
+.aiBtn {
+  background: #f3e6fa;
+  color: #9121c4;
+  border: 1px solid #6a0dad;
+}
+.aiBtn:hover {
+  background: #e7d4f7;
+  transform: translateY(-2px) scale(1.04);
+}
+
+.topControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+.studentFilter select,
+.searchBox input,
+.addStudentForm input,
+.addStudentForm select {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.studentFilter select:focus,
+.searchBox input:focus,
+.addStudentForm input:focus,
+.addStudentForm select:focus {
+  border-color: #9121c4;
+  box-shadow: 0 0 12px rgba(145, 33, 196, 0.25);
+  outline: none;
+}
+
+.addStudentForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+.addStudentForm input,
+.addStudentForm select {
+  flex: 1 1 150px;
+  min-width: 120px;
+}
+
+.addBtn {
+  background: linear-gradient(135deg, #9121c4, #6a0dad);
+  color: #fff;
+  align-self: flex-end;
+}
+.addBtn:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 8px 20px rgba(145, 33, 196, 0.5);
+}
+
+.studentTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.9s ease-in-out;
+}
+
+.studentTable th {
+  background: linear-gradient(135deg, #9121c4, #6a0dad);
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  padding: 16px 18px;
+  transition: all 0.3s ease;
+}
+
+.studentTable td {
+  padding: 14px 18px;
+  transition: all 0.3s ease;
+}
+
+.studentTable tr:nth-child(even) {
+  background: #f9f5fc;
+}
+
+.studentTable tr:hover {
+  background: #f4e6fb;
+  transform: scale(1.01);
+}
+
+.badgeGreen {
+  background: #6a0dad;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.badgeGreen:hover { transform: scale(1.05); }
+
+.badgeBlue {
+  background: #9121c4;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.badgeBlue:hover { transform: scale(1.05); }
+
+.statusActive {
+  background: #6a0dad;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.statusInactive {
+  background: #dc3545;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.editBtn,
+.deleteBtn {
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 6px;
+  transition: all 0.2s ease;
+}
+.editBtn:hover { color: #9121c4; transform: scale(1.2); }
+.deleteBtn:hover { color: #dc3545; transform: scale(1.2); }
+
+.pagination {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #9121c4, #6a0dad);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.pagination button:hover { transform: scale(1.08); }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media screen and (max-width: 768px) {
+  .studentMainContent { margin-left: 0; width: 100%; }
+  .topControls { display: flex; flex-direction: column; gap: 15px; }
+  .searchBox input { width: 100%; margin-top: 10px; }
+  .studentImportExport { flex-direction: column; gap: 12px; }
+  .addStudentForm { flex-direction: column; gap: 12px; }
+}
