@@ -1,5 +1,5 @@
 /* Container */
-.profile-container {
+.profileContainer {
   background-color: lavender;  /* Lavender shade background */
   min-height: 100vh;
   display: flex;
@@ -9,7 +9,7 @@
 }
 
 /* Card */
-.profile-card {
+.profileCard {
   background: white;
   width: 850px;
   padding: 25px;
@@ -19,40 +19,40 @@
 }
 
 /* Header */
-.profile-header {
+.profileHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.profile-pic img {
+.profilePic img {
   border-radius: 50%;
   width: 80px;
   height: 80px;
 }
 
-.profile-info {
+.profileInfo {
   flex: 1;
   margin-left: 20px;
 }
 
-.profile-info h2 {
+.profileInfo h2 {
   margin: 0;
   font-size: 22px;
 }
 
-.profile-info p {
+.profileInfo p {
   margin: 5px 0;
   color: #555;
 }
 
 /* Buttons */
-.profile-actions {
+.profileActions {
   display: flex;
   gap: 10px;
 }
 
-.edit-btn, .connect-btn {
+.editBtn, .connectBtn {
   padding: 8px 14px;
   border-radius: 8px;
   border: none;
@@ -60,27 +60,27 @@
   font-weight: bold;
 }
 
-.edit-btn {
+.editBtn {
   background: #6c63ff;
   color: white;
 }
 
-.connect-btn {
+.connectBtn {
   background: #f0f0f0;
 }
 
 /* Sections */
-.bio-section, .skills-section, .experience-section, .education-section, .contact-section {
+.bioSection, .skillsSection, .experienceSection, .educationSection, .contactSection {
   margin-top: 20px;
 }
 
-.skills-list {
+.skillsList {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.skills-list span {
+.skillsList span {
   background: #eee;
   padding: 6px 12px;
   border-radius: 12px;
@@ -88,14 +88,14 @@
 }
 
 /* Experience */
-.experience-grid {
+.experienceGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
   margin-top: 10px;
 }
 
-.exp-card {
+.expCard {
   background: #f9f9f9;
   padding: 12px;
   border-radius: 12px;
@@ -103,10 +103,10 @@
   transition: 0.3s;
 }
 
-.exp-card:hover {
+.expCard:hover {
   background: #e0d9ff;
 }
 
-.exp-card.active {
+.expCard.active {
   background: #d6c8ff;
 }

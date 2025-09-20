@@ -37,7 +37,6 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/events" element={<Event />} />
       {/* <Route element={<ProtectedRoute />}>
-
       </Route> */}
     </Routes>
   );
