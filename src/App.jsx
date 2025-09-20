@@ -10,6 +10,7 @@ import Profile from "./components/Profile/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Signup from "./components/Signup/Signup";
 import Admin from "./components/Admin/Admin";
+import Alumni from "./components/Alumni_Database/AlumniData";  
 
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/forgot" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/alumni" element={<Alumni />} />
+
+
 
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
