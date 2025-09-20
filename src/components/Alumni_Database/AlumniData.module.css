@@ -1,0 +1,109 @@
+.alumni-layout {
+  display: flex;
+}
+
+.alumni-mainContent {
+  margin-left: 17vw; 
+  padding: 20px;
+  background: #f5f7fb;
+  min-height: 100vh;
+  width: 83vw;
+}
+
+.alumni-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #6a0dad;
+  margin-bottom: 20px;
+}
+
+.alumni-title span {
+  font-size: 16px;
+  color: #9121c4;
+}
+
+.alumni-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.importBtn,
+.exportBtn,
+.aiBtn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.importBtn {
+  background: #9121c4;
+  color: white;
+}
+
+.importBtn:hover {
+  background: #6a0dad;
+}
+
+.exportBtn {
+  background: #6a0dad;
+  color: white;
+}
+
+.exportBtn:hover {
+  background: #9121c4;
+}
+
+.aiBtn {
+  background: #f1e6fa;
+  color: #6a0dad;
+}
+
+.aiBtn:hover {
+  background: #e4d4f7;
+}
+
+/* Filter */
+.alumni-filter {
+  margin-bottom: 20px;
+}
+
+.alumni-filter select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-left: 10px;
+}
+
+.alumni-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alumni-table th,
+.alumni-table td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.alumni-table th {
+  background: #6a0dad;
+  color: white;
+}
+
+.alumni-table tr:nth-child(even) {
+  background: #f9f5fc;
+}
+
+.alumni-table tr:hover {
+  background: #f1e6fa;
+  cursor: pointer;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Event.module.css'; // import css module
+import styles from './Event.module.css'; 
 import Sidebar from '../Sidebar/Sidebar';
 import Footer from '../Footer/Footer';
 import UNavbar from '../UNavbar/UNavbar';
