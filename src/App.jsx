@@ -27,12 +27,12 @@ function App() {
       <Route path="/forgot" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
 
-
-      <Route element={<ProtectedRoute />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/events" element={<Event />} />
-      </Route>
+      {/* <Route element={<ProtectedRoute />}>
+
+      </Route> */}
     </Routes>
   );
 }
