@@ -1,82 +1,85 @@
 import React from "react";
-import styles from "./Profile.module.css";
-import UNavbar from "../UNavbar/UNavbar";
-import { FaBell, FaCog } from "react-icons/fa";
-import Sidebar from "../Sidebar/Sidebar";
+import "./Profile.css";
 
 export default function Profile() {
   return (
-    <div className={styles.dashboard}>
-      {/* Main Content */}
-      <main className={styles.main}>
-        {/* Top Nav */}
-        <header className={styles.topbar}>
-          <UNavbar />
-          
-          <div className={styles.topIcons}>
-            <FaBell />
-            <FaCog />
+    <div className="profile-container">
+      <div className="profile-card">
+        {/* Header Section */}
+        <div className="profile-header">
+          <div className="profile-pic">
             <img
-              src="https://via.placeholder.com/35"
-              alt="profile"
-              className={styles.profileImg}
+              src="https://via.placeholder.com/80"
+              alt="Profile"
             />
           </div>
-        </header>
+          <div className="profile-info">
+            <h2>Dr. Evelyn Reed</h2>
+            <p>Currently working as a <b>Senior Software Engineer</b> at TechCorp</p>
+          </div>
+          <div className="profile-actions">
+            <button className="edit-btn">Edit Profile</button>
+            <button className="connect-btn">Connect</button>
+          </div>
+        </div>
 
-        {/* Quick Stats */}
-        <section className={styles.stats}>
-          <div className={styles.card}>
-            <h3>Connections</h3>
-            <p>1,245</p>
-          </div>
-          <div className={styles.card}>
-            <h3>Upcoming Events</h3>
-            <p>This Month</p>
-          </div>
-          <div className={styles.card}>
-            <h3>Notifications</h3>
-            <p>7</p>
-          </div>
-        </section>
+        {/* Bio Section */}
+        <div className="bio-section">
+          <h3>Bio</h3>
+          <p>
+            Dr. Reed is a professional software engineer with deep experience in
+            machine learning, cloud computing, and project management. Passionate
+            about building scalable systems and mentoring young engineers.
+          </p>
+        </div>
 
-        {/* News Feed */}
-        <section className={styles.feed}>
-          <div className={styles.highlight}>
-            <p>
-              🚀 Exciting News! Our annual Global Alumni Meetup is happening on
-              October 26th. Register now!
-            </p>
+        {/* Skills */}
+        <div className="skills-section">
+          <h3>Skills</h3>
+          <div className="skills-list">
+            <span>Python</span>
+            <span>Machine Learning</span>
+            <span>Cloud Computing</span>
+            <span>Data Analysis</span>
+            <span>Project Management</span>
           </div>
+        </div>
 
-          <div className={styles.feedGrid}>
-            <div className={styles.feedCard}>
-              <img
-                src="https://via.placeholder.com/200x100"
-                alt="reunion"
-              />
-              <h4>Class of 2018 Reunion</h4>
-              <p>Class of 2018 Reunion</p>
+        {/* Work Experience */}
+        <div className="experience-section">
+          <h3>Work Experience</h3>
+          <div className="experience-grid">
+            <div className="exp-card active">
+              <h4>TechCorp</h4>
+              <p>Senior Software Engineer</p>
+              <small>2020 - Present</small>
             </div>
-
-            <div className={styles.feedCard}>
-              <h4>Tech & Innovation Workshop</h4>
-              <p>Location - 19th Jan</p>
-              <button className={styles.btn}>RSVP</button>
+            <div className="exp-card">
+              <h4>Innovate Labs</h4>
+              <p>Software Engineer</p>
+              <small>2017 - 2020</small>
             </div>
-
-            <div className={styles.feedCard}>
-              <h4>Batch Highlight</h4>
-              <p>Awesome alumni unit stories</p>
-            </div>
-
-            <div className={styles.feedCard}>
-              <h4>Alumni Story</h4>
-              <p>Achievements & journeys</p>
+            <div className="exp-card">
+              <h4>Global Solutions</h4>
+              <p>Junior Developer</p>
+              <small>2015 - 2017</small>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+
+        {/* Education */}
+        <div className="education-section">
+          <h3>Education</h3>
+          <p>Ph.D. in Computer Science, Stanford University (2020)</p>
+          <p>B.Sc. in Computer Science, UC Berkeley (2015)</p>
+        </div>
+
+        {/* Contact */}
+        <div className="contact-section">
+          <h3>Contact</h3>
+          <p>LinkedIn | GitHub | Personal Website</p>
+        </div>
+      </div>
     </div>
   );
 }
