@@ -1,109 +1,294 @@
-.alumni-layout {
+.alumniLayout {
   display: flex;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f5fc;
 }
 
-.alumni-mainContent {
-  margin-left: 17vw; 
-  padding: 20px;
-  background: #f5f7fb;
+.alumniMainContent {
+  margin-left: 17vw;
+  padding: 25px;
+  background: linear-gradient(135deg, #fdfbff, #f7f1fb);
   min-height: 100vh;
   width: 83vw;
+  animation: fadeIn 0.8s ease-in-out;
+  transition: all 0.3s ease;
 }
 
-.alumni-title {
-  font-size: 22px;
-  font-weight: bold;
+.alumniTitle {
+  font-size: 26px;
+  font-weight: 700;
   color: #6a0dad;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  position: relative;
+  animation: slideInLeft 0.8s ease-in-out;
 }
 
-.alumni-title span {
+.alumniTitle span {
   font-size: 16px;
   color: #9121c4;
 }
 
-.alumni-actions {
+.alumniActions {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.alumniImportExport {
+  display: flex;
+  gap: 20px;
 }
 
 .importBtn,
 .exportBtn,
 .aiBtn {
-  padding: 10px 15px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 8px;
+  border-radius: 14px;
   cursor: pointer;
-  font-weight: 500;
-  transition: all 0.3s ease-in-out;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  transition: all 0.4s ease;
+  transform: scale(1);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
 .importBtn {
-  background: #9121c4;
-  color: white;
+  background: linear-gradient(135deg, #6a0dad, #9121c4);
+  color: #fff;
 }
 
 .importBtn:hover {
-  background: #6a0dad;
+  background: linear-gradient(135deg, #9121c4, #6a0dad);
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 10px 22px rgba(145, 33, 196, 0.35);
 }
 
 .exportBtn {
-  background: #6a0dad;
-  color: white;
+  background: linear-gradient(135deg, #9121c4, #6a0dad);
+  color: #fff;
 }
 
 .exportBtn:hover {
-  background: #9121c4;
+  background: linear-gradient(135deg, #6a0dad, #9121c4);
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 10px 22px rgba(106, 13, 173, 0.35);
 }
 
 .aiBtn {
   background: #f1e6fa;
   color: #6a0dad;
+  border: 1px solid #9121c4;
+  padding: 12px 24px;
 }
 
 .aiBtn:hover {
   background: #e4d4f7;
+  transform: translateY(-2px) scale(1.04);
 }
 
-/* Filter */
-.alumni-filter {
+.alumniFilter {
   margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
 }
 
-.alumni-filter select {
-  padding: 8px 12px;
-  border-radius: 6px;
+.alumniFilter select {
+  padding: 8px 14px;
+  border-radius: 8px;
   border: 1px solid #ccc;
   margin-left: 10px;
+  transition: all 0.3s ease;
 }
 
-.alumni-table {
+.alumniFilter select:focus {
+  border-color: #9121c4;
+  box-shadow: 0 0 10px rgba(145, 33, 196, 0.2);
+  outline: none;
+}
+
+.searchBox input {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 240px;
+  transition: all 0.3s ease;
+}
+
+.searchBox input:focus {
+  border-color: #9121c4;
+  box-shadow: 0 0 10px rgba(145, 33, 196, 0.2);
+  outline: none;
+}
+
+.alumniTable {
   width: 100%;
   border-collapse: collapse;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 0.9s ease-in-out;
 }
 
-.alumni-table th,
-.alumni-table td {
-  padding: 12px 15px;
+.alumniTable th,
+.alumniTable td {
+  padding: 14px 18px;
   text-align: left;
+  transition: all 0.3s ease;
 }
 
-.alumni-table th {
-  background: #6a0dad;
+.alumniTable th {
+  background: linear-gradient(135deg, #6a0dad, #9121c4);
   color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
 }
 
-.alumni-table tr:nth-child(even) {
+.alumniTable tr:nth-child(even) {
   background: #f9f5fc;
 }
 
-.alumni-table tr:hover {
+.alumniTable tr:hover {
   background: #f1e6fa;
   cursor: pointer;
+  transform: scale(1.01);
+}
+
+.companyTag {
+  background: linear-gradient(135deg, #f6d365, #fda085);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.badgeGreen {
+  background: #4caf50;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.badgeBlue {
+  background: #2196f3;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.badgePurple {
+  background: #9c27b0;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.statusActive {
+  background: #4caf50;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.statusInactive {
+  background: #f44336;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.editBtn,
+.deleteBtn {
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 6px;
+  transition: transform 0.2s ease;
+}
+
+.editBtn:hover {
+  color: #6a0dad;
+  transform: scale(1.2);
+}
+
+.deleteBtn:hover {
+  color: #f44336;
+  transform: scale(1.2);
+}
+
+.pagination {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #6a0dad, #9121c4);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination button:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media screen and (max-width: 1024px) {
+  .alumniMainContent {
+    margin-left: 15vw;
+    width: 85vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .alumniLayout {
+    flex-direction: column;
+  }
+  .alumniMainContent {
+    margin-left: 0;
+    width: 100%;
+  }
+  .searchBox input {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .topControls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 }

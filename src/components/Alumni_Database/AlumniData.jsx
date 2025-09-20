@@ -1,44 +1,106 @@
-import React from "react";
-import Sidebar from '../Sidebar/Sidebar';
-import UNavbar from '../UNavbar/UNavbar';
+import React, { useState } from "react";
+import Sidebar from "../Sidebar/Sidebar";
+import UNavbar from "../UNavbar/UNavbar";
 import styles from "./AlumniData.module.css";
 
 const Alumni = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filter, setFilter] = useState("Batch-wise");
+  
+  const alumniData = [
+    {
+      name: "Rohit Sharma",
+      batch: 2019,
+      department: "CSE",
+      contact: "9876543210",
+      company: "Google",
+      role: "Engineer",
+      contribution: 10000,
+      status: "Active",
+    },
+    {
+      name: "Neha Gupta",
+      batch: 2020,
+      department: "ECE",
+      contact: "8765432109",
+      company: "Amazon",
+      role: "Mentor",
+      contribution: 5000,
+      status: "Active",
+    },
+    {
+      name: "Amit Verma",
+      batch: 2018,
+      department: "IT",
+      contact: "7654321098",
+      company: "Microsoft",
+      role: "Manager",
+      contribution: 15000,
+      status: "Inactive",
+    },
+  ];
+
+  const handleSearch = (e) => setSearchTerm(e.target.value);
+
+  const filteredAlumni = alumniData.filter(
+    (alumnus) =>
+      alumnus.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      alumnus.department.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      alumnus.company.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className={styles.alumniLayout}>
       <UNavbar />
       <Sidebar />
 
       <div className={styles.alumniMainContent}>
+        {/* Header */}
         <h2 className={styles.alumniTitle}>
           Alumni Database <span>(AV Database Management)</span>
         </h2>
 
-        <div className="alumni-actions">
-          <div className="alumni-importExport">
-            <button className="importBtn">Bulk Import (Excel/CSV)</button>
-            <button className="exportBtn">Bulk Export</button>
+        {/* Actions */}
+        <div className={styles.alumniActions}>
+          <div className={styles.alumniImportExport}>
+            <button className={styles.importBtn} title="Import alumni from CSV">
+              📂 Bulk Import
+            </button>
+            <button className={styles.exportBtn} title="Export alumni data to CSV">
+              ⬇ Bulk Export
+            </button>
           </div>
-          <div className="alumni-aiInsights">
-            <button className="aiBtn">
-              Duplicate Detection & Profile Merging
+          <div className={styles.alumniAiInsights}>
+            <button className={styles.aiBtn} title="Detect duplicate alumni entries using AI">
+              🤖 AI Duplicate Detection
             </button>
           </div>
         </div>
 
-        {/* Filter Section */}
-        <div className="alumni-filter">
-          <label>Filter:</label>
-          <select>
-            <option>Batch-wise</option>
-            <option>Department-wise</option>
-            <option>Location-wise</option>
-            <option>Total Alumni</option>
-          </select>
+        {/* Search + Filter */}
+        <div className={styles.topControls}>
+          <div className={styles.alumniFilter}>
+            <label>Filter:</label>
+            <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+              <option>Batch-wise</option>
+              <option>Department-wise</option>
+              <option>Location-wise</option>
+              <option>Contribution Range</option>
+              <option>Total Alumni</option>
+            </select>
+          </div>
+          <div className={styles.searchBox}>
+            <input
+              type="text"
+              placeholder="🔍 Search by name, department, or company..."
+              value={searchTerm}
+              onChange={handleSearch}
+            />
+          </div>
         </div>
 
         {/* Alumni Table */}
-        <table className="alumni-table">
+        <table className={styles.alumniTable}>
           <thead>
             <tr>
               <th>Name</th>
@@ -48,38 +110,64 @@ const Alumni = () => {
               <th>Company</th>
               <th>Role</th>
               <th>Contribution</th>
+              <th>Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Rohit Sharma</td>
-              <td>2019</td>
-              <td>CSE</td>
-              <td>9876543210</td>
-              <td>Google</td>
-              <td>Engineer</td>
-              <td>₹10,000</td>
-            </tr>
-            <tr>
-              <td>Neha Gupta</td>
-              <td>2020</td>
-              <td>ECE</td>
-              <td>8765432109</td>
-              <td>Amazon</td>
-              <td>Mentor</td>
-              <td>₹5,000</td>
-            </tr>
-            <tr>
-              <td>Amit Verma</td>
-              <td>2018</td>
-              <td>IT</td>
-              <td>7654321098</td>
-              <td>Microsoft</td>
-              <td>Manager</td>
-              <td>₹15,000</td>
-            </tr>
+            {filteredAlumni.map((alumnus, index) => (
+              <tr key={index}>
+                <td>{alumnus.name}</td>
+                <td>{alumnus.batch}</td>
+                <td>{alumnus.department}</td>
+                <td>{alumnus.contact}</td>
+                <td>
+                  <span className={styles.companyTag}>{alumnus.company}</span>
+                </td>
+                <td>{alumnus.role}</td>
+                <td>
+                  <span
+                    className={
+                      alumnus.contribution > 10000
+                        ? styles.badgePurple
+                        : alumnus.contribution > 5000
+                        ? styles.badgeGreen
+                        : styles.badgeBlue
+                    }
+                  >
+                    ₹{alumnus.contribution.toLocaleString()}
+                  </span>
+                </td>
+                <td>
+                  <span
+                    className={
+                      alumnus.status === "Active"
+                        ? styles.statusActive
+                        : styles.statusInactive
+                    }
+                  >
+                    {alumnus.status}
+                  </span>
+                </td>
+                <td>
+                  <button className={styles.editBtn} title="Edit Alumni Info">
+                    ✏️
+                  </button>
+                  <button className={styles.deleteBtn} title="Delete Alumni Entry">
+                    🗑
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
+
+        {/* Pagination */}
+        <div className={styles.pagination}>
+          <button disabled>⬅ Prev</button>
+          <span>Page 1 of 5</span>
+          <button>Next ➡</button>
+        </div>
       </div>
     </div>
   );
