@@ -4,6 +4,10 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+<<<<<<< HEAD
+=======
+// import Dashboard from "../../Authority/Dashboard/Dashboard";
+>>>>>>> 87d1f9e14f32101892e9b1ed36ffcd2aab34ec85
 
 
 const Landing = () => {

@@ -24,7 +24,7 @@ const Sidebar = () => {
         </li>
         <li className="active">
           <FaRegUser className="icon" />
-          <HashLink className={styles.sidebar_link} smooth to="/">
+          <HashLink className={styles.sidebar_link} smooth to="/profile">
             Profile
           </HashLink>
         </li>
