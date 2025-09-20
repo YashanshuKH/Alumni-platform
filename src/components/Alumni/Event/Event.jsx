@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Event.module.css'; 
 import Sidebar from '../Sidebar/Sidebar';
-import Footer from '../Footer/Footer';
+import Footer from '../../Getstarted/Footer/Footer';
 import UNavbar from '../UNavbar/UNavbar';
 const Event = () => {
   return (

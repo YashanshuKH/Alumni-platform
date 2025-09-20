@@ -3,9 +3,9 @@ import { CiMobile1 } from "react-icons/ci";
 import { CgPassword } from "react-icons/cg";
 import styles from "./Login.module.css";
 import { Link, Navigate } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../../Getstarted/Navbar/Navbar";
 import { useState } from "react";
-import { login } from "../../api/AuthApi";
+import { login } from "../../../api/AuthApi";
 
 const Login = () => {
   const [email, setEmail] = useState("");

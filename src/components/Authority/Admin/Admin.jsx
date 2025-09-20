@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Admin.module.css";
-import UNavbar from '../UNavbar/UNavbar';
-import Sidebar from '../Sidebar/Sidebar';
+import UNavbar from '../../Alumni/UNavbar/UNavbar';
+import Sidebar from '../../Alumni/Sidebar/Sidebar';
 
 export default function Admin() {
   return (

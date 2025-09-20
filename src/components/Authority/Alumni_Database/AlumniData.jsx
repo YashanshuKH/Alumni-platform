@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Sidebar from "../Sidebar/Sidebar";
-import UNavbar from "../UNavbar/UNavbar";
+import Sidebar from "../../Alumni/Sidebar/Sidebar";
+import UNavbar from "../../Alumni/UNavbar/UNavbar";
 import styles from "./AlumniData.module.css";
 
-const Alumni = () => {
+const AlumniData = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState("Batch-wise");
   
@@ -173,4 +173,4 @@ const Alumni = () => {
   );
 };
 
-export default Alumni;
+export default AlumniData;

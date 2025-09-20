@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Landing from "./components/Landing/Landing";
-import Login from "./components/Login/login";
-import Dashboard from "./components/Dashboard/Dashboard";
-import Event from "./components/Event/Event";
-import ResetPassword from "./components/Reset/Reset";
-import ForgotPassword from "./components/Forgot/forgot";
-import Profile from "./components/Profile/Profile";
-import ProtectedRoute from "./components/ProtectedRoute";
-import Signup from "./components/Signup/Signup";
-import Admin from "./components/Admin/Admin";
-import Alumni from "./components/Alumni_Database/AlumniData";  
+import Landing from "./components/Getstarted/Landing/Landing";
+import Login from "./components/Auth/Login/login";
+import Dashboard from "./components/Authority/Dashboard/Dashboard";
+import Event from "./components/Alumni/Event/Event";
+import ResetPassword from "./components/Auth/Reset/Reset";
+import ForgotPassword from "./components/Auth/Forgot/forgot";
+import Profile from "./components/Alumni/Profile/Profile";
+// import ProtectedRoute from "./components/ProtectedRoute";
+import Signup from "./components/Auth/Signup/Signup";
+import Admin from "./components/Authority/Admin/Admin";
+import Alumni from "./components/Authority/Alumni_Database/AlumniData";  
+import AlumniData from "./components/Authority/Alumni_Database/AlumniData";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <Route path="/alumni" element={<Alumni />} />
 
 
+        <Route path="/database" element={<AlumniData />} />
 
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />

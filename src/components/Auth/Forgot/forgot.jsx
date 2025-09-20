@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./forgot.module.css";
 import { Link } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../../Getstarted/Navbar/Navbar";
 
 const ForgotPassword = () => {
   const handleSubmit = (e) => {

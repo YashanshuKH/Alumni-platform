@@ -1,6 +1,6 @@
 import styles from "./Dashboard.module.css"
-import Sidebar from "../Sidebar/Sidebar";
-import UNavbar from "../UNavbar/UNavbar";
+import Sidebar from "../../Alumni/Sidebar/Sidebar";
+import UNavbar from "../../Alumni/UNavbar/UNavbar";
 import { Link } from "react-router-dom";
 
 

@@ -6,7 +6,7 @@ import { FaRegAddressCard, FaAddressBook, FaCity } from "react-icons/fa";
 import { MdAlternateEmail } from "react-icons/md";
 import { CgCalendarDates, CgPassword } from "react-icons/cg";
 import { TbMapPinCode, TbBuildingEstate, TbLockPassword } from "react-icons/tb";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../../Getstarted/Navbar/Navbar";
 
 import styles from "./Signup.module.css";
 
