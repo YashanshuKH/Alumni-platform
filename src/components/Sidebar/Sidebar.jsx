@@ -24,13 +24,13 @@ const Sidebar = () => {
         </li>
         <li className="active">
           <FaRegUser className="icon" />
-          <HashLink className={styles.sidebar_link} smooth to="/profile">
+          <HashLink className={styles.sidebar_link} smooth to="/">
             Profile
           </HashLink>
         </li>
         <li className="active">
           <FaUserFriends className="icon" />
-          <HashLink className={styles.sidebar_link} smooth to="/profile">
+          <HashLink className={styles.sidebar_link} smooth to="/">
             My Networks
           </HashLink>
         </li>
@@ -48,7 +48,7 @@ const Sidebar = () => {
         </li>
         <li className="active">
           <FaMessage className="icon" />
-          <HashLink className={styles.sidebar_link} smooth to="/profile">
+          <HashLink className={styles.sidebar_link} smooth to="/">
             Messages
           </HashLink>
         </li>
@@ -56,7 +56,7 @@ const Sidebar = () => {
         <hr />
         <li className="active">
           <FaCog className="icon" />
-          <HashLink className={styles.sidebar_link} smooth to="/profile">
+          <HashLink className={styles.sidebar_link} smooth to="/">
             Settings
           </HashLink>
         </li>
