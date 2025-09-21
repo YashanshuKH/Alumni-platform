@@ -3,7 +3,7 @@ import styles from "./Admin.module.css";
 import UNavbar from '../../Alumni/UNavbar/UNavbar';
 import Sidebar from '../../Alumni/Sidebar/Sidebar';
 
-export default function Admin() {
+const Admin = () => {
   return (
     <div className={styles.adminContainer}>
         <UNavbar />
@@ -54,3 +54,4 @@ export default function Admin() {
     </div>
   );
 }
+export default Admin ;
