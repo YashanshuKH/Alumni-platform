@@ -1,115 +1,166 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-.alumni-connect {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  padding: 20px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  border-radius: 8px;
-}
-
-.header {
+.main {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  flex-direction: column;
+  height: 100vh;
+  background: #f9f9f9;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #3b4e6f;
-}
 
-.profile {
+.body {
+  width: 83vw;
+  height: 92vh;
+  position: absolute;
+  right: 0;
   display: flex;
-  align-items: center;
+  flex: 1;
+  overflow: hidden;
 }
 
-.profile-icon {
-  margin-right: 15px;
-}
+/* .body > :first-child {
+  width: 250px;   
+  flex-shrink: 0;
+  border-right: 1px solid #ddd;
+  background: #fff;
+} */
 
-.notification {
-  font-size: 20px;
-  color: #ff4d4d;
-}
-
-.messages {
-  background-color: #fff;
-  padding: 20px;
+.chatWrapper {
+  display: flex;
+  flex: 1;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
+
+.contactsPanel {
+  width: 30%;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+}
+
+.search {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
 .search input {
   width: 100%;
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 6px;
   border: 1px solid #ccc;
-  font-size: 16px;
-  margin-bottom: 20px;
+  font-size: 14px;
 }
 
-.contact-list {
-  list-style-type: none;
-  padding: 0;
+.contactList {
+  flex: 1;
+  overflow-y: auto;
 }
 
-.contact-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid #ccc;
+.contactItem {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background 0.2s;
 }
-
-.contact-item:last-child {
-  border-bottom: none;
+.contactItem:hover {
+  background: #f1f1f1;
 }
-
-.contact-name {
-  font-size: 16px;
+.contactName {
   font-weight: 600;
 }
-
 .status {
-  font-size: 14px;
+  display: block;
+  font-size: 13px;
   color: #777;
 }
 
-.message-area {
+
+.chatPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fdfdfd;
+}
+
+.chatHeader {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  background: #fff;
 }
 
-.message-input {
-  width: 60%;
+.chatMessages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fdfdfd;
+}
+
+
+.message {
+  padding: 10px 14px;
+  border-radius: 18px;
+  max-width: 60%;
+  word-wrap: break-word;
+  font-size: 14px;
+}
+
+.sent {
+  background: #3b4e6f;
+  color: white;
+  align-self: flex-end;
+}
+
+.received {
+  background: #e5e5ea;
+  color: black;
+  align-self: flex-start;
+}
+
+
+.messageArea {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid #ddd;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+}
+
+.messageInput {
+  flex: 1;
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 20px;
   border: 1px solid #ccc;
+  font-size: 14px;
 }
 
-.add-job,
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.addJob,
 .rsvp {
-  padding: 10px 20px;
+  padding: 8px 14px;
   background-color: #3b4e6f;
   color: #fff;
   border: none;
   border-radius: 8px;
-  font-size: 14px;
   cursor: pointer;
-  margin-left: 10px;
+  transition: background 0.2s ease;
+  font-size: 13px;
 }
-
-.add-job:hover,
+.addJob:hover,
 .rsvp:hover {
   background-color: #2c3e50;
 }

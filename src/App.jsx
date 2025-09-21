@@ -13,6 +13,7 @@ import Admin from "./components/Authority/Admin/Admin";
 import Alumni from "./components/Authority/Alumni_Database/AlumniData";  
 import AlumniData from "./components/Authority/Alumni_Database/AlumniData";
 import StudentData from "./components/Authority/Student_Database/StudentData";
+import Message from "./components/Alumni/Message/Message";
 
 
 function App() {
@@ -32,14 +33,14 @@ function App() {
       <Route path="/alumni" element={<Alumni />} />
       <Route path="/student" element={<StudentData />} />
 
-
-        <Route path="/database" element={<AlumniData />} />
-        <Route path="/studentdata" element={<StudentData />} />
-
-
         <Route path="/dashboard" element={<Dashboard />} />
+
+
         <Route path="/profile" element={<Profile />} />
         <Route path="/events" element={<Event />} />
+        <Route path="/message" element={<Message />} />
+        <Route path="/database" element={<AlumniData />} />
+        <Route path="/studentdata" element={<StudentData />} />
       {/* <Route element={<ProtectedRoute />}>
       </Route> */}
     </Routes>

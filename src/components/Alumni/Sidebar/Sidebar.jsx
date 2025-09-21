@@ -48,7 +48,7 @@ const Sidebar = () => {
         </li>
         <li className="active">
           <FaMessage className="icon" />
-          <HashLink className={styles.sidebar_link} smooth to="/">
+          <HashLink className={styles.sidebar_link} smooth to="/message">
             Messages
           </HashLink>
         </li>
