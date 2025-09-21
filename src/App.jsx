@@ -34,6 +34,8 @@ function App() {
 
 
         <Route path="/database" element={<AlumniData />} />
+        <Route path="/studentdata" element={<StudentData />} />
+
 
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
