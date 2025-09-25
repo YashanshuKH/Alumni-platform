@@ -20,7 +20,7 @@ const Sidebar = () => {
 
   return (
     <aside className={styles.sidebar}>
-      <div className={styles.logo}>Logo Placeholder</div>
+      <div className={styles.logo}></div>
 
       <ul className={styles.sidebar_menu}>
         {navItems.map((item) => {

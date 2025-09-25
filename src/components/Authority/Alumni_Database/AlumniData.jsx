@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../../Alumni/Sidebar/Sidebar";
-import UNavbar from "../../Alumni/UNavbar/UNavbar";
+import ANavbar from "../ANavbar/ANavbar";
 import styles from "./AlumniData.module.css";
 
 const AlumniData = () => {
@@ -51,7 +51,7 @@ const AlumniData = () => {
 
   return (
     <div className={styles.alumniLayout}>
-      <UNavbar />
+      <ANavbar />
       <Sidebar />
 
       <div className={styles.alumniMainContent}>
