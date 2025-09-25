@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   z-index: 1000;
-  background: #ffffff;
+  background: linear-gradient(135deg, #fdfdfd, #b29fce); /* lavender gradient */
   padding: 0.8rem 1rem;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
   transition: background 0.3s ease-in-out;
@@ -22,18 +22,18 @@
   font-size: 1.4rem;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #1f026b !important;
-  transition: transform 0.3s ease;
+  color: #1d2461 !important; /* light text on lavender */
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .navbar :global(.navbar-brand:hover) {
   transform: scale(1.05);
-  color: #1f026b !important;
+  color: #1d2461 !important; /* slightly lighter lavender on hover */
 }
 
 /* Nav Links */
 .navbar :global(.nav-link) {
-  color:#0cb0fc !important;
+  color: #1d2461 !important; /* soft lavender */
   font-weight: 500;
   margin: 0 10px;
   position: relative;
@@ -41,7 +41,7 @@
 }
 
 .navbar :global(.nav-link:hover) {
-  color:#1f026b !important;
+  color: #1d2461 !important; /* white-ish hover */
 }
 
 /* Animated underline */
@@ -50,7 +50,7 @@
   display: block;
   width: 0;
   height: 2px;
-  background-color:#1f026b;
+  background-color: #1d2461; /* light underline */
   transition: width 0.3s;
   margin: auto;
 }
@@ -61,21 +61,22 @@
 
 /* Active link */
 .navbar :global(.nav-link.active) {
-  color:#1f026b !important;
+  color: #1d2461 !important;
   font-weight: 600;
 }
 
-.get_Started{
+/* Get Started button */
+.get_Started {
   padding: 10px 22px;
   color: #fff;
-  background-color: #0cb0fc; /* vibrant orange */
+  background-color: #1d2461; /* lavender button */
   border: none;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s ease;
   align-items: center;
-
 }
+
 .get_Started:hover {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 8px 20px rgba(83, 82, 84, 0.25);

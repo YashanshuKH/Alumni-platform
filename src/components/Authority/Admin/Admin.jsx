@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./Admin.module.css";
-import UNavbar from '../../Alumni/UNavbar/UNavbar';
 import Sidebar from '../../Alumni/Sidebar/Sidebar';
+import ANavbar from "../ANavbar/ANavbar";
 
 const Admin = () => {
   return (
     <div className={styles.adminContainer}>
-        <UNavbar />
+        <ANavbar />
         <Sidebar />
       
       <section className={styles.overview}>

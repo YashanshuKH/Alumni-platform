@@ -22,17 +22,25 @@
   margin-bottom: 20px;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
-
 .form {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.128);
+  backdrop-filter: blur(2px);            
+  -webkit-backdrop-filter: blur(2px);
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);     
   max-width: 600px;
   margin: auto;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+.form:hover {
+  background: rgba(255, 255, 255, 0.30);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.2);
 }
 
 .formGroup {
@@ -56,41 +64,38 @@
   font-size: 1.1rem;
   padding: 10px 12px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(0,0,0,0.2);
   outline: none;
-  transition: 0.3s;
+  background: rgba(255,255,255,0.6);
+  transition: all 0.3s ease;
 }
 
 .formGroup input:focus {
-  border-color: #6c63ff;
-  box-shadow: 0 0 5px rgba(108,99,255,0.4);
+  border-color: #3d83f3;
+  box-shadow: 0 0 8px rgba(145,33,196,0.2);
+  background: rgba(255,255,255,0.7);
 }
 
 .submitBtn {
   padding: 12px 20px;
   border: none;
-  background: #6c63ff;
+  background: linear-gradient(135deg, #3d83f3, #3d83f3);
   color: #fff;
   font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   width: 200px;
   align-self: center;
 }
 
 .submitBtn:hover {
-  background: #574fd6;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(145,33,196,0.3);
+  background: linear-gradient(135deg, #3d83f3, #3d83f3);
 }
 
-.not{
-  font-size: 1.3rem;
-}
-.signup{
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: rgb(226, 96, 96);
-}
+/* ================= Forgot Password ================= */
 .forgotWrapper {
   text-align: right;
   margin: -5px 5px 10px 0;
@@ -99,13 +104,39 @@
 .forgot {
   font-size: 1rem;
   font-weight: 500;
-  color: #6c63ff;
+  color: #00074e;
   cursor: pointer;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .forgot:hover {
-  color: #574fd6;
+  color: #3d83f3;
   text-decoration: underline;
 }
 
+.not {
+  font-size: 1.3rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.signup {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #041953;
+  transition: all 0.3s ease;
+}
+
+.signup:hover {
+  color: #3460e6;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .form {
+    padding: 20px;
+  }
+  .submitBtn {
+    width: 100%;
+  }
+}
