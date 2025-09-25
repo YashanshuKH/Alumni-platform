@@ -14,6 +14,7 @@ import Alumni from "./components/Authority/Alumni_Database/AlumniData";
 import AlumniData from "./components/Authority/Alumni_Database/AlumniData";
 import StudentData from "./components/Authority/Student_Database/StudentData";
 import Message from "./components/Alumni/Message/Message";
+import Admin_Emanager from "./components/Authority/Admin_Emanager/Admin_Emanager";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/alumni" element={<Alumni />} />
       <Route path="/student" element={<StudentData />} />
+      <Route path="/eventmanager" element={<Admin_Emanager />} />
 
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
@@ -41,8 +43,6 @@ function App() {
         <Route path="/studentdata" element={<StudentData />} />
         <Route path="/admin" element={<Admin />} />
 
-      {/* <Route element={<ProtectedRoute />}>
-      </Route> */}
     </Routes>
   );
 }
