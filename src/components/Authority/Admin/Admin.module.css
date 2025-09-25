@@ -1,13 +1,27 @@
 .adminContainer {
-  margin-left: 240px; /* Sidebar ke width ke equal */
+  margin-left: 240px;
   padding: 30px;
   background: linear-gradient(135deg, #f5f7fb, #ede7f6);
   min-height: 100vh;
   font-family: "Segoe UI", Arial, sans-serif;
   transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
 }
 
-/* Overview Section */
+@media (max-width: 992px) {
+  .adminContainer {
+    margin-left: 22vw;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .adminContainer {
+    margin-left: 10vw;
+    padding: 20px;
+  }
+}
+
 .overview {
   margin-bottom: 40px;
 }
@@ -31,26 +45,25 @@
   margin-top: 6px;
 }
 
-/* Cards Layout */
 .cards,
 .bottomCards {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-/* Card Styling */
 .card {
   background: rgba(255, 255, 255, 0.9);
   padding: 25px;
   border-radius: 16px;
-  flex: 1;
-  min-width: 260px;
+  flex: 1 1 260px;
   box-shadow: 0 4px 20px rgba(145, 33, 196, 0.15);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   cursor: pointer;
   border-top: 4px solid transparent;
+  box-sizing: border-box;
 }
 
 .card:hover {
@@ -59,7 +72,6 @@
   border-top: 4px solid #9121c4;
 }
 
-/* Numbers */
 .bigNumber {
   font-size: 32px;
   font-weight: bold;
@@ -68,7 +80,6 @@
   animation: fadeInUp 0.6s ease-in-out;
 }
 
-/* Progress Bar */
 .progressBar {
   background: #e0e6f0;
   height: 10px;
@@ -84,7 +95,6 @@
   transition: width 1s ease-in-out;
 }
 
-/* Events Section */
 .events {
   margin-bottom: 40px;
 }
@@ -103,6 +113,7 @@
   margin-bottom: 15px;
   box-shadow: 0 3px 12px rgba(145, 33, 196, 0.15);
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .eventCard:hover {
@@ -111,27 +122,67 @@
   border-left: 5px solid #9121c4;
 }
 
-/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(15px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Responsive */
+ 
 @media (max-width: 768px) {
+
+  
   .adminContainer {
-    margin-left: 0;
+    margin-left: 7vw;
     padding: 20px;
+  }
+
+  .card {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 250px;
+  }
+
+  .overview h3 {
+    flex-wrap: wrap;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .adminContainer {
+    margin: 2vh;
+    padding: 15px;
   }
 
   .cards,
   .bottomCards {
-    flex-direction: column;
+    gap: 15px;
+  }
+
+  .card {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
+
+  .overview h3 {
+    font-size: 20px;
+  }
+
+  .bigNumber {
+    font-size: 28px;
+  }
+
+  .events h4 {
+    font-size: 18px;
+  }
+
+  .eventCard {
+    padding: 12px 15px;
   }
 }
