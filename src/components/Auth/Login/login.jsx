@@ -2,27 +2,29 @@ import { IoPersonSharp } from "react-icons/io5";
 import { CiMobile1 } from "react-icons/ci";
 import { CgPassword } from "react-icons/cg";
 import styles from "./Login.module.css";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import Navbar from "../../Getstarted/Navbar/Navbar";
 import { useState } from "react";
 import { login } from "../../../api/AuthApi";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [mobileNo, setMobileNo] = useState("");
-  const token = localStorage.getItem("token");
-  if (token) {
-    return <Navigate to="/dashboard" replace />;
-  }
+  const [User, setUser] = useState("");
+
   const handleSubmit = async (e) => {
-    e.preventDefault(); // ✅ now this will work
+    e.preventDefault(); 
     try {
-      const response = await login({ email, password, mobileno: mobileNo });
-      localStorage.setItem("token", response.data.token);
-      alert("Login Successful ✅");
-      window.location.href = "/dashboard"; // redirect after login
+      const res = await login({email,password});
+      if (res.data.isLoggedIn) {
+        setUser(res.data.user); 
+        navigate("/dashboard")
+        // setError("");
+      }
     } catch (err) {
+      console.log(err);
       alert("Login failed ❌ " + (err.response?.data?.message || ""));
     }
   };
