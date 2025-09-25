@@ -1,64 +1,66 @@
 import styles from "./Sidebar.module.css";
-import { HashLink } from "react-router-hash-link";
-import {
-  FaHome,
-  FaRegUser,
-  FaUserFriends,
-  FaBriefcase,
-  FaCog,
-} from "react-icons/fa";
+import { FaHome, FaRegUser, FaUserFriends, FaBriefcase, FaCog } from "react-icons/fa";
 import { MdEmojiEvents } from "react-icons/md";
-import { FaMessage } from "react-icons/fa6";
+import { FaMessage } from "react-icons/fa6"; 
+import { NavLink } from "react-router-dom"; // *** IMPORTANT CHANGE: Use NavLink ***
 
 const Sidebar = () => {
+  // *** REMOVE: No need for useState for the active tab, NavLink handles it ***
+
+  const navItems = [
+    { name: "Dashboard", icon: FaHome, path: "/dashboard" },
+    { name: "Profile", icon: FaRegUser, path: "/profile" },
+    { name: "My Networks", icon: FaUserFriends, path: "/" }, // Assuming '/' is the Networks page
+    { name: "Events", icon: MdEmojiEvents, path: "/events" },
+    { name: "Jobs", icon: FaBriefcase, path: "/jobs" },
+    { name: "Messages", icon: FaMessage, path: "/message" },
+  ];
+
+  const settingsItem = { name: "Settings", icon: FaCog, path: "/settings" };
+
   return (
     <aside className={styles.sidebar}>
-      <div className={styles.logo}>Dashboard</div>
+      <div className={styles.logo}>Logo Placeholder</div>
 
       <ul className={styles.sidebar_menu}>
-        <li className="active">
-          <FaHome className="icon" />
-          <HashLink className={styles.sidebar_link} smooth to="/dashboard">
-            Dashboard
-          </HashLink>
-        </li>
-        <li className="active">
-          <FaRegUser className="icon" />
-          <HashLink className={styles.sidebar_link} smooth to="/profile">
-            Profile
-          </HashLink>
-        </li>
-        <li className="active">
-          <FaUserFriends className="icon" />
-          <HashLink className={styles.sidebar_link} smooth to="/">
-            My Networks
-          </HashLink>
-        </li>
-        <li className="active">
-          <MdEmojiEvents className="icon" />
-          <HashLink className={styles.sidebar_link} smooth to="/events">
-            Events
-          </HashLink>
-        </li>
-        <li className="active">
-          <FaBriefcase className="icon" />
-          <HashLink className={styles.sidebar_link} smooth to="/profile">
-            Jobs
-          </HashLink>
-        </li>
-        <li className="active">
-          <FaMessage className="icon" />
-          <HashLink className={styles.sidebar_link} smooth to="/message">
-            Messages
-          </HashLink>
-        </li>
+        {navItems.map((item) => {
+          const Icon = item.icon;
+          return (
+            <li key={item.name}>
+              {/* 1. NavLink handles both redirection AND highlighting.
+                2. The className function receives { isActive } and returns the appropriate class string.
+              */}
+              <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.sidebar_item} ${styles.active}`
+                    : styles.sidebar_item
+                }
+                // Use 'end' for exact matching on the root path ('/')
+                end={item.path === "/"} 
+              >
+                <Icon className={styles.icon} />
+                <span className={styles.sidebar_link}>{item.name}</span>
+              </NavLink>
+            </li>
+          );
+        })}
 
-        <hr />
-        <li className="active">
-          <FaCog className="icon" />
-          <HashLink className={styles.sidebar_link} smooth to="/">
-            Settings
-          </HashLink>
+        <hr className={styles.divider} />
+
+        <li>
+          <NavLink
+            to={settingsItem.path}
+            className={({ isActive }) =>
+              isActive
+                ? `${styles.sidebar_item} ${styles.active}`
+                : styles.sidebar_item
+            }
+          >
+            <settingsItem.icon className={styles.icon} />
+            <span className={styles.sidebar_link}>{settingsItem.name}</span>
+          </NavLink>
         </li>
       </ul>
     </aside>
