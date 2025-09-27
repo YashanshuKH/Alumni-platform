@@ -1,13 +1,13 @@
  import React from "react";
 import styles from "./Admin_Emanager.module.css"; 
-import Sidebar from "../../Alumni/Sidebar/Sidebar";
 import UNavbar from "../../Alumni/UNavbar/UNavbar";
+import ASidebar from "../ASidebar/ASidebar";
 
 const Admin_Emanager = () => {
   return (
     <div className={styles.container}>
       <UNavbar />
-      <Sidebar />
+      <ASidebar />
       <main className={styles.main}>
         <header className={styles.header}>
           <h1>Events</h1>
