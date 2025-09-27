@@ -70,8 +70,11 @@ const newsData = [
             <span>SIH Prelims to be held on 29th September </span>{" "}
           </div>
         </Link>
-
+         <div className={styles.dashboardheader}>
+          <h3>News</h3>
+        </div>
 {newsData.map((news) => (
+  
   <Link key={news.id} className={styles.link} to={news.link}>
     <div className={styles.dashboard2}>
       {/* Left: Logo */}
