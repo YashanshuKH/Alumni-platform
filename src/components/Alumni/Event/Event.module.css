@@ -1,4 +1,3 @@
-/* ================= Global Reset ================= */
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +12,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= Sidebar ================= */
 .sidebar {
   position: fixed;
   top: 0;
@@ -60,7 +58,6 @@ body {
   transform: translateX(5px);
 }
 
-/* ================= Content ================= */
 .content {
   margin-left: 240px;
   padding: 30px;
@@ -70,7 +67,6 @@ body {
   transition: all 0.3s ease;
 }
 
-/* ================= Hero Section ================= */
 .hero {
   text-align: center;
   padding: 80px 20px;
@@ -114,7 +110,6 @@ body {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* ================= Events Container ================= */
 .eventsContainer {
   max-width: 1200px;
   margin: 60px auto;
@@ -124,7 +119,6 @@ body {
   gap: 30px;
 }
 
-/* ================= Event Cards ================= */
 .eventCard {
   background: white;
   border-radius: 16px;
@@ -184,7 +178,6 @@ body {
   to { opacity: 1; transform: translateX(0); }
 }
 
-/* ================= Buttons ================= */
 .btn {
   background: linear-gradient(135deg, #b623ff, #e4a5fc, #9121c4, #6a0dad);
   background-size: 300% 300%;
@@ -203,7 +196,6 @@ body {
   transform: scale(1.03);
 }
 
-/* ================= Footer ================= */
 footer {
   background: #9121c4;
   color: white;
@@ -215,7 +207,6 @@ footer {
   box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* ================= Responsive Media Queries ================= */
 @media (max-width: 1024px) {
   .content {
     margin-left: 200px;
