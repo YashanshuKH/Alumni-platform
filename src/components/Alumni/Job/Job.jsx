@@ -1,72 +1,65 @@
-import React from "react";
-import "./Job.module.css";
-import Sidebar from '../Sidebar/Sidebar';
-import Footer from '../../Getstarted/Footer/Footer';
-import UNavbar from '../UNavbar/UNavbar';
+import { useEffect } from "react";
+import styles from "./Job.module.css"; 
+import Sidebar from "../Sidebar/Sidebar";
+import UNavbar from "../UNavbar/UNavbar";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-export default function Jobs() {
+const Jobs = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1200, once: false, mirror: true });
+  }, []);
+
   return (
-    <div className="jobs-container">
-      {/* Left Section */}
-      <div className="left-panel">
-        <h2 className="title">Jobs</h2>
+    <div className={styles.jobsContainer}>
+  <UNavbar />
+  <Sidebar />
 
-        {/* Currently Working In */}
-        <div className="card">
-          <h3>Currently Working In</h3>
-          <div className="job-item">
-            <span>Amazon</span>
-            <button className="edit-btn">Edit</button>
-          </div>
-          <div className="job-item">
-            <span>Uber</span>
-            <button className="edit-btn">Edit</button>
-          </div>
+  {/* Left Panel */}
+  <div className={styles.leftPanel} data-aos="fade-right">
+    <h2 className={styles.title}>Jobs</h2>
+
+    {/* Currently Working In */}
+    <div className={`${styles.card}`} data-aos="fade-up">
+      <h3>Currently Working In</h3>
+      {["Amazon", "Uber"].map((company, idx) => (
+        <div key={idx} className={styles.jobItem}>
+          <span>{company}</span>
+          <button className={styles.editBtn}>Edit</button>
         </div>
-
-        {/* Job Vacancy */}
-        <div className="card">
-          <h3>Job Vacancy</h3>
-          <div className="job-item">
-            <span>Auditor</span>
-            <button className="delete-btn">Delete</button>
-          </div>
-          <div className="job-item">
-            <span>Software Developer</span>
-            <button className="delete-btn">Delete</button>
-          </div>
-          <div className="job-item">
-            <span>Human Resources</span>
-            <button className="delete-btn">Delete</button>
-          </div>
-          <button className="add-btn">Add Job</button>
-        </div>
-      </div>
-
-      {/* Right Section */}
-      <div className="right-panel">
-        <h3>Other Vacancies</h3>
-        <input type="text" className="search-bar" placeholder="Search" />
-
-        <div className="card vacancy-card">
-          <div className="job-item">
-            <span>Job SaeHliur</span>
-            <button className="apply-btn">Apply</button>
-          </div>
-          <div className="job-item">
-            <span>Company Name</span>
-            <button className="apply-btn">Apply</button>
-          </div>
-          <div className="job-item">
-            <span>Job Vetrim</span>
-            <button className="apply-btn">Apply</button>
-          </div>
-          <div className="job-item">
-            <span>Job Vantion</span>
-            <button className="apply-btn">Apply</button>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
+
+    {/* Job Vacancy */}
+    <div className={`${styles.card}`} data-aos="zoom-in">
+      <h3>Job Vacancy</h3>
+      {["Auditor", "Software Developer", "Human Resources"].map((job, idx) => (
+        <div key={idx} className={styles.jobItem}>
+          <span>{job}</span>
+          <button className={styles.deleteBtn}>Delete</button>
+        </div>
+      ))}
+      <button className={styles.addBtn} data-aos="flip-left">Add Job</button>
+    </div>
+  </div>
+
+  {/* Right Panel */}
+  <div className={styles.rightPanel} data-aos="fade-left">
+    <h3>Other Vacancies</h3>
+    <input type="text" className={styles.searchBar} placeholder="Search" data-aos="fade-down" />
+
+    <div className={`${styles.card} ${styles.vacancyCard}`} data-aos="fade-up">
+      {["Job SaeHliur", "Company Name", "Job Vetrim", "Job Vantion"].map((job, idx) => (
+        <div key={idx} className={styles.jobItem} data-aos="flip-right" data-aos-delay={idx * 150}>
+          <span>{job}</span>
+          <button className={styles.applyBtn}>Apply</button>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
   );
-}
+};
+
+export default Jobs;
