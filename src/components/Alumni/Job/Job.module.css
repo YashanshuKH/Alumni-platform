@@ -1,0 +1,91 @@
+.jobs-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: #f9fbff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Left & Right Panels */
+.left-panel, .right-panel {
+  width: 48%;
+}
+
+.title {
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.job-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.job-item:last-child {
+  border-bottom: none;
+}
+
+/* Buttons */
+button {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.edit-btn {
+  background: #f0f4ff;
+  color: #4a60d4;
+}
+
+.delete-btn {
+  background: #ffeaea;
+  color: #d44a4a;
+}
+
+.apply-btn {
+  background: #eaffea;
+  color: #2f8a3e;
+}
+
+.add-btn {
+  margin-top: 12px;
+  width: 100%;
+  background: #4a60d4;
+  color: white;
+  font-weight: bold;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+/* Search Bar */
+.search-bar {
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}

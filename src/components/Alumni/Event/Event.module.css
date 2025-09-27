@@ -75,7 +75,7 @@ body {
   color: white;
   border-radius: 16px;
   box-shadow: 0 8px 25px rgba(182, 35, 255, 0.35);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   animation: gradientShift 10s ease infinite;
 }
 
@@ -188,7 +188,7 @@ body {
   cursor: pointer;
   font-weight: 500;
   font-size: 15px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   animation: gradientShift 10s ease infinite;
 }
 
