@@ -23,7 +23,7 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 .form {
-  background: rgba(255, 255, 255, 0.388);
+  background: rgba(255, 255, 255, 0.47);
   backdrop-filter: blur(2px);            
   -webkit-backdrop-filter: blur(2px);
   padding: 30px;
@@ -39,7 +39,7 @@
 }
 
 .form:hover {
-  background: rgba(255, 255, 255, 0.30);
+  /* background: rgba(255, 255, 255, 0.30); */
   box-shadow: 0 6px 25px rgba(0,0,0,0.2);
 }
 
