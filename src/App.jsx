@@ -15,6 +15,7 @@ import AlumniData from "./components/Authority/Alumni_Database/AlumniData";
 import StudentData from "./components/Authority/Student_Database/StudentData";
 import Message from "./components/Alumni/Message/Message";
 import Admin_Emanager from "./components/Authority/Admin_Emanager/Admin_Emanager";
+import Jobs from "./components/Alumni/Job/Job";
 
 
 function App() {
@@ -26,14 +27,18 @@ function App() {
         path="/"
         element={token ? <Navigate to="/dashboard" replace /> : <Landing />}
       />
-      <Route path="/admin" element={<Admin />} />
+
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/forgot" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
+
       <Route path="/alumni" element={<Alumni />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/jobs" element={<Jobs />} />
+
+
       <Route path="/events" element={<Event />} />
       <Route path="/message" element={<Message />} />
       <Route path="/database" element={<AlumniData />} />
