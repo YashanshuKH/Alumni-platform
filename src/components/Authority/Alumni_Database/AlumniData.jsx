@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Sidebar from "../../Alumni/Sidebar/Sidebar";
 import ANavbar from "../ANavbar/ANavbar";
 import styles from "./AlumniData.module.css";
+import ASidebar from "../ASidebar/ASidebar";
 
 const AlumniData = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -52,7 +52,7 @@ const AlumniData = () => {
   return (
     <div className={styles.alumniLayout}>
       <ANavbar />
-      <Sidebar />
+      <ASidebar />
 
       <div className={styles.alumniMainContent}>
         {/* Header */}

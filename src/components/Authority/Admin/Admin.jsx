@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./Admin.module.css";
-import Sidebar from '../../Alumni/Sidebar/Sidebar';
 import ANavbar from "../ANavbar/ANavbar";
+import ASidebar from "../ASidebar/ASidebar";
 
 const Admin = () => {
   return (
     <div className={styles.adminContainer}>
         <ANavbar />
-        <Sidebar />
+        <ASidebar />
       
       <section className={styles.overview}>
         <h3>Overview</h3>

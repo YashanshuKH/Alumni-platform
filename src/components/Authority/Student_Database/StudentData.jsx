@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./StudentData.module.css";
-import Sidebar from "../../Alumni/Sidebar/Sidebar";
 import ANavbar from "../ANavbar/ANavbar";
+import ASidebar from "../ASidebar/ASidebar";
 
 const StudentData = () => {
   const [students, setStudents] = useState([
@@ -47,7 +47,7 @@ const StudentData = () => {
   return (
     <div className={styles.studentLayout}>
       <ANavbar />
-      <Sidebar />
+      <ASidebar />
 
       <div className={styles.studentMainContent}>
         <h2 className={styles.studentTitle}>
