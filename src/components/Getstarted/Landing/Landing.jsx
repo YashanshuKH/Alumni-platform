@@ -4,9 +4,10 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-// import Dashboard from "../../Authority/Dashboard/Dashboard";
+import KeyFeatures from "../Features/Features";
 
 const Landing = () => {
+  
   return (
     <div>
       <Navbar />
@@ -27,11 +28,8 @@ const Landing = () => {
         </button> */}
       </div>
 
-      {/* Removed Key Features Section */}
-
-      <section id="contact">
-        <Footer />
-      </section>
+<KeyFeatures />
+<Footer />
     </div>
   );
 };
