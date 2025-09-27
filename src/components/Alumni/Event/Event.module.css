@@ -70,7 +70,7 @@ body {
 .hero {
   text-align: center;
   padding: 80px 20px;
-  background: linear-gradient(135deg, #b623ff, #e4a5fc, #9121c4, #6a0dad);
+  background: linear-gradient(135deg, #b623ff, #e4a5fc, #bd3ff7, #912ed8);
   background-size: 300% 300%;
   color: white;
   border-radius: 16px;
@@ -179,7 +179,7 @@ body {
 }
 
 .btn {
-  background: linear-gradient(135deg, #b623ff, #e4a5fc, #9121c4, #6a0dad);
+  background: linear-gradient(135deg, #b623ff, #e4a5fc, #bd3ff7, #912ed8);
   background-size: 300% 300%;
   color: white;
   border: none;
