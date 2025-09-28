@@ -1,172 +1,127 @@
+/* ================= Body ================= */
 .body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; 
-  overflow-x: hidden;
-  background: linear-gradient(to right, #74ebd5, #acb6e5);
   min-height: 100vh;
-  padding: 40px 20px;
-  font-family: 'Segoe UI', sans-serif;
   min-width: 100vw;
+  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
+  background-image: url("./background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.title {
-  text-align: center;
-  color: #333;
-  font-size: 2.2rem;
-  margin-bottom: 20px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
+/* ================= Form Container (Rectangle Card) ================= */
 .form {
-  background: #fff;
-  padding: 30px;
+  background: rgba(255, 255, 255, 0.495);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 30px 25px;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  max-width: 900px;
-  margin: auto;
+  border: 1px solid rgba(255, 255, 255, 0.33);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  max-width: 600px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
+  transition: all 0.3s ease-in-out;
 }
 
+/* ================= Title (Form Heading) ================= */
+.title {
+  text-align: center;
+  color: #000746;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+/* ================= Form Rows (2-column layout) ================= */
 .row {
   display: flex;
   gap: 15px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* responsive for mobile */
 }
 
+/* ================= Form Group ================= */
 .formGroup {
   display: flex;
   flex-direction: column;
   flex: 1;
-  min-width: 200px;
+  min-width: 150px; /* mobile me wrap ho jaye */
 }
 
 .formGroup label {
   font-weight: 600;
-  font-size: 1.2rem;
-  margin-bottom: 6px;
-  color: #444;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.formGroup input {
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  outline: none;
-  transition: 0.3s;
-}
-
-.formGroup input:focus {
-  border-color: #6c63ff;
-  box-shadow: 0 0 5px rgba(108,99,255,0.4);
-}
-
-.submitBtn {
-  padding: 12px 20px;
-  border: none;
-  background: #6c63ff;
-  color: #fff;
   font-size: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-  width: 200px;
-  align-self: center;
-}
-
-.submitBtn:hover {
-  background: #574fd6;
-}
-.body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; 
-  overflow-x: hidden;
-  background: linear-gradient(to right, #74ebd5, #acb6e5);
-  min-height: 100vh;
-  padding: 40px 20px;
-  font-family: 'Segoe UI', sans-serif;
-  min-width: 100vw;
-}
-
-.title {
-  text-align: center;
+  margin-bottom: 6px;
   color: #333;
-  font-size: 2.2rem;
-  margin-bottom: 20px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
-.form {
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  max-width: 600px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.formGroup {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-width: 200px;
-}
-
-.formGroup label {
-  font-weight: 600;
-  font-size: 1.2rem;
-  margin-bottom: 6px;
-  color: #444;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 5px; /* icon aur text ke beech gap */
 }
 
 .formGroup input {
-  font-size: 1.1rem;
-  padding: 10px 12px;
+  font-size: 1rem;
+  padding: 12px 14px;
   border-radius: 8px;
   border: 1px solid #ccc;
   outline: none;
-  transition: 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .formGroup input:focus {
   border-color: #6c63ff;
-  box-shadow: 0 0 5px rgba(108,99,255,0.4);
+  box-shadow: 0 0 6px rgba(108, 99, 255, 0.4);
 }
 
+/* ================= Submit Button ================= */
 .submitBtn {
-  padding: 12px 20px;
+  padding: 12px 24px;
   border: none;
-  background: #6c63ff;
+  background: linear-gradient(135deg, #6c63ff, #5a52d5);
   color: #fff;
   font-size: 1rem;
-  border-radius: 8px;
+  font-weight: 600;
+  border-radius: 10px;
   cursor: pointer;
-  transition: 0.3s;
-  width: 200px;
-  align-self: center;
+  transition: transform 0.25s ease, background 0.3s ease;
+  width: 100%;
 }
 
 .submitBtn:hover {
-  background: #574fd6;
+  background: linear-gradient(135deg, #5a52d5, #4641c7);
+  transform: scale(1.03);
 }
 
-.not{
-  font-size: 1.3rem;
+/* ================= Extra Text ================= */
+.not {
+  font-size: 1.1rem;
+  text-align: center;
+  color: #444;
 }
-.signup{
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: rgb(226, 96, 96);
+
+.signup {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgb(201, 19, 19);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.signup:hover {
+  color: rgb(150, 0, 0);
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 500px) {
+  .row {
+    flex-direction: column;
+  }
 }
