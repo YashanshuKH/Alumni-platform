@@ -2,8 +2,27 @@ import React from "react";
 import styles from "./Admin.module.css";
 import ANavbar from "../ANavbar/ANavbar";
 import ASidebar from "../ASidebar/ASidebar";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios"
+import { fetchcount } from "../../../api/AdminApi";
+
 
 const Admin = () => {
+    const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const fetchCount = async () => {
+      try {
+        const res = await fetchcount();
+        console.log(res)
+        setCount(res.data.totalUsers);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchCount();
+  }, []);
   return (
     <div className={styles.adminContainer}>
         <ANavbar />
@@ -19,7 +38,7 @@ const Admin = () => {
           </div>
           <div className={styles.card}>
             <h4>Total Active Students</h4>
-            <p className={styles.bigNumber}>8,765</p>
+            <p className={styles.bigNumber}>{count}</p>
             <div className={styles.progressBar}>
               <div className={styles.progress} style={{ width: "34%" }}></div>
             </div>

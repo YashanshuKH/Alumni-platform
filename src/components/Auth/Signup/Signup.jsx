@@ -1,33 +1,28 @@
-
-
 import { IoPersonSharp } from "react-icons/io5";
 import { CiMobile1 } from "react-icons/ci";
-import { FaRegAddressCard, FaAddressBook, FaCity } from "react-icons/fa";
 import { MdAlternateEmail } from "react-icons/md";
-import { CgCalendarDates, CgPassword } from "react-icons/cg";
-import { TbMapPinCode, TbBuildingEstate, TbLockPassword } from "react-icons/tb";
+import { CgPassword } from "react-icons/cg";
+import { TbLockPassword } from "react-icons/tb";
 import Navbar from "../../Getstarted/Navbar/Navbar";
 
 import styles from "./Signup.module.css";
 
 const Signup = () => {
   return (
-    
     <div className={styles.body}>
       <Navbar />
-      <h2 className={styles.title}>Sign Up</h2>
       <form onSubmit={(e) => e.preventDefault()} className={styles.form}>
+        
+        {/* Form Heading */}
+        <div className={styles.title}>Sign Up</div>
+
+        {/* First Row */}
         <div className={styles.row}>
           <div className={styles.formGroup}>
             <label htmlFor="firstname">
               <IoPersonSharp /> First Name:
             </label>
-            <input
-              type="text"
-              name="firstname"
-              placeholder="First Name"
-              required
-            />
+            <input type="text" name="firstname" placeholder="First Name" required />
           </div>
           <div className={styles.formGroup}>
             <label htmlFor="middlename">
@@ -39,61 +34,51 @@ const Signup = () => {
             <label htmlFor="lastname">
               <IoPersonSharp /> Last Name:
             </label>
-            <input
-              type="text"
-              name="lastname"
-              placeholder="Last Name"
-              required
-            />
+            <input type="text" name="lastname" placeholder="Last Name" required />
           </div>
         </div>
 
-        <div className={styles.formGroup}>
-          <label htmlFor="mobileno">
-            <CiMobile1 /> Mobile:
-          </label>
-          <input
-            type="text"
-            name="mobileno"
-            placeholder="Mobile Number"
-            maxLength={10}
-            inputMode="numeric"
-            pattern="\d{10}"
-            required
-          />
+        {/* Mobile & Email */}
+        <div className={styles.row}>
+          <div className={styles.formGroup}>
+            <label htmlFor="mobileno">
+              <CiMobile1 /> Mobile:
+            </label>
+            <input
+              type="text"
+              name="mobileno"
+              placeholder="Mobile Number"
+              maxLength={10}
+              inputMode="numeric"
+              pattern="\d{10}"
+              required
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="email">
+              <MdAlternateEmail /> Email:
+            </label>
+            <input type="email" name="email" placeholder="Email" required />
+          </div>
         </div>
 
-        <div className={styles.formGroup}>
-          <label htmlFor="email">
-            <MdAlternateEmail /> Email:
-          </label>
-          <input type="email" name="email" placeholder="Email" required />
-        </div>
+        {/* Password Row */}
         <div className={styles.row}>
           <div className={styles.formGroup}>
             <label htmlFor="password">
               <CgPassword /> Password:
             </label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              required
-            />
+            <input type="password" name="password" placeholder="Password" required />
           </div>
           <div className={styles.formGroup}>
             <label htmlFor="confirmpassword">
               <TbLockPassword /> Confirm Password:
             </label>
-            <input
-              type="password"
-              name="confirmpassword"
-              placeholder="Confirm Password"
-              required
-            />
+            <input type="password" name="confirmpassword" placeholder="Confirm Password" required />
           </div>
         </div>
 
+        {/* Submit Button */}
         <button type="submit" className={styles.submitBtn}>
           Register
         </button>
