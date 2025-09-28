@@ -6,38 +6,31 @@ import "aos/dist/aos.css";
 const features = [
   {
     title: "Smart Communication & Networking",
-    titleAnimation: "fade-right",
-    animation: "fade-left",
-    style: "feature1",
-    info : "Our platform makes it simple for alumni, students, and institutions to stay connected. With built-in messaging, discussion forums, and event updates, we enable real-time communication and stronger professional networking opportunities."
-
+    icon: "💬",
+    animation: "fade-up",
   },
   {
     title: "Unified Data & Records Management",
-    titleAnimation: "fade-left",
-    animation: "fade-right",
-    style: "feature2",
-    info : "Say goodbye to scattered alumni records. We provide a centralized, organized, and easily searchable database where institutions can securely manage alumni profiles, achievements, and participation — all in one place."
+    icon: "📑",
+    animation: "fade-up",
   },
   {
     title: "Secure & Easy Access",
-    titleAnimation: "fade-right",
-    animation: "fade-left",
-    style: "feature3",
-    info : "Security and usability go hand in hand. With role-based access, encryption, and authentication protocols, our platform ensures that sensitive data stays protected while offering a seamless and user-friendly experience for every stakeholder."
+    icon: "🔒",
+    animation: "fade-up",
   },
 ];
 
 const KeyFeatures = () => {
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: false, // run animation every time element enters view
-    });
-  }, []);
+  AOS.init({
+    duration: 1000,
+    once: false, // 👈 run animation every time element enters view
+  });
+}, []);
 
   return (
-    <section className={styles.featuresSection}>
+    <section className={`${styles.featuresSection} `}>
       <h2 className={styles.heading} data-aos="fade-down">
         Key Features
       </h2>
@@ -46,24 +39,12 @@ const KeyFeatures = () => {
         {features.map((feature, index) => (
           <div
             key={index}
-            className={`${styles.featureCard} ${styles[feature.style]}`}
+            className={styles.featureCard}
             data-aos={feature.animation}
-            data-aos-delay={index * 200}
+            data-aos-delay={index * 200} // staggered delay
           >
-            <p
-              className={styles.title}
-              data-aos={feature.titleAnimation}
-              data-aos-delay={index * 200 + 100} // stagger title a bit
-            >
-              {feature.title}
-            </p>
-            <p
-              className={styles.info}
-              data-aos={feature.titleAnimation}
-              data-aos-delay={index * 200 + 100} // stagger title a bit
-            >
-              {feature.info}
-            </p>
+            <div className={styles.icon}>{feature.icon}</div>
+            <p className={styles.title}>{feature.title}</p>
           </div>
         ))}
       </div>
