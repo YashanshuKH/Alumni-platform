@@ -1,7 +1,7 @@
 import { IoPersonSharp } from "react-icons/io5";
 import { CiMobile1 } from "react-icons/ci";
 import { CgPassword } from "react-icons/cg";
-import styles from "./Login.module.css";
+import styles from "./login.module.css";
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import Navbar from "../../Getstarted/Navbar/Navbar";
 import { useState } from "react";
