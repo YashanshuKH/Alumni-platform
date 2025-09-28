@@ -1,25 +1,32 @@
+/* *{
+  width: 50vw;
+} */
+
 /* Container */
 .jobsContainer {
   display: flex;
   min-height: 100vh;
-  font-family: "Inter", sans-serif; /* Same as dashboard */
-  background: #f5f7fb; /* Same as dashboard */
-  gap: 1.5rem; /* Slightly tighter spacing like dashboard */
+  font-family: "Inter", sans-serif;
+  background: #f5f7fb;
+  gap: 1.5rem;
   padding: 2rem;
+  flex-wrap: wrap; /* for responsiveness */
 }
 
 /* Panels */
-.leftPanel, .rightPanel {
+.leftPanel,
+.rightPanel {
   flex: 1;
+  min-width: 320px;
 }
 
 /* Cards */
 .card {
   background: #fff;
-  border-radius: 1rem; /* Same as dashboard */
-  padding: 1.2rem; /* Slightly smaller padding */
+  border-radius: 1rem;
+  padding: 1.2rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* Same as dashboard2 card shadow */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .card:hover {
@@ -29,8 +36,8 @@
 
 /* Titles */
 .title {
-  font-size: 1.8rem; /* Slightly smaller like dashboard headers */
-  color: #4f46e5; /* Match dashboard primary color */
+  font-size: 1.6rem;
+  color: #4f46e5;
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -40,93 +47,96 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 1rem; /* Match dashboard2 padding */
+  padding: 0.8rem 1rem;
   border-bottom: 1px solid #eee;
-  border-radius: 0.8rem;
+  border-radius: 0.6rem;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 .jobItem:hover {
-  background: linear-gradient(90deg, #e0e7ff, #c7d2fe); /* subtle dashboard-like hover */
+  background: #f3f4ff; /* lighter purple hover */
   transform: translateY(-2px);
 }
+.jobItem span {
+  font-weight: 500;
+  color: #374151;
+}
 
-/* Buttons */
-.editBtn, .deleteBtn, .addBtn, .applyBtn {
+/* Buttons - unified design */
+.editBtn,
+.deleteBtn,
+.addBtn,
+.applyBtn {
   padding: 0.5rem 1rem;
   border: none;
-  border-radius: 1rem; /* match dashboard rounded corners */
+  border-radius: 0.75rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
-  color: #fff;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  font-size: 0.9rem;
 }
 
 /* Specific Buttons */
 .editBtn {
-  background: linear-gradient(135deg, #4f46e5, #6366f1); /* dashboard gradient style */
+  background: #4f46e5;
+  color: #fff;
 }
-.editBtn:hover {
-  transform: scale(1.05);
-}
-
 .deleteBtn {
-  background: linear-gradient(135deg, #f97316, #f43f5e);
+  background: #ef4444;
+  color: #fff;
 }
-.deleteBtn:hover {
-  transform: scale(1.05);
-}
-
 .addBtn {
-  background: linear-gradient(135deg, #10b981, #3b82f6);
+  background: #2563eb;
+  color: #fff;
+  width: 100%;
   margin-top: 1rem;
 }
-.addBtn:hover {
-  transform: scale(1.05);
+.applyBtn {
+  background: #10b981;
+  color: #fff;
 }
 
-.applyBtn {
-  background: linear-gradient(135deg, #f43f5e, #ec4899);
-}
-.applyBtn:hover {
+button:hover {
   transform: scale(1.05);
+  opacity: 0.9;
 }
 
 /* Search Bar */
 .searchBar {
   width: 100%;
-  padding: 0.6rem 1rem;
-  border-radius: 1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 0.8rem;
   border: 1px solid #ddd;
   margin-bottom: 1rem;
-  transition: all 0.2s ease;
+  font-size: 0.9rem;
 }
 .searchBar:focus {
   outline: none;
   border-color: #4f46e5;
-  box-shadow: 0 0 12px rgba(79,70,229,0.3);
+  box-shadow: 0 0 8px rgba(79, 70, 229, 0.3);
 }
 
 /* Vacancy Card Special */
 .vacancyCard {
   border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
   padding: 1rem;
 }
 
-/* Panel headings */
+/* Panel Headings */
 h3 {
   margin-bottom: 1rem;
   color: #1f2937;
   font-weight: 600;
+  font-size: 1.1rem;
 }
 
-/* Animations (AOS tweaks) */
-[data-aos] {
-  transition-property: transform, opacity;
-  transition-duration: 1s;
-}
+/* Responsive */
+@media (max-width: 900px) {
+  .jobsContainer {
+    flex-direction: column;
+  }
 
-/* Job title spans */
-.jobItem span {
-  font-weight: 500;
+  .leftPanel,
+  .rightPanel {
+    width: 100%;
+  }
 }

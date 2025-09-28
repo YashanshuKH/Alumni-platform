@@ -10,7 +10,6 @@ const Sidebar = () => {
   const navItems = [
     { name: "Dashboard", icon: FaHome, path: "/dashboard" },
     { name: "Profile", icon: FaRegUser, path: "/profile" },
-    { name: "My Networks", icon: FaUserFriends, path: "/" }, // Assuming '/' is the Networks page
     { name: "Events", icon: MdEmojiEvents, path: "/events" },
     { name: "Jobs", icon: FaBriefcase, path: "/jobs" },
     { name: "Messages", icon: FaMessage, path: "/message" },
