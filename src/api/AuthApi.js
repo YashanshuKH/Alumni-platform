@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const Api_Base = "http://localhost:3000/api/user";
+const Api_Base = "https://alumni-platform-backend-9r9d.onrender.com/api/user";
 
 
 export const login = (data) => {
