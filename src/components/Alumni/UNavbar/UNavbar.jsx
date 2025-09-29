@@ -13,7 +13,7 @@ const UNavbar = () => {
   return (
     <nav className={`navbar navbar-expand-lg ${styles.navbar}`}>
       <div className="container-fluid">
-        <Link className="navbar-brand fw-bold text-white">ALUMNI CONNECT</Link>
+        <Link className={`navbar-brand fw-bold text-white ${styles.navbarbrand}`}>ConnectEd</Link>
 
         {/* Custom Hamburger */}
         <button

@@ -5,9 +5,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar navbar-expand-lg navbar-dark ${styles.navbar}`}>
       <div className="container-fluid">
-        <Link className="navbar-brand fw-bold text-white">
-          ALUMNI CONNECT
-        </Link>
+        <Link className={`navbar-brand fw-bold text-white ${styles.navbarbrand}`}>ConnectEd</Link>
 
         <button
           className="navbar-toggler"

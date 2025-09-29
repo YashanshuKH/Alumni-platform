@@ -66,6 +66,7 @@
 .notice {
   background: #e0e7ff;
   border: 5px solid #bd3ff7;
+
   padding: 1rem;
   margin: 1.5rem 0;
   border-radius: 0.5rem;
@@ -76,6 +77,7 @@
 }
 
     @keyframes snake {
+
     0%   { border-color:  #b623ff transparent transparent  #e4a5fc; }  /* left */
     25%  { border-color:  #b623ff  #b623ff transparent transparent; } /* right */
     50%  { border-color: transparent  #b623ff  #b623ff transparent; } /* bottom */

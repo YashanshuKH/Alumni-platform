@@ -108,6 +108,7 @@
 /* ✅ backgrounds */
 .feature1 {
   background: url("./connection.png") no-repeat center/cover;
+
 }
 
 .feature2 {
@@ -117,6 +118,12 @@
 .feature3 {
   background: url("./lock.png") no-repeat center/cover;
 }
+
+.link {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
 
 
 @media (max-width: 768px) {
