@@ -108,6 +108,7 @@
 /* ✅ backgrounds */
 .feature1 {
   background: url("./connection.png") no-repeat center/cover;
+
 }
 
 .feature2 {
@@ -122,6 +123,8 @@
   text-decoration: none;
   color: whitesmoke;
 }
+
+
 
 @media (max-width: 768px) {
   .title {
