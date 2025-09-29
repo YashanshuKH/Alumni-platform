@@ -2,14 +2,14 @@
   text-align: center;
   padding: 3rem 1rem;
   background: linear-gradient(135deg, #cfd9ff, #7a9cff, #9370db);
-    overflow: hidden;
+  overflow: hidden;
   border-radius: 12px;
 }
 
 .heading {
-  font-size: 1.8rem;
+  font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   color: #1a1a1a;
 }
 
@@ -18,41 +18,78 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .featureCard {
-  background: #ffffff;
-  padding: 1.5rem;
-  width: 250px;
+  width: 90vw;              /* ✅ fixed width */
+  height: 90vh;             /* ✅ fixed height */
   border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;          /* ensures overlay stays inside */
+  display: flex;
+  align-items: flex-end;     /* ✅ push title down */
+  justify-content: center;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 .featureCard:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.2);
 }
 
-.icon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.featureCard::before {        /* ✅ subtle overlay for readability */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.288);
+  z-index: 1;
 }
 
 .title {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #333;
+  font-size: 2.9rem;
+  font-weight: 600;
+  position: absolute;
+  top: 0;
+  text-align: left;
+  z-index: 2; /* keep text above overlay */
+  
+  margin-left: 0;
+  font-family: "Archivo Black", sans-serif;
+  text-transform: uppercase;
+  color: #1d2461;
+
+  
+}
+
+.info{
+  font-size: 1.6rem;
+  position: absolute;
+  top: 12%;
+  left: 5%;
+  text-align: left;
+  z-index: 2; /* keep text above overlay */
+  margin: 5%;
+  margin-left: 0;
+  font-family: "Archivo Black", sans-serif;
+  color: #1d2461;
+  line-height: 1.4;
+  width: 35%;
+  line-height: 2 ;
 }
 
 .joinText {
   font-size: 1.2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   font-weight: 500;
 }
 
 .ctaBtn {
-  padding: 0.8rem 1.5rem;
+  padding: 0.9rem 1.8rem;
   font-size: 1rem;
   font-weight: bold;
   color: #fff;
@@ -60,9 +97,37 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s ease-in-out;
+  transition: background 0.25s ease, transform 0.2s ease;
 }
 
 .ctaBtn:hover {
   background: #0056b3;
+  transform: translateY(-3px);
+}
+
+/* ✅ backgrounds */
+.feature1 {
+  background: url("./connection.png") no-repeat center/cover;
+}
+
+.feature2 {
+  background: url("./database.png") no-repeat center/cover;
+}
+
+.feature3 {
+  background: url("./lock.png") no-repeat center/cover;
+}
+
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .info {
+    font-size: 1.4rem;
+    width: 70%;
+    top: 25%;
+    line-height: 1.4;
+  }
 }
