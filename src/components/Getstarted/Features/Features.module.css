@@ -118,6 +118,10 @@
   background: url("./lock.png") no-repeat center/cover;
 }
 
+.link {
+  text-decoration: none;
+  color: whitesmoke;
+}
 
 @media (max-width: 768px) {
   .title {

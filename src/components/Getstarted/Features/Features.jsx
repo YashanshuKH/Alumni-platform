@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styles from "./Features.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 const features = [
   {
@@ -71,9 +72,13 @@ const KeyFeatures = () => {
       <p className={styles.joinText} data-aos="zoom-in">
         Join Alumni Connect Today!
       </p>
-      <button className={styles.ctaBtn} data-aos="flip-up">
-        Get Started
-      </button>
+
+              <button className={styles.ctaBtn} data-aos="flip-up">
+              <Link className={styles.link} to="/login">
+                Get Started
+              </Link>
+              </button>
+
     </section>
   );
 };

@@ -27,9 +27,13 @@ const Landing = () => {
           </Link>
         </button> */}
       </div>
+<section id="about-us">
+  <KeyFeatures />
+</section>
+<section id="contact">
+  <Footer />
+</section>
 
-<KeyFeatures />
-<Footer />
     </div>
   );
 };

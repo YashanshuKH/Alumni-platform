@@ -62,8 +62,8 @@ const Admin = () => {
       <section className={styles.bottomCards}>
         <div className={styles.card}>
           <h4>Donations Received</h4>
-          <p className={styles.bigNumber}>$125,000</p>
-          <small>50% of $250,000 goal</small>
+          <p className={styles.bigNumber}> NAN</p>
+          <small></small>
         </div>
         <div className={styles.card}>
           <h4>Mentorship Sessions Completed</h4>
