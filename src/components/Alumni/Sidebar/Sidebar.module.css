@@ -42,11 +42,11 @@
 
 .sidebar_item:hover {
   background: #e0e7ff;
-  color: #1d4ed8;
+  color: #de87ec;
 }
 
 .active {
-  background: #1d4ed8;
+  background: #ca84ea;
   color: #fff;
   font-weight: bold;
 }
