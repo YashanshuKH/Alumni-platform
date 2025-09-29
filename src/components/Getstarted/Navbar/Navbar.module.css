@@ -17,6 +17,10 @@
   margin-top: 68px;
 }
 
+.navbarbrand {
+  text-transform: capitalize !important;
+}
+
 /* Brand styling */
 .navbar :global(.navbar-brand) {
   font-size: 1.4rem;
