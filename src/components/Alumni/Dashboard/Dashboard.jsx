@@ -17,7 +17,7 @@ const Dashboard = () => {
       id: 1,
       title: "AI Conclave 2025 Announced",
       description: "A global summit on AI advancements happening this December.",
-      logo: "/images/ai-logo.png",
+      logo: "./images.jpeg",
       link: "/news1",
     },
     {

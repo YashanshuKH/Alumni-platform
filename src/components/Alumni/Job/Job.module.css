@@ -1,106 +1,142 @@
-/* *{
-  width: 50vw;
-} */
+/* ================= Page Wrapper ================= */
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f7f3fa; /* light lavender */
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+}
 
-/* Container */
+/* ================= Jobs Container ================= */
 .jobsContainer {
   display: flex;
   min-height: 100vh;
-  font-family: "Inter", sans-serif;
-  background: #f5f7fb;
   gap: 1.5rem;
   padding: 2rem;
-  flex-wrap: wrap; /* for responsiveness */
+  flex-wrap: wrap;
+  margin-left: 240px; /* Sidebar default */
+  transition: margin-left 0.3s ease, padding 0.3s ease;
 }
 
 /* Panels */
 .leftPanel,
 .rightPanel {
   flex: 1;
-  min-width: 320px;
+  min-width: 300px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.2s;
 }
 
-/* Cards */
+/* ================= Cards ================= */
 .card {
   background: #fff;
   border-radius: 1rem;
-  padding: 1.2rem;
+  padding: 1.5rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Titles */
+/* ================= Titles ================= */
 .title {
-  font-size: 1.6rem;
-  color: #4f46e5;
-  margin-bottom: 1rem;
-  font-weight: 600;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  color: #b19cd9; /* lavender */
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* Job Items */
+/* ================= Job Items ================= */
 .jobItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 1rem;
+  padding: 0.9rem 1.1rem;
   border-bottom: 1px solid #eee;
   border-radius: 0.6rem;
-  transition: background 0.2s ease, transform 0.2s ease;
+  background: #fafafa;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 .jobItem:hover {
-  background: #f3f4ff; /* lighter purple hover */
-  transform: translateY(-2px);
-}
-.jobItem span {
-  font-weight: 500;
-  color: #374151;
+  background: #f3f0f8;
+  transform: translateY(-2px) scale(1.01);
 }
 
-/* Buttons - unified design */
-.editBtn,
-.deleteBtn,
-.addBtn,
-.applyBtn {
-  padding: 0.5rem 1rem;
+/* ================= Gradient Buttons ================= */
+button {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background: linear-gradient(270deg, #d8b4f0, #c4a3e8, #d8b4f0); /* lavender */
+  background-size: 600% 600%;
+  animation: gradientShift 6s ease infinite;
+  color: #fff;
   border: none;
   border-radius: 0.75rem;
   font-weight: 600;
+  font-size: clamp(0.75rem, 1vw, 1rem);
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+  transition: all 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(193, 145, 222, 0.4);
 }
-
-/* Specific Buttons */
-.editBtn {
-  background: #4f46e5;
-  color: #fff;
-}
-.deleteBtn {
-  background: #ef4444;
-  color: #fff;
-}
-.addBtn {
-  background: #2563eb;
-  color: #fff;
-  width: 100%;
-  margin-top: 1rem;
-}
-.applyBtn {
-  background: #10b981;
-  color: #fff;
-}
-
 button:hover {
   transform: scale(1.05);
-  opacity: 0.9;
+  box-shadow: 0 8px 20px rgba(193, 145, 222, 0.6);
+}
+.editBtn, .applyBtn, .addBtn {
+  animation: gradientShift 6s ease infinite, pulseShadow 2.5s ease-in-out infinite;
 }
 
-/* Search Bar */
+/* Delete Buttons Red Gradient */
+.deleteBtn {
+  background: linear-gradient(270deg, #f87171, #ef4444, #f87171);
+  box-shadow: 0 4px 12px rgba(239,68,68,0.4);
+  animation: redGradientShift 6s ease infinite, pulseRed 2.5s ease-in-out infinite;
+}
+.deleteBtn:hover {
+  box-shadow: 0 8px 20px rgba(239,68,68,0.6);
+}
+
+/* Profile Button White */
+.profileBtn,
+.profileBtn:hover,
+.profileBtn:focus {
+  background: #fff !important;
+  color: #000 !important;
+  box-shadow: none !important;
+  animation: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+  cursor: pointer;
+}
+
+/* Gradient Animation Keyframes */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes pulseShadow {
+  0%, 100% { box-shadow: 0 4px 12px rgba(193,145,222,0.4); }
+  50% { box-shadow: 0 8px 20px rgba(193,145,222,0.6); }
+}
+@keyframes redGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes pulseRed {
+  0%, 100% { box-shadow: 0 4px 12px rgba(239,68,68,0.4); }
+  50% { box-shadow: 0 8px 20px rgba(239,68,68,0.6); }
+}
+
+/* ================= Search Bar ================= */
 .searchBar {
   width: 100%;
   padding: 0.7rem 1rem;
@@ -108,35 +144,44 @@ button:hover {
   border: 1px solid #ddd;
   margin-bottom: 1rem;
   font-size: 0.9rem;
+  transition: all 0.3s ease;
 }
 .searchBar:focus {
   outline: none;
-  border-color: #4f46e5;
-  box-shadow: 0 0 8px rgba(79, 70, 229, 0.3);
+  border-color: #b19cd9;
+  box-shadow: 0 0 10px rgba(177,156,217,0.3);
 }
 
-/* Vacancy Card Special */
-.vacancyCard {
-  border-radius: 1rem;
-  padding: 1rem;
+/* ================= Animations ================= */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Panel Headings */
-h3 {
-  margin-bottom: 1rem;
-  color: #1f2937;
-  font-weight: 600;
-  font-size: 1.1rem;
+/* ================= Responsive ================= */
+@media (max-width: 1200px) {
+  .jobsContainer { margin-left: 200px; padding: 1.5rem; }
 }
-
-/* Responsive */
-@media (max-width: 900px) {
-  .jobsContainer {
-    flex-direction: column;
-  }
-
-  .leftPanel,
-  .rightPanel {
-    width: 100%;
-  }
+@media (max-width: 992px) {
+  .jobsContainer { flex-direction: column; margin-left: 0; padding: 1.2rem; }
+  .leftPanel, .rightPanel { width: 100%; min-width: unset; }
+  .jobItem { flex-wrap: wrap; }
+}
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .jobsContainer { flex-direction: column; margin-left: 0; padding: 1rem; }
+  .jobItem { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  button { width: 100%; }
+}
+@media (max-width: 576px) {
+  .jobsContainer { padding: 0.8rem; }
+  .title { font-size: 1.25rem; }
+  .jobItem { padding: 0.6rem; }
+  button { font-size: 0.75rem; padding: 0.4rem 0.75rem; }
+}
+@media (max-width: 400px) {
+  .jobsContainer { padding: 0.6rem; }
+  .title { font-size: 1.1rem; }
+  .jobItem { padding: 0.5rem; }
+  button { font-size: 0.7rem; padding: 0.35rem 0.6rem; }
 }
