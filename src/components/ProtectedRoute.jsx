@@ -1,10 +1,31 @@
-import React from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
+import axios from "axios";
 
-const ProtectedRoute = () => {
-  const token = localStorage.getItem("token");
+function ProtectedRoute({ children }) {
+  const [loading, setLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  return token ? <Outlet /> : <Navigate to="/login" replace />;
-};
+  useEffect(() => {
+    const checkLogin = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/auth/check", {
+          withCredentials: true,
+        });
+        setIsLoggedIn(res.data.isLoggedIn);
+      } catch (err) {
+        console.error("Error checking login:", err);
+        setIsLoggedIn(false);
+      } finally {
+        setLoading(false);
+      }
+    };
+    checkLogin();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+
+  return isLoggedIn ? children : <Navigate to="/" />;
+}
 
 export default ProtectedRoute;

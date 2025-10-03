@@ -18,9 +18,9 @@ const Login = () => {
     e.preventDefault(); 
     try {
       const res = await login({email,password});
-      if (res.data.isLoggedIn) {
+      if (res.data.success) {
         setUser(res.data.user); 
-        navigate("/dashboard")
+        navigate("/verify")
         // setError("");
       }
     } catch (err) {

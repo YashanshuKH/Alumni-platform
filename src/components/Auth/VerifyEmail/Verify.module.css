@@ -30,7 +30,6 @@
   flex-direction: column;
   gap: 15px;
 }
-
 /* Titles */
 .resetBox h2 {
   font-size: 24px;
@@ -40,7 +39,7 @@
 }
 
 .resetBox p {
-  font-size: 14px;
+  font-size: 1.1rem;
   margin-bottom: 22px;
   color: #010051;
 }
@@ -52,7 +51,7 @@
   margin-bottom: 18px;
   border: none;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 1rem;
   outline: none;
   background: rgba(255, 255, 255, 0.5); /* brighter white */
   color: #000; /* dark text for readability */

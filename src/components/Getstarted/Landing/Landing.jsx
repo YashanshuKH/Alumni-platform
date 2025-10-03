@@ -7,7 +7,6 @@ import Footer from "../Footer/Footer";
 import KeyFeatures from "../Features/Features";
 
 const Landing = () => {
-  
   return (
     <div>
       <Navbar />

@@ -1,6 +1,9 @@
 import axios from "axios"
 
-const Api_Base = "https://alumni-platform-backend-9r9d.onrender.com/api/user";
+// const Api_Base = "https://alumni-platform-backend-9r9d.onrender.com/api/user";
+const Api_Base = "http://localhost:3000/api/auth";
+
+export const redirect =(data)=> axios.get(`${Api_Base}/login`,data);
 
 
 export const login = (data) => {
@@ -8,6 +11,10 @@ export const login = (data) => {
     withCredentials: true, 
   });
 };
+
+export const verifyOtp =(data)=> axios.post(`${Api_Base}/verifyemail`,data);
+export const ResendOtp =(data)=> axios.post(`${Api_Base}/ResendOtp`,data);
+
 
 export const signup =(data)=> axios.post(`${Api_Base}/signup`,data);
 
