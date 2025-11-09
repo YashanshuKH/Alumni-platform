@@ -1,11 +1,16 @@
 .footer {
   background: linear-gradient(135deg, #89a0d6, #1a5783); /* dark navy → deep blue gradient */
-  color: #f1f1f1;
+  color: #ffffff;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 0.9rem;
-  padding: 15px 20px;       /* reduce footer height */
-  border-radius: 0;         /* no curve vertices */
-  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+  font-size: 0.95rem;
+  padding: 20px 30px;
+  border-radius: 0;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.25);
+  transition: background 0.4s ease;
+}
+
+.footer:hover {
+  background: linear-gradient(135deg, #9333ea, #ec4899); /* slightly darker hover shift */
 }
 
 .link {
@@ -16,19 +21,51 @@
 }
 
 .link:hover {
-  color: #3ebff0; /* soft cyan highlight for hover */
+  color: #ffe0f0; /* soft pink highlight */
   text-decoration: underline;
 }
 
+.copy {
+  font-weight: 500;
+}
+
+/* Logo hover effect */
+.logo svg {
+  fill: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover svg {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+/* Social Icons */
+.social {
+  color: #ffffff;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social:hover {
+  color: #ffe0f0;
+  transform: translateY(-2px) scale(1.1);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .footer {
-    flex-direction: column !important;
+    flex-direction: column;
     text-align: center;
     gap: 0.8rem;
-    padding: 12px 10px; /* even smaller on mobile */
+    padding: 15px 20px;
   }
 
-  .footer .text-end {
-    text-align: center !important;
+  .footer .d-flex.flex-column.flex-md-row {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .social {
+    margin-top: 10px;
   }
 }

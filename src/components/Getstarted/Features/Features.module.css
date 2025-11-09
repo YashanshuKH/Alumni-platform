@@ -6,135 +6,168 @@
   border-radius: 12px;
 }
 
+/* Section Heading */
 .heading {
   font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
   color: #1a1a1a;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: fadeSlideIn 0.8s forwards;
+  animation-delay: 0.2s;
 }
 
+/* Grid Layout */
 .featuresGrid {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
+/* Individual Feature Card */
 .featureCard {
-  width: 90vw;              /* ✅ fixed width */
-  height: 90vh;             /* ✅ fixed height */
-  border-radius: 12px;
+  width: 350px;
+  height: 440px;
+  border-radius: 15px;
   position: relative;
-  overflow: hidden;          /* ensures overlay stays inside */
+  overflow: hidden;
   display: flex;
-  align-items: flex-end;     /* ✅ push title down */
+  align-items: flex-end;
   justify-content: center;
   padding: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.6s ease, box-shadow 0.6s ease, background-size 0.5s ease;
   background-size: cover;
   background-position: center;
+  cursor: pointer;
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideIn 0.8s forwards;
 }
 
-.featureCard:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 10px 18px rgba(0,0,0,0.2);
-}
+/* Staggered Animation Delay for Cards */
+.featuresGrid .featureCard:nth-child(1) { animation-delay: 0.2s; }
+.featuresGrid .featureCard:nth-child(2) { animation-delay: 0.4s; }
+.featuresGrid .featureCard:nth-child(3) { animation-delay: 0.6s; }
 
-.featureCard::before {        /* ✅ subtle overlay for readability */
+
+.featureCard::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.288);
+  background: rgba(255, 255, 255, 0.15);
   z-index: 1;
+  transition: background 0.3s ease;
 }
 
+.featureCard:hover::before {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Title Animation */
 .title {
-  font-size: 2.9rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 700;
   position: absolute;
-  top: 0;
-  text-align: left;
-  z-index: 2; /* keep text above overlay */
-  
-  margin-left: 0;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
   font-family: "Archivo Black", sans-serif;
   text-transform: uppercase;
   color: #1d2461;
-
-  
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.6s ease;
 }
 
-.info{
-  font-size: 1.6rem;
+/* Info Animation */
+.info {
+  font-size: 1.1rem;
   position: absolute;
-  top: 12%;
-  left: 5%;
-  text-align: left;
-  z-index: 2; /* keep text above overlay */
-  margin: 5%;
-  margin-left: 0;
-  font-family: "Archivo Black", sans-serif;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 2;
+  font-family: "Josefin Sans", sans-serif;
   color: #1d2461;
-  line-height: 1.4;
-  width: 35%;
-  line-height: 2 ;
+  line-height: 1.5;
+  width: 85%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
 }
 
-.joinText {
-  font-size: 1.2rem;
-  margin-bottom: 1.2rem;
-  font-weight: 500;
+/* Animate title & info on hover */
+.featureCard:hover .title,
+.featureCard:hover .info {
+  opacity: 1;
+  transform: translateY(0);
 }
 
+/* Background Images */
+.feature1 { background: url("./connection.png") no-repeat center/cover; }
+.feature2 { background: url("./database.png") no-repeat center/cover; }
+.feature3 { background: url("./lock.png") no-repeat center/cover; }
+
+/* CTA Button */
 .ctaBtn {
-  padding: 0.9rem 1.8rem;
-  font-size: 1rem;
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   color: #fff;
-  background: #007bff;
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background 0.25s ease, transform 0.2s ease;
+  transition: all 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 0.8s forwards;
+  animation-delay: 0.8s;
 }
 
+/* Button Hover Animation */
 .ctaBtn:hover {
-  background: #0056b3;
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.5);
+  background: linear-gradient(135deg, #3b82f6, #4f46e5);
 }
 
-/* ✅ backgrounds */
-.feature1 {
-  background: url("./connection.png") no-repeat center/cover;
+.link { text-decoration: none; color: inherit; }
 
+/* Join Text */
+.joinText {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+  color: #1d2461;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeSlideIn 0.8s forwards;
+  animation-delay: 0.5s;
 }
 
-.feature2 {
-  background: url("./database.png") no-repeat center/cover;
-}
-
-.feature3 {
-  background: url("./lock.png") no-repeat center/cover;
-}
-
-.link {
-  text-decoration: none;
-  color: whitesmoke;
-}
-
-
-
-@media (max-width: 768px) {
-  .title {
-    font-size: 2.2rem;
+/* Fade + Slide-in Animation */
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  .info {
-    font-size: 1.4rem;
-    width: 70%;
-    top: 25%;
-    line-height: 1.4;
-  }
+/* Responsive */
+@media (max-width: 992px) {
+  .featuresGrid { gap: 1.5rem; }
+  .featureCard { width: 90%; height: auto; padding: 1.5rem; }
+  .title { font-size: 1.6rem; }
+  .info { font-size: 0.95rem; width: 90%; }
+}
+
+@media (max-width: 480px) {
+  .title { font-size: 1.3rem; }
+  .info { font-size: 0.9rem; width: 90%; }
+  .ctaBtn { padding: 0.8rem 1.5rem; font-size: 1rem; }
 }

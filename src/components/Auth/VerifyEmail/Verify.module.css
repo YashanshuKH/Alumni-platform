@@ -1,118 +1,181 @@
-/* Background */
-.resetContainer {
-  height: 91.36vh;
+/* Same gradient + glass style as login/signup */
+.loginContainer {
+  min-height: 91.4vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #c6a7f5, #7cb8f7);
-  background-image: url("background.jpg");
-  background-size: cover;
-  background-position: center; 
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #ffd6e8, #d8b4fe, #c7d2fe, #fecdd3);
+  background-size: 300% 300%;
+  animation: gradientMove 8s ease infinite;
+  font-family: "Poppins", sans-serif;
+  padding: 20px;
 }
 
-/* Glassmorphism Box */
-.resetBox {
-  background: rgba(255, 255, 255, 0.47);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(30px) saturate(180%);
-  padding: 40px;
-  width: 360px;
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.loginBox {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(22px) saturate(180%);
+  padding: 45px;
+  width: 380px;
+  max-width: 100%;
   border-radius: 20px;
   text-align: center;
-  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  animation: fadeIn 0.8s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-/* Titles */
-.resetBox h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 12px;
-  color: #000d4e;
+  box-shadow: 0px 25px 55px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.9s ease;
 }
 
-.resetBox p {
-  font-size: 1.1rem;
-  margin-bottom: 22px;
-  color: #010051;
+.loginBox h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #291046;
 }
 
-/* Inputs with glass style (more white for password fields) */
-.resetBox input {
-  width: 100%;
-  padding: 12px;
+.loginBox p {
+  font-size: 14px;
+  color: #56307c;
+  margin-bottom: 25px;
+}
+
+/* Input */
+.inputGroup {
+  position: relative;
   margin-bottom: 18px;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 12px;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
   outline: none;
-  background: rgba(255, 255, 255, 0.5); /* brighter white */
-  color: #000; /* dark text for readability */
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
+  font-size: 15px;
+  color: #2c105a;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
 }
 
-.resetBox input::placeholder {
-  color: #666; /* darker placeholder */
-}
-
-.resetBox input:focus {
-  background: rgba(255, 255, 255, 0.7); /* brighter on focus */
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+.inputGroup input:focus {
+  background: #ffffff;
+  box-shadow: 0 0 12px rgba(140, 80, 255, 0.5);
 }
 
 /* Button */
-.resetBox button {
+.submitBtn {
   width: 100%;
-  padding: 12px;
-  background: linear-gradient(135deg, #6a5af9, #3a9bfd);
+  padding: 13px;
+  background: linear-gradient(135deg, #a855f7, #f472b6);
   border: none;
+  border-radius: 12px;
   color: white;
-  font-size: 15px;
-  font-weight: bold;
-  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.resetBox button:hover {
-  background: linear-gradient(135deg, #5746e6, #2e8ae6);
-  transform: translateY(-2px);
+.submitBtn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(244, 114, 182, 0.4);
 }
 
-/* Links */
-.resetLinks {
-  margin-top: 18px;
-  font-size: 13px;
+/* Resend Button */
+.resendText {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #56307c;
 }
 
-.resetLinks a {
-  color: #000b52;
-  font-weight: bold;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.resetLinks a:hover {
-  color: #001553;
+.resendBtn {
+  background: none;
+  border: none;
+  color: #8b5cf6;
+  font-weight: 600;
+  cursor: pointer;
   text-decoration: underline;
 }
 
-/* Fade-in animation */
+.resendBtn:hover {
+  opacity: 0.7;
+}
+
+/* Signup / Back Links */
+.signupText {
+  margin-top: 18px;
+  color: #301046;
+  font-weight: 500;
+}
+
+.signupText a {
+  color: #4d007a;
+  font-weight: 600;
+}
+
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 480px) {
+  .loginBox {
+    padding: 30px 20px;
+    width: 100%;
+    border-radius: 16px;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+
+  .loginBox h2 {
+    font-size: 22px;
+  }
+
+  .loginBox p {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .inputGroup input {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .submitBtn {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .resendText, .signupText {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .loginBox {
+    padding: 35px 25px;
+    width: 90%;
+  }
+
+  .loginBox h2 {
+    font-size: 24px;
+  }
+
+  .loginBox p {
+    font-size: 14px;
+    margin-bottom: 22px;
+  }
+
+  .inputGroup input {
+    padding: 11px 13px;
+    font-size: 15px;
+  }
+
+  .submitBtn {
+    padding: 13px;
+    font-size: 16px;
   }
 }

@@ -29,7 +29,7 @@ function App() {
         const res = await axios.get("http://localhost:3000/api/auth/check", {
           withCredentials: true, // allow cookies
         });
-        console.log(res)
+        console.log(res);
         setIsLoggedIn(res.data.isLoggedIn);
       } catch (err) {
         console.error("Error checking login:", err);
@@ -53,14 +53,19 @@ function App() {
       {/* Public routes */}
       <Route
         path="/"
-        element={isLoggedIn ? <Navigate to="/dashboard" replace /> : <Landing />}
+        element={
+          isLoggedIn ? <Navigate to="/dashboard" replace /> : <Landing />
+        }
       />
       <Route path="/login" element={<Login />} />
-      <Route path="/verify" element={<VerifyEmail setIsLoggedIn={setIsLoggedIn} />} />
+      <Route
+        path="/verify"
+        element={<VerifyEmail setIsLoggedIn={setIsLoggedIn} />}
+      />
 
       <Route path="/signup" element={<Signup />} />
       <Route path="/forgot" element={<ForgotPassword />} />
-      <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/reset-password/:token" element={<ResetPassword />} />
 
       {/* Protected routes */}
       <Route

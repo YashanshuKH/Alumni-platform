@@ -1,104 +1,176 @@
-.forgot_container {
-  height: 91.36vh;
+/* ====== Container ====== */
+.forgotContainer {
+  min-height: 91.4vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #c6a7f5, #7cb8f7);
-  background-image: url("background.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #ffd6e8, #d8b4fe, #c7d2fe, #fecdd3);
+  background-size: 300% 300%;
+  animation: gradientMove 8s ease infinite;
+  font-family: "Poppins", sans-serif;
 }
 
-/* Modern Glassmorphism Forgot Box */
-.forgot_box {
-  background: rgba(255, 255, 255, 0.388);
-  backdrop-filter: blur(2px);            
-  -webkit-backdrop-filter: blur(2px);
-  padding: 30px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.331); 
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);     
-  max-width: 600px;
-  margin: auto;
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ====== Main Card ====== */
+.forgotBox {
+  background: rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(22px) saturate(180%);
+  padding: 45px 50px;
+  width: 380px;
+  max-width: 100%;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0px 25px 55px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.9s ease;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  transition: all 0.3s ease-in-out;
 }
 
-.forgot_box h2 {
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 12px;
-  color: #000247;
-  letter-spacing: 1px;
+/* Title */
+.forgotBox h2 {
+  font-size: 26px;
+  color: #30125e;
+  font-weight: 700;
 }
 
-.forgot_box p {
+/* Subtitle */
+.forgotBox p {
   font-size: 14px;
-  margin-bottom: 22px;
-  color: #000247;
+  color: #52307c;
+  margin-bottom: 5px;
 }
 
-.forgot_box input {
+/* Input Field */
+.forgotBox input {
   width: 100%;
   padding: 12px;
-  margin-bottom: 18px;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   outline: none;
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.65);
+  font-size: 15px;
+  color: #2c105a;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
 }
 
-.forgot_box button {
+.forgotBox input:focus {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 12px rgba(136, 79, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Button */
+.forgotBox button {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(135deg, #6a5af9, #3a9bfd);
+  background: linear-gradient(135deg, #a855f7, #f472b6);
   border: none;
   color: white;
-  font-size: 15px;
-  font-weight: bold;
-  border-radius: 8px;
+  font-size: 16px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.3s ease;
+  font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.forgot_box button:hover {
-  background: linear-gradient(135deg, #5746e6, #2e8ae6);
-  transform: translateY(-2px);
+.forgotBox button:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(244, 114, 182, 0.4);
 }
 
-.forgot_links {
-  margin-top: 18px;
+/* Bottom Links */
+.forgotLinks {
+  margin-top: 8px;
   font-size: 13px;
 }
 
-.forgot_links a {
-  color: #001b54;
-  font-weight: bold;
+.forgotLinks a {
+  color: #4d007a;
+  font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
-  font-size: 1rem;
 }
 
-.forgot_links a:hover {
-  color: #fff;
+.forgotLinks a:hover {
+  color: #240046;
   text-decoration: underline;
 }
 
+/* Fade-in animation */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== RESPONSIVE ====== */
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .forgotBox {
+    width: 90%;
+    padding: 30px 20px;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+
+  .forgotBox h2 {
+    font-size: 22px;
   }
+
+  .forgotBox p {
+    font-size: 13px;
+  }
+
+  .forgotBox input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .forgotBox button {
+    font-size: 15px;
+    padding: 11px;
+  }
+
+  .forgotLinks {
+    font-size: 12px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .forgotBox {
+    width: 90%;
+    padding: 35px 25px;
+  }
+
+  .forgotBox h2 {
+    font-size: 24px;
+  }
+
+  .forgotBox p {
+    font-size: 14px;
+  }
+
+  .forgotBox input {
+    font-size: 15px;
+    padding: 11px;
+  }
+
+  .forgotBox button {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .forgotLinks {
+    font-size: 13px;
+  }
+}
+.box{
+  margin-bottom: 2vh;
 }

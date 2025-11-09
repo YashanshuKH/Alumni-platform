@@ -1,27 +1,20 @@
-import axios from "axios"
+import api from "./axios";  // ✅ Use configured axios instance
 
-const Api_Base = "https://alumni-platform-backend-9r9d.onrender.com/api/auth";
-// const Api_Base = "http://localhost:3000/api/auth";
+// AUTH BASE = /auth
+export const redirect = (data) => api.get("/auth/login", data);
 
-export const redirect =(data)=> axios.get(`${Api_Base}/login`,data);
+export const login = (data) => api.post("/auth/login", data);
+
+export const verifyOtp = (data) => api.post("/auth/verifyemail", data);
+
+export const ResendOtp = (data) => api.post("/auth/ResendOtp", data);
+
+export const signup = (data) => api.post("/auth/signup", data);
+
+export const forgot = (data) => api.post("/auth/forgot-password", data);
+export const checkAuth = (data) => api.post("/auth/check", data);
 
 
-export const login = (data) => {
-  return axios.post(`${Api_Base}/login`, data, {
-    withCredentials: true, 
-  });
-};
+export const reset = (token, data) => api.post(`/auth/reset-password/${token}`, data);
 
-export const verifyOtp =(data)=> axios.post(`${Api_Base}/verifyemail`,data);
-export const ResendOtp =(data)=> axios.post(`${Api_Base}/ResendOtp`,data);
-
-
-export const signup =(data)=> axios.post(`${Api_Base}/signup`,data);
-
-export const forgot =(data)=> axios.post(`${Api_Base}/forgot-password`,data);
-
-export const reset =(token ,data)=> axios.post(`${Api_Base}/reset-password/${token}`,data);
-
-export const logout = () => {
-  return axios.post(`${Api_Base}/logout`, {}, { withCredentials: true });
-};
+export const logout = () => api.post("/auth/logout");  // ✅ cleaner

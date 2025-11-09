@@ -13,19 +13,20 @@ const Landing = () => {
       {/* Offcanvas */}
 
       <div className={`text-center p-5 ${styles.banner}`}>
-        <div className="hero-section">
-          <h1 className={styles.message}>BUILD BRIDGES</h1>
-          <h1 className={styles.message}>
-            STAY <span>CONNECTED</span>
-          </h1>
-          <h1 className={styles.text}></h1>
-        </div>
-        {/* <button className={styles.get_started}>
-          <Link to="login" className={styles.link}>
-            Get Started <MdOutlineKeyboardArrowRight className={styles.arrow} />
-          </Link>
-        </button> */}
-      </div>
+  <div className="hero-section">
+    <h1 className={styles.message}>BUILD BRIDGES</h1>
+    <h1 className={styles.message}>
+      STAY <span>CONNECTED</span>
+    </h1>
+    <p className={styles.text}>Empowering students to connect and collaborate seamlessly</p>
+    <button className={styles.get_started}>
+      <Link to="/login" className={styles.link}>
+        Get Started <MdOutlineKeyboardArrowRight className={styles.arrow} />
+      </Link>
+    </button>
+  </div>
+</div>
+
 <section id="about-us">
   <KeyFeatures />
 </section>

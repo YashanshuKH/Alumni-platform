@@ -1,29 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./forgot.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Getstarted/Navbar/Navbar";
+import { forgot } from "../../../api/AuthApi";
 
 const ForgotPassword = () => {
-  const handleSubmit = (e) => {
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Call backend API to send reset email
-    console.log("Password reset email sent!");
+
+    try {
+      const res = await forgot({ email });
+      if (res.data.success) {
+        alert("✅ Reset link sent to your email");
+        navigate("/login");
+      }
+    } catch (err) {
+      console.log(err);
+      alert("❌ " + (err.response?.data?.message || "Something went wrong"));
+    }
   };
 
   return (
-    <div className={styles.forgot_container}>
+    <div className={styles.forgotContainer}>
       <Navbar />
-      <div className={styles.forgot_box}>
-        <h2>FORGOT PASSWORD?</h2>
-        <p>Enter your email to receive a password reset link</p>
+      <div className={styles.forgotBox}>
+        <h2>Forgot Password?</h2>
+        <p>Enter your email and we’ll send you a reset link</p>
+
         <form onSubmit={handleSubmit}>
-          <input type="email" placeholder="Email Address" required />
-          <button type="submit">SEND RESET EMAIL</button>
+          <input
+          className={styles.box}
+            type="email"
+            placeholder="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
+          <button type="submit">Send Reset Link</button>
         </form>
-        <div className={styles.forgot_links}>
+
+        <div className={styles.forgotLinks}>
           <Link to="/login">Back to Login</Link>
           <span> | </span>
-          <Link to="/signup">Need an account? Sign Up</Link>
+          <Link to="/signup">Create account</Link>
         </div>
       </div>
     </div>

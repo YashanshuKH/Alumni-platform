@@ -1,144 +1,173 @@
+import React, { useContext, useState } from "react";
 import { IoPersonSharp } from "react-icons/io5";
 import { CiMobile1 } from "react-icons/ci";
 import { MdAlternateEmail } from "react-icons/md";
 import { CgPassword } from "react-icons/cg";
 import { TbLockPassword } from "react-icons/tb";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../Getstarted/Navbar/Navbar";
-
-import styles from "./Signup.module.css";
 import { signup } from "../../../api/AuthApi";
-import { useNavigate } from "react-router";
-import { useState } from "react";
+import styles from "./Signup.module.css";
+import { AuthContext } from "../../../context/AuthContext";
 
 const Signup = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [firstname, setfirstname] = useState("");
-  const [lastname, setlastname] = useState("");
-  const [middlename, setmiddlename] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmpassword, setConfirmPassword] = useState("");
+  const { setEmail: setAuthEmail } = useContext(AuthContext); // context email setter
 
-  const [mobileno, setMobileNo] = useState("");
-  const [User, setUser] = useState("");
+  // Local states
+  const [firstname, setFirstname] = useState("");
+  const [middlename, setMiddlename] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [mobileno, setMobileno] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmpassword] = useState("");
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await signup({ firstname , middlename,lastname,mobileno, email, password ,confirmpassword});
+      const res = await signup({
+        firstname,
+        middlename,
+        lastname,
+        mobileno,
+        email,
+        password,
+        confirmpassword,
+      });
+
       if (res.data.success) {
-        // setUser(res.data.user);
-        navigate("/login");
-        // setError("");
+        setAuthEmail(email); // store email in context for OTP verification
+        navigate("/verify");
       }
     } catch (err) {
-      console.log(err);
-      alert("Signup failed ❌ " + (err.response?.data?.message || ""));
+      console.error(err);
+      alert("Signup failed ❌ " + (err.response?.data?.message || err.message));
     }
   };
+
   return (
-    <div className={styles.body}>
+    <div className={styles.loginContainer}>
       <Navbar />
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.title}>Sign Up</div>
+      <div className={styles.loginBox}>
+        <h2>Sign Up</h2>
+        <form onSubmit={handleSubmit}>
+          {/* Name Row */}
+          <div className={styles.row}>
+            <div className={styles.formGroup}>
+              <IoPersonSharp className={styles.icon} />
+              <input
+                type="text"
+                placeholder="First Name"
+                value={firstname}
+                onChange={(e) => setFirstname(e.target.value)}
+                required
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <IoPersonSharp className={styles.icon} />
+              <input
+                type="text"
+                placeholder="Middle Name"
+                value={middlename}
+                onChange={(e) => setMiddlename(e.target.value)}
+              />
+            </div>
+          </div>
 
-        <div className={styles.row}>
-          <div className={styles.formGroup}>
-            <label htmlFor="firstname">
-              <IoPersonSharp /> First Name:
-            </label>
-            <input
-              type="text"
-              name="firstname"
-              placeholder="First Name"
-              value={firstname}
-              onChange={(e) => setfirstname(e.target.value)}
-              required
-            />
+          {/* Last Name / Mobile */}
+          <div className={styles.row}>
+            <div className={styles.formGroup}>
+              <IoPersonSharp className={styles.icon} />
+              <input
+                type="text"
+                placeholder="Last Name"
+                value={lastname}
+                onChange={(e) => setLastname(e.target.value)}
+                required
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <CiMobile1 className={styles.icon} />
+              <input
+                type="text"
+                placeholder="Mobile Number"
+                maxLength={10}
+                inputMode="numeric"
+                pattern="\d{10}"
+                value={mobileno}
+                onChange={(e) => setMobileno(e.target.value)}
+                required
+              />
+            </div>
           </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="middlename">
-              <IoPersonSharp /> Middle Name:
-            </label>
-            <input type="text" name="middlename" value={middlename}
-              onChange={(e) => setmiddlename(e.target.value)} placeholder="Middle Name" />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="lastname">
-              <IoPersonSharp /> Last Name:
-            </label>
-            <input
-              type="text"
-              name="lastname"
-              placeholder="Last Name"
-              value={lastname}
-              onChange={(e) => setlastname(e.target.value)}
-              required
-            />
-          </div>
-        </div>
 
-        <div className={styles.row}>
-          <div className={styles.formGroup}>
-            <label htmlFor="mobileno">
-              <CiMobile1 /> Mobile:
-            </label>
-            <input
-              type="text"
-              name="mobileno"
-              placeholder="Mobile Number"
-              maxLength={10}
-              inputMode="numeric"
-              pattern="\d{10}"
-              value={mobileno}
-              onChange={(e) => setMobileNo(e.target.value)}
-              required
-            />
+          {/* Email */}
+          <div className={styles.row1}>
+            <div className={styles.formGroup}>
+              <MdAlternateEmail className={styles.icon} />
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className={styles.formGroup}></div>
           </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="email">
-              <MdAlternateEmail /> Email:
-            </label>
-            <input type="email" name="email" value={email}
-              onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
-          </div>
-        </div>
 
-        {/* Password Row */}
-        <div className={styles.row}>
-          <div className={styles.formGroup}>
-            <label htmlFor="password">
-              <CgPassword /> Password:
-            </label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+          {/* Password / Confirm Password */}
+          <div className={styles.row}>
+            <div className={styles.formGroup}>
+              <CgPassword className={styles.icon} />
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <div
+                className={styles.eyeIcon}
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </div>
+            </div>
+            <div className={styles.formGroup}>
+              <TbLockPassword className={styles.icon} />
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                placeholder="Confirm Password"
+                value={confirmpassword}
+                onChange={(e) => setConfirmpassword(e.target.value)}
+                required
+              />
+              <div
+                className={styles.eyeIcon}
+                onClick={() =>
+                  setShowConfirmPassword(!showConfirmPassword)
+                }
+              >
+                {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+              </div>
+            </div>
           </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="confirmpassword">
-              <TbLockPassword /> Confirm Password:
-            </label>
-            <input
-              type="password"
-              name="confirmpassword"
-              placeholder="Confirm Password"
-              value={confirmpassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-          </div>
-        </div>
 
-        {/* Submit Button */}
-        <button type="submit" className={styles.submitBtn}>
-          Register
-        </button>
-      </form>
+          <button type="submit" className={styles.submitBtn}>
+            Register
+          </button>
+
+          <div className={styles.signupText}>
+            Already have an account? <a href="/login">Login</a>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
