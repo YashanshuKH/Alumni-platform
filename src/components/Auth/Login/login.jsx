@@ -1,102 +1,105 @@
 import { IoPersonSharp } from "react-icons/io5";
-import { CiMobile1 } from "react-icons/ci";
 import { CgPassword } from "react-icons/cg";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "./login.module.css";
-import { Link, useNavigate, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Getstarted/Navbar/Navbar";
 import { useState } from "react";
-import { login } from "../../../api/AuthApi";
+import { checkAuth, login } from "../../../api/AuthApi";
 
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [mobileNo, setMobileNo] = useState("");
-  const [User, setUser] = useState("");
+  const [showPass, setShowPass] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     try {
-      const res = await login({email,password});
-      if (res.data.success) {
-        setUser(res.data.user); 
-        navigate("/verify")
-        // setError("");
+      const res = await login({ email, password });
+      console.log("login response:", res.data);
+
+      if (!res.data.success) {
+        alert(res.data.message || "Login error");
+        return;
       }
+
+      const maxTries = 6;
+      const delayMs = 250;
+      let ok = false;
+
+      for (let i = 0; i < maxTries; i++) {
+        await new Promise((r) => setTimeout(r, delayMs));
+        try {
+          const check = await checkAuth();
+          if (check.data.isLoggedIn) {
+            ok = true;
+            break;
+          }
+        } catch (_) {}
+      }
+
+      ok
+        ? navigate("/dashboard", { replace: true })
+        : (window.location.href = "/dashboard");
     } catch (err) {
-      console.log(err);
+      console.error("Login error:", err);
       alert("Login failed ❌ " + (err.response?.data?.message || ""));
     }
   };
 
   return (
-    <div className={styles.body}>
+    <div className={styles.loginContainer}>
       <Navbar />
-      <h2 className={styles.title}>Log In</h2>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.formGroup}>
-          <label htmlFor="email">
-            <IoPersonSharp /> Email :
-          </label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            required
-          />
-        </div>
 
-        <div className={styles.formGroup}>
-          <label htmlFor="mobileNo">
-            <CiMobile1 /> Mobile :
-          </label>
-          <input
-            type="text"
-            name="mobileNo"
-            placeholder="Mobile Number"
-            maxLength={10}
-            value={mobileNo}
-            onChange={(e) => setMobileNo(e.target.value)}
-            inputMode="numeric"
-            pattern="\d{10}"
-            required
-          />
-        </div>
+      <div className={styles.loginBox}>
+        <h2>Welcome Back 👋</h2>
+        <p>Login to continue your journey</p>
 
-        <div className={styles.formGroup}>
-          <label htmlFor="password">
-            <CgPassword /> Password :
-          </label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-            required
-          />
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.inputGroup}>
+            <IoPersonSharp className={styles.icon} />
+            <input
+              type="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-        {/* 🔹 Forgot Password Link */}
-        <div className={styles.forgotWrapper}>
-          <Link to="/forgot" className={styles.forgot}>
-            Forgot Password?
-          </Link>
-        </div>
+          <div className={styles.inputGroup}>
+            <CgPassword className={styles.icon} />
+            <input
+              type={showPass ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
 
-        <button type="submit" className={styles.submitBtn}>
-          Log in
-        </button>
+            {/* 👁️ Password Toggle */}
+            <span
+              className={styles.eyeIcon}
+              onClick={() => setShowPass(!showPass)}
+            >
+              {showPass ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+            </span>
+          </div>
 
-        <center className={styles.not}>
-          Don't Have an Account?{" "}
-          <Link className={styles.signup} to="/signup">
-            Sign Up
-          </Link>
-        </center>
-      </form>
+          <div className={styles.forgotWrapper}>
+            <Link to="/forgot">Forgot Password?</Link>
+          </div>
+
+          <button type="submit" className={styles.submitBtn}>
+            Log In
+          </button>
+
+          <p className={styles.signupText}>
+            Don’t have an account? <Link to="/signup">Sign Up</Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };

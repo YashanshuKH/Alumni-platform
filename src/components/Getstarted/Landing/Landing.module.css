@@ -6,89 +6,159 @@
   margin: 0;
   padding: 0;
   height: 91vh;
-
-  /* Replace with your own image */
-  background: url("./background.jpg") no-repeat center center/cover;
+  width: 100%;
+  
+  /* Background image with gradient overlay */
+  background: linear-gradient(
+      rgba(29, 36, 97, 0.5),
+      rgba(29, 36, 97, 0.5)
+    ),
+    url("./background.jpg") no-repeat center center/cover;
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* move content to top */
-  align-items: flex-start;     /* keep content to left */
-  text-align: left;
+  justify-content: center;
+  align-items: flex-start;
   position: relative;
-  color: #1d2461;
-
-  padding-top: 80px;  /* space from top */
-  padding-left: 40px; /* space from left */
+  color: #ffffff;
+  padding-left: 60px;
+  padding-right: 20px;
+  overflow: hidden;
 }
 
-/* Overlay for readability */
+/* Text overlay for readability (optional) */
 .banner::before {
   content: "";
   position: absolute;
   inset: 0;
-  
-  
+  background: rgba(29, 36, 97, 0.4);
   z-index: 1;
 }
 
+/* Hero Text */
 .message,
 .text {
   position: relative;
-  z-index: 2; /* keep text above overlay */
+  z-index: 2;
   margin: 0 0 20px 0;
-  font-family: "Archivo Black", sans-serif; /* matches your screenshot font */
-  text-transform: uppercase; /* make all caps */
-         /* spaced-out bold look */
+  font-family: "Archivo Black", sans-serif;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideIn 1s forwards;
 }
 
+.message:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.message:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.text {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  color: #ffffff;
+  animation-delay: 0.9s;
+}
+
+/* Hero Text Styling */
 .message {
-  font-size: 3rem;
-  font-weight: 500;
+  font-size: 4rem;
+  font-weight: 700;
   line-height: 1.1;
 }
 
-.text {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 40px;
-}
-
-/* Highlight for 'CONNECTED' */
 .message span {
   color: #63aed1; /* bright blue highlight */
 }
 
+/* Button CTA */
+.get_started {
+  background: linear-gradient(135deg, #4f46e5, #3b82f6); /* example blue gradient */
+  color: #fff; /* text color */
+  padding: 14px 28px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
 
-.link {
+/* Make the Link text inherit the button color */
+.get_started .link {
+  color: inherit; /* inherit from button */
   text-decoration: none;
-  color: inherit;
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-/* === Responsive Fix === */
-@media (max-width: 768px) {
+
+.get_started:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Arrow icon */
+.arrow {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.get_started:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* Text animation */
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Fixes */
+@media (max-width: 992px) {
   .banner {
     align-items: center;
     text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-top: 60px;
-    padding-left: 0;
   }
 
   .message {
-    font-size: 2.5rem;
-    margin: 0 0 15px 0;
+    font-size: 3rem;
   }
 
   .text {
     font-size: 1.5rem;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
   }
 
-  .get_Started {
-    margin: 0 auto;
+  .get_started {
+    margin: 20px auto 0 auto;
   }
 }
 
+@media (max-width: 480px) {
+  .message {
+    font-size: 2.2rem;
+  }
+
+  .text {
+    font-size: 1.2rem;
+  }
+
+  .get_started {
+    padding: 12px 22px;
+    font-size: 1rem;
+  }
+}

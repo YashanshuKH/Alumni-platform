@@ -1,119 +1,196 @@
-/* Background */
+/* ====== Container ====== */
 .resetContainer {
-  height: 91.36vh;
+  height: 89vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #c6a7f5, #7cb8f7);
-  background-image: url("background.jpg");
-  background-size: cover;
-  background-position: center; 
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #ffd6e8, #d8b4fe, #c7d2fe, #fecdd3);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+  font-family: "Poppins", sans-serif;
+  padding: 20px;
 }
 
-/* Glassmorphism Box */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ====== Glass Card ====== */
 .resetBox {
-  background: rgba(255, 255, 255, 0.47);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(18px);
   padding: 40px;
-  width: 360px;
-  border-radius: 20px;
+  width: 380px;
+  max-width: 100%;
+  border-radius: 18px;
   text-align: center;
-  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  animation: fadeIn 0.8s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  box-shadow: 0px 25px 55px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.9s ease;
 }
 
-/* Titles */
 .resetBox h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 12px;
-  color: #000d4e;
+  font-size: 26px;
+  color: #2c105a;
+  margin-bottom: 10px;
 }
 
 .resetBox p {
-  font-size: 14px;
-  margin-bottom: 22px;
-  color: #010051;
+  font-size: 15px;
+  color: #4d0063;
+  margin-bottom: 25px;
 }
 
-/* Inputs with glass style (more white for password fields) */
-.resetBox input {
+/* ====== Input Wrapper ====== */
+.inputWrapper {
+  position: relative;
   width: 100%;
-  padding: 12px;
   margin-bottom: 18px;
+}
+
+.inputWrapper input {
+  width: 100%;
+  padding: 12px 42px 12px 12px;
+  border-radius: 10px;
   border: none;
-  border-radius: 8px;
-  font-size: 14px;
   outline: none;
-  background: rgba(255, 255, 255, 0.5); /* brighter white */
-  color: #000; /* dark text for readability */
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  color: #2c105a;
+  transition: 0.3s;
 }
 
-.resetBox input::placeholder {
-  color: #666; /* darker placeholder */
+.inputWrapper input:focus {
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
 }
 
-.resetBox input:focus {
-  background: rgba(255, 255, 255, 0.7); /* brighter on focus */
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+/* Eye Icon */
+.inputWrapper span {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  font-size: 18px;
+  transform: translateY(-50%);
+  color: #6b6b6b;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-/* Button */
+.inputWrapper span:hover {
+  color: #2c105a;
+}
+
+/* ====== Button ====== */
 .resetBox button {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(135deg, #6a5af9, #3a9bfd);
+  background: linear-gradient(135deg, #8b5cf6, #f472b6);
   border: none;
   color: white;
   font-size: 15px;
-  font-weight: bold;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.3s ease;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
 .resetBox button:hover {
-  background: linear-gradient(135deg, #5746e6, #2e8ae6);
   transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(244, 114, 182, 0.5);
 }
 
-/* Links */
+/* ====== Links ====== */
 .resetLinks {
-  margin-top: 18px;
-  font-size: 13px;
+  margin-top: 12px;
 }
 
 .resetLinks a {
-  color: #000b52;
+  color: #3b0764;
   font-weight: bold;
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
 .resetLinks a:hover {
-  color: #001553;
   text-decoration: underline;
 }
 
-/* Fade-in animation */
+/* ====== Fade-in ====== */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== RESPONSIVE ====== */
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .resetBox {
+    padding: 30px 20px;
+    width: 100%;
+    border-radius: 16px;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+
+  .resetBox h2 {
+    font-size: 22px;
+  }
+
+  .resetBox p {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .inputWrapper input {
+    padding: 10px 38px 10px 10px;
+    font-size: 13px;
+  }
+
+  .inputWrapper span {
+    font-size: 16px;
+  }
+
+  .resetBox button {
+    padding: 11px;
+    font-size: 14px;
+  }
+
+  .resetLinks {
+    font-size: 13px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .resetBox {
+    padding: 35px 25px;
+    width: 90%;
+  }
+
+  .resetBox h2 {
+    font-size: 24px;
+  }
+
+  .resetBox p {
+    font-size: 14px;
+    margin-bottom: 22px;
+  }
+
+  .inputWrapper input {
+    padding: 11px 40px 11px 11px;
+    font-size: 14px;
+  }
+
+  .inputWrapper span {
+    font-size: 17px;
+  }
+
+  .resetBox button {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .resetLinks {
+    font-size: 14px;
   }
 }

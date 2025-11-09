@@ -1,6 +1,7 @@
+// ProtectedRoute.jsx
 import { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
-import axios from "axios";
+import { Navigate, Outlet } from "react-router-dom";
+import api from "../api/axios"; // path as needed
 
 function ProtectedRoute({ children }) {
   const [loading, setLoading] = useState(true);
@@ -9,10 +10,8 @@ function ProtectedRoute({ children }) {
   useEffect(() => {
     const checkLogin = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/auth/check", {
-          withCredentials: true,
-        });
-        setIsLoggedIn(res.data.isLoggedIn);
+        const res = await api.get("/auth/check"); // uses withCredentials
+        setIsLoggedIn(!!res.data.isLoggedIn);
       } catch (err) {
         console.error("Error checking login:", err);
         setIsLoggedIn(false);
@@ -24,8 +23,7 @@ function ProtectedRoute({ children }) {
   }, []);
 
   if (loading) return <p>Loading...</p>;
-
-  return isLoggedIn ? children : <Navigate to="/" />;
+  return isLoggedIn ? (children || <Outlet />) : <Navigate to="/login" replace />;
 }
 
 export default ProtectedRoute;

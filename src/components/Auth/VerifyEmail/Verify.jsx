@@ -1,32 +1,29 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Verify.module.css";
 import Navbar from "../../Getstarted/Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
-import { verifyOtp } from "../../../api/AuthApi";
-import { ResendOtp } from "../../../api/AuthApi";
-
-// import { AuthContext } from "../../../context/AuthContext"; // your auth context
+import { verifyOtp, ResendOtp } from "../../../api/AuthApi";
+import { AuthContext } from "../../../context/AuthContext";
 
 const VerifyEmail = ({ setIsLoggedIn }) => {
+    const { email } = useContext(AuthContext);
+
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [resendLoading, setResendLoading] = useState(false);
   const navigate = useNavigate();
-  //   const { setUser } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
-    console.log(otp);
+
     try {
       const res = await verifyOtp({ code: otp });
-      console.log(res);
       if (res.data.isLoggedIn) {
         setIsLoggedIn(true);
-
-        // setUser(res.data.user);
-        navigate("/dashboard", { replace: true });
+        navigate("/login", { replace: true });
       } else {
         setError("Invalid OTP or verification failed.");
       }
@@ -40,45 +37,60 @@ const VerifyEmail = ({ setIsLoggedIn }) => {
     }
   };
 
-  const ResendOtp = async () => {
+  const handleResendOtp = async () => {
+    setResendLoading(true);
     try {
-        const res= await ResendOtp();
-    } catch (err){
-        console.log(err)
+      await ResendOtp({email});
+      alert("OTP resent successfully ✅ Check your email");
+    } catch (err) {
+      console.error(err);
+      alert("Failed to resend OTP ❌");
+    } finally {
+      setResendLoading(false);
     }
   };
+
   return (
-    <div className={styles.resetContainer}>
+    <div className={styles.loginContainer}>
       <Navbar />
-      <div className={styles.resetBox}>
-        <h2>OTP Sent To Your Email</h2>
-        <p className={styles.otp}>Enter the OTP</p>
+      <div className={styles.loginBox}>
+        <h2>Email Verification</h2>
+        <p>Enter the OTP sent to your email</p>
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="otp"
-            placeholder="Enter OTP"
-            maxLength={6}
-            minLength={4}
-            value={otp}
-            onChange={(e) => setOtp(e.target.value)}
-            inputMode="numeric"
-            pattern="\d{6}"
-            required
-          />
-          <button type="submit" disabled={loading}>
+          <div className={styles.inputGroup}>
+            <input
+              type="text"
+              placeholder="Enter OTP"
+              maxLength={6}
+              minLength={4}
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
+              inputMode="numeric"
+              pattern="\d{6}"
+              required
+            />
+          </div>
+
+          <button type="submit" className={styles.submitBtn} disabled={loading}>
             {loading ? "Verifying..." : "VERIFY"}
           </button>
         </form>
+
         {error && <p className={styles.error}>{error}</p>}
-        <div>
-          <span>
-            Didn't Recieve Otp ? <a onClick={ResendOtp}>Resend</a>
-          </span>
-        </div>
-        <div className={styles.resetLinks}>
-          <a href="/login">Back to Login</a>
-          <span> | </span>
+
+        <p className={styles.resendText}>
+          Didn't receive OTP?{" "}
+          <button
+            className={styles.resendBtn}
+            onClick={handleResendOtp}
+            disabled={resendLoading}
+          >
+            {resendLoading ? "Resending..." : "Resend"}
+          </button>
+        </p>
+
+        <div className={styles.signupText}>
+          <a href="/login">Back to Login</a> |{" "}
           <a href="/signup">Need an account? Sign Up</a>
         </div>
       </div>
