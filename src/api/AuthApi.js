@@ -12,7 +12,7 @@ export const ResendOtp = (data) => api.post("/auth/ResendOtp", data);
 export const signup = (data) => api.post("/auth/signup", data);
 
 export const forgot = (data) => api.post("/auth/forgot-password", data);
-export const checkAuth = (data) => api.post("/auth/check", data);
+export const checkAuth = (data) => api.get("/auth/check", data);
 
 
 export const reset = (token, data) => api.post(`/auth/reset-password/${token}`, data);
