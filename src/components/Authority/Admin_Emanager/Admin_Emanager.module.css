@@ -1,6 +1,3 @@
-/* ===============================
-   Theme Variables
-================================== */
 :root {
   --primary: #9121c4;
   --primary-dark: #6a0dad;
@@ -15,9 +12,6 @@
   --transition: all 0.3s ease;
 }
 
-/* ===============================
-   Container Layout
-================================== */
 .container {
   display: flex;
   min-height: 100vh;
@@ -26,20 +20,14 @@
   animation: fadeIn 0.6s ease-in-out;
 }
 
-/* ===============================
-   Main Section
-================================== */
 .main {
   flex: 1;
-  margin-left: 250px; /* sidebar space */
+  margin-left: 250px;
   display: flex;
   flex-direction: column;
   transition: margin-left 0.3s ease;
 }
 
-/* ===============================
-   Header
-================================== */
 .header {
   display: flex;
   justify-content: space-between;
@@ -115,9 +103,6 @@
   color: var(--text-light);
 }
 
-/* ===============================
-   Content Section
-================================== */
 .content {
   padding: 25px;
   animation: fadeInUp 0.7s ease;
@@ -168,9 +153,6 @@
   transform: translateY(-2px);
 }
 
-/* ===============================
-   Table Section
-================================== */
 .tableContainer {
   background: var(--white);
   padding: 24px;
@@ -263,9 +245,6 @@ td {
   color: var(--text-dark);
 }
 
-/* ===============================
-   Status Badges
-================================== */
 .published, .draft, .cancelled {
   border-radius: 12px;
   font-size: 12px;
@@ -278,9 +257,6 @@ td {
 .draft { background: #f0ddff; color: var(--primary); }
 .cancelled { background: #fcdfff; color: var(--primary-dark); }
 
-/* ===============================
-   Action Links
-================================== */
 td a {
   margin-right: 10px;
   color: var(--primary);
@@ -292,9 +268,6 @@ td a:hover {
   transform: scale(1.2) rotate(5deg);
 }
 
-/* ===============================
-   Animations
-================================== */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -308,4 +281,96 @@ td a:hover {
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 992px) {
+  .main {
+    margin-left: 80px; 
+  }
+
+  .user {
+    padding-left: 5px;
+    border-left: 1px solid var(--primary-light);
+  }
+  
+  .user div p:first-child {
+    font-size: 0.95rem;
+  }
+
+  .user div p:last-child {
+    display: none; 
+  }
+  
+  thead th, tbody td {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: block; 
+  }
+
+  .main {
+    margin-left: 0; 
+    transition: none;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    margin-top: 0; 
+  }
+
+  .header h1 {
+    font-size: 1.4rem;
+  }
+
+  .headerRight {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .content {
+    padding: 15px;
+  }
+
+  .breadcrumb {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .buttons button {
+    flex-grow: 1;
+    margin-left: 5px;
+    font-size: 0.85rem;
+    padding: 8px 10px;
+  }
+  
+  .searchFilter {
+    flex-direction: column;
+  }
+
+  .searchFilter button {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .tableContainer {
+    padding: 15px;
+  }
+
+  thead th, tbody td {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
 }
