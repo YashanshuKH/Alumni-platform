@@ -1,50 +1,46 @@
+import React, { useState, useContext } from "react";
 import { IoPersonSharp } from "react-icons/io5";
 import { CgPassword } from "react-icons/cg";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "./login.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Getstarted/Navbar/Navbar";
-import { useState } from "react";
-import { checkAuth, login } from "../../../api/AuthApi";
+import { login } from "../../../api/AuthApi";
+import { AuthContext } from "../../../context/AuthContext";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { setIsLoggedIn, setUser } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!email || !password) return alert("Please fill in all fields");
+
     try {
-      const res = await login({ email, password });
-      console.log("login response:", res.data);
+      setLoading(true);
+      const res = await login({ email, password }); // axios withCredentials
 
       if (!res.data.success) {
-        alert(res.data.message || "Login error");
+        alert(res.data.message || "Login failed ❌");
         return;
       }
 
-      const maxTries = 6;
-      const delayMs = 250;
-      let ok = false;
+      // ✅ Update AuthContext
+      setUser(res.data.user);
+      setIsLoggedIn(true);
 
-      for (let i = 0; i < maxTries; i++) {
-        await new Promise((r) => setTimeout(r, delayMs));
-        try {
-          const check = await checkAuth();
-          if (check.data.isLoggedIn) {
-            ok = true;
-            break;
-          }
-        } catch (_) {}
-      }
+      // ✅ Navigate SPA-style
+      navigate("/dashboard", { replace: true });
 
-      ok
-        ? navigate("/dashboard", { replace: true })
-        : (window.location.href = "/dashboard");
     } catch (err) {
       console.error("Login error:", err);
       alert("Login failed ❌ " + (err.response?.data?.message || ""));
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -77,8 +73,6 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-
-            {/* 👁️ Password Toggle */}
             <span
               className={styles.eyeIcon}
               onClick={() => setShowPass(!showPass)}
@@ -91,8 +85,8 @@ const Login = () => {
             <Link to="/forgot">Forgot Password?</Link>
           </div>
 
-          <button type="submit" className={styles.submitBtn}>
-            Log In
+          <button type="submit" className={styles.submitBtn} disabled={loading}>
+            {loading ? "Logging in..." : "Log In"}
           </button>
 
           <p className={styles.signupText}>
