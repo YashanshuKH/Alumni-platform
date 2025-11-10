@@ -1,5 +1,4 @@
-import axios from "axios"
+import api from "./axios";
 
-const Api_Base = "http://localhost:3000/api/admin";
 
-export const fetchcount =(data)=> axios.get(`${Api_Base}/userscount`,data);
+export const fetchcount =(data)=> api.get(`${Api_Base}/admin/userscount`,data);
