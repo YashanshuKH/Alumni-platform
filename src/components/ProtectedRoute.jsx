@@ -1,20 +1,26 @@
 // ProtectedRoute.jsx
 import { useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import api from "../api/axios"; // path as needed
+import api from "../api/axios";
 
-function ProtectedRoute({ children }) {
+function ProtectedRoute({ allowedRoles }) {
   const [loading, setLoading] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [auth, setAuth] = useState({
+    isLoggedIn: false,
+    role: null,
+  });
 
   useEffect(() => {
     const checkLogin = async () => {
       try {
-        const res = await api.get("/auth/check"); // uses withCredentials
-        setIsLoggedIn(!!res.data.isLoggedIn);
+        const res = await api.get("/auth/check"); // returns isLoggedIn + role
+        console.log(res)
+        setAuth({
+          isLoggedIn: res.data.isLoggedIn,
+          role: res.data.user.role,
+        });
       } catch (err) {
         console.error("Error checking login:", err);
-        setIsLoggedIn(false);
       } finally {
         setLoading(false);
       }
@@ -23,7 +29,16 @@ function ProtectedRoute({ children }) {
   }, []);
 
   if (loading) return <p>Loading...</p>;
-  return isLoggedIn ? (children || <Outlet />) : <Navigate to="/login" replace />;
+
+  // NOT LOGGED IN
+  if (!auth.isLoggedIn) return <Navigate to="/login" replace />;
+
+  // ROLE NOT ALLOWED
+  if (allowedRoles && !allowedRoles.includes(auth.role)) {
+    return <Navigate to="/" replace />;
+  }
+
+  return <Outlet />;
 }
 
 export default ProtectedRoute;

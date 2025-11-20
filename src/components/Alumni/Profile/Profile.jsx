@@ -5,11 +5,6 @@ import Sidebar from "../Sidebar/Sidebar";
 
 export default function Profile() {
   return (
-    <div className={styles.pageWrapper}>
-      <UNavbar />
-      <Sidebar />
-
-      {/* MAIN CONTENT */}
       <main className={styles.mainContent}>
         <div className={styles.profileCard}>
           {/* LEFT SIDE */}
@@ -101,7 +96,5 @@ export default function Profile() {
             </section>
           </div>
         </div>
-      </main>
-    </div>
-  );
+      </main>  );
 }

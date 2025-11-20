@@ -5,10 +5,9 @@ import { FaMessage } from "react-icons/fa6";
 import { NavLink } from "react-router-dom"; // *** IMPORTANT CHANGE: Use NavLink ***
 
 const Sidebar = () => {
-  // *** REMOVE: No need for useState for the active tab, NavLink handles it ***
 
   const navItems = [
-    { name: "Dashboard", icon: FaHome, path: "/dashboard" },
+    { name: "Dashboard", icon: FaHome, path: "/AlumniHome" },
     { name: "Profile", icon: FaRegUser, path: "/profile" },
     { name: "Events", icon: MdEmojiEvents, path: "/events" },
     { name: "Jobs", icon: FaBriefcase, path: "/jobs" },
@@ -48,19 +47,6 @@ const Sidebar = () => {
 
         <hr className={styles.divider} />
 
-        <li>
-          <NavLink
-            to={settingsItem.path}
-            className={({ isActive }) =>
-              isActive
-                ? `${styles.sidebar_item} ${styles.active}`
-                : styles.sidebar_item
-            }
-          >
-            <settingsItem.icon className={styles.icon} />
-            <span className={styles.sidebar_link}>{settingsItem.name}</span>
-          </NavLink>
-        </li>
       </ul>
     </aside>
   );

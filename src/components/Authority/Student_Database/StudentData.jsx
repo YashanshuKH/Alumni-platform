@@ -46,8 +46,6 @@ const StudentData = () => {
 
   return (
     <div className={styles.studentLayout}>
-      <ANavbar />
-      <ASidebar />
 
       <div className={styles.studentMainContent}>
         <h2 className={styles.studentTitle}>

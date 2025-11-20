@@ -1,65 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #f5f7fb;
-  color: #333;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 240px;
-  height: 100vh;
-  background: linear-gradient(180deg, #9121c4, #6a0dad);
-  color: white;
-  padding: 25px 15px;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-  z-index: 100;
-}
-
-.logo {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 40px;
-  text-align: center;
-  letter-spacing: 1px;
-}
-
-.sidebar ul {
-  list-style: none;
-}
-
-.sidebar ul li {
-  margin: 20px 0;
-}
-
-.sidebar ul li a {
-  color: #f1f1f1;
-  text-decoration: none;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  padding: 10px 15px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.sidebar ul li a:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateX(5px);
-}
-
 .content {
-  margin-left: 240px;
   padding: 30px;
   min-height: 100vh;
   display: flex;
@@ -190,6 +129,7 @@ body {
   font-size: 15px;
   transition: all 0.2s ease;
   animation: gradientShift 10s ease infinite;
+  margin: 10px;
 }
 
 .btn:hover {

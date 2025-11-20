@@ -28,14 +28,19 @@ const Login = () => {
         alert(res.data.message || "Login failed ❌");
         return;
       }
-
+      console.log(res.data);
       // ✅ Update AuthContext
       setUser(res.data.user);
       setIsLoggedIn(true);
 
       // ✅ Navigate SPA-style
-      navigate("/dashboard", { replace: true });
-
+      if (res.data.user.role === "Alumni") {
+        navigate("/AlumniHome", { replace: true });
+      } else if (res.data.user.role === "Student") {
+        navigate("/Studentdashboard", { replace: true });
+      } else  {
+        navigate("/Admindashboard", { replace: true });
+      }
     } catch (err) {
       console.error("Login error:", err);
       alert("Login failed ❌ " + (err.response?.data?.message || ""));
