@@ -1,0 +1,24 @@
+/* Light Theme */
+.light-theme {
+  --bg-color: linear-gradient(135deg, #f5f7fb, #ede7f6);
+  --text-color: #000000;
+}
+
+/* Dark Theme */
+.dark-theme {
+  --bg-color: #111111;
+  --text-color: #ffffff;
+}
+
+/* Use variables in all components */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.pageContent {
+  background: linear-gradient(135deg, #f5f7fb, #ede7f6);
+  margin-top: 10vh;
+  padding: 0 2rem 0 2rem;
+
+}

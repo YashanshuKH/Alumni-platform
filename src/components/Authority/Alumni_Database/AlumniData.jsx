@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import ANavbar from "../ANavbar/ANavbar";
+import React, { useEffect, useState } from "react";
 import styles from "./AlumniData.module.css";
-import ASidebar from "../ASidebar/ASidebar";
+import { Alumnidata } from "../../../api/AdminApi";
 
 const AlumniData = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState("Batch-wise");
+  const [stats,setstats]=useState({
+    
+  })
   
   const alumniData = [
     {
@@ -15,7 +17,7 @@ const AlumniData = () => {
       contact: "9876543210",
       company: "Google",
       role: "Engineer",
-      contribution: 10000,
+      contribution: "0",
       status: "Active",
     },
     {
@@ -48,11 +50,22 @@ const AlumniData = () => {
       alumnus.department.toLowerCase().includes(searchTerm.toLowerCase()) ||
       alumnus.company.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  useEffect(()=>{
+    const AlumniData = async ()=>{
+      try{
+        const res = await Alumnidata()
+        console.log(res)
+      }
+      catch(err){
+
+      }
+
+    }}
+  )
 
   return (
     <div className={styles.alumniLayout}>
-      <ANavbar />
-      <ASidebar />
+  
 
       <div className={styles.alumniMainContent}>
         {/* Header */}
@@ -85,7 +98,6 @@ const AlumniData = () => {
               <option>Batch-wise</option>
               <option>Department-wise</option>
               <option>Location-wise</option>
-              <option>Contribution Range</option>
               <option>Total Alumni</option>
             </select>
           </div>
@@ -127,15 +139,15 @@ const AlumniData = () => {
                 <td>{alumnus.role}</td>
                 <td>
                   <span
-                    className={
-                      alumnus.contribution > 10000
-                        ? styles.badgePurple
-                        : alumnus.contribution > 5000
-                        ? styles.badgeGreen
-                        : styles.badgeBlue
-                    }
+                    // className={
+                    //   alumnus.contribution > 10000
+                    //     ? styles.badgePurple
+                    //     : alumnus.contribution > 5000
+                    //     ? styles.badgeGreen
+                    //     : styles.badgeBlue
+                    // }
                   >
-                    ₹{alumnus.contribution.toLocaleString()}
+                    {/* ₹{alumnus.contribution.toLocaleString()} */}
                   </span>
                 </td>
                 <td>

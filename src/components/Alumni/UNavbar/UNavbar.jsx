@@ -1,23 +1,37 @@
 import styles from "./Navbar.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
-import { useState } from "react";
+import { BsSun, BsMoonStars } from "react-icons/bs";
+import { useState, useEffect, useContext } from "react";
 import { logout } from "../../../api/AuthApi";
+import {
+  FaHome,
+  FaRegUser,
+  FaUserFriends,
+  FaBriefcase,
+  FaCog,
+} from "react-icons/fa";
+import { MdEmojiEvents } from "react-icons/md";
+import { FaMessage } from "react-icons/fa6";
+import { NavLink } from "react-router-dom"; // *** IMPORTANT CHANGE: Use NavLink ***
 
 const UNavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate();
-
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-
+  const navItems = [
+    { name: "Home", icon: FaHome, path: "/AlumniHome" },
+    { name: "Profile", icon: FaRegUser, path: "/profile" },
+    { name: "Events", icon: MdEmojiEvents, path: "/events" },
+    { name: "Jobs", icon: FaBriefcase, path: "/jobs" },
+    { name: "Messages", icon: FaMessage, path: "/message" },
+  ];
   const handleLogout = async () => {
     try {
       const res = await logout();
       if (res.data.success) {
-        localStorage.removeItem("user"); // if stored
-        window.location.href = "/"; // ✅ hard refresh ensures session cleared
+        localStorage.removeItem("user");
+        window.location.href = "/";
       }
     } catch (err) {
       console.error("Logout error:", err);
@@ -25,72 +39,62 @@ const UNavbar = () => {
   };
 
   return (
-    <nav className={`navbar navbar-expand-lg ${styles.navbar}`}>
-      <div className="container-fluid">
-        <Link to="/" className={`navbar-brand fw-bold ${styles.navbarbrand}`}>
-          ConnectEd
-        </Link>
+    <nav className={styles.navbar}>
+      {/* BRAND */}
+      <Link className={styles.brand}>ConnectEd</Link>
 
-        {/* Hamburger */}
-        <button className={styles.hamburger} onClick={toggleMenu}>
-          <div className={`${styles.bar} ${menuOpen ? styles.bar1 : ""}`}></div>
-          <div className={`${styles.bar} ${menuOpen ? styles.bar2 : ""}`}></div>
-          <div className={`${styles.bar} ${menuOpen ? styles.bar3 : ""}`}></div>
+      <ul className={styles.sidebar_menu}>
+        {navItems.map((item) => {
+          const Icon = item.icon;
+          return (
+            <li key={item.name}>
+              {/* 1. NavLink handles both redirection AND highlighting.
+                2. The className function receives { isActive } and returns the appropriate class string.
+              */}
+              <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.sidebar_item} ${styles.active}`
+                    : styles.sidebar_item
+                }
+                // Use 'end' for exact matching on the root path ('/')
+                end={item.path === "/"}
+              >
+                <Icon className={styles.icon1} />
+                <span className={styles.sidebar_link}>{item.name}</span>
+              </NavLink>
+            </li>
+          );
+        })}
+
+        <hr className={styles.divider} />
+      </ul>
+
+      <div className={styles.rightSection}>
+        <button className={styles.icon}>
+          <CiSearch />
         </button>
 
-        <div className={`collapse navbar-collapse ${menuOpen ? "show" : ""}`}>
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <button className={styles.icon}>
-                <CiSearch />
-              </button>
-            </li>
+        <div className={styles.notificationWrapper}>
+          <button className={styles.icon}>
+            <IoIosNotifications />
+          </button>
+          <span className={styles.notificationBadge}>3</span>
+        </div>
 
-            <li className="nav-item">
-              <div className={styles.notificationWrapper}>
-                <button className={styles.icon}>
-                  <IoIosNotifications />
-                </button>
-                <span className={styles.notificationBadge}>3</span>
-              </div>
-            </li>
+        {/* PROFILE DROPDOWN */}
+        <div className={styles.dropdownWrapper}>
+          <button className={styles.profileBtn}>
+            <FaRegUserCircle />
+          </button>
 
-            <li className="nav-item">
-              <Link className="nav-link" to="/contact">
-                Contact
-              </Link>
-            </li>
-
-            <li className="nav-item dropdown">
-              <button
-                className={`btn ${styles.profileBtn}`}
-                data-bs-toggle="dropdown"
-              >
-                <FaRegUserCircle />
-              </button>
-
-              <ul
-                className={`dropdown-menu dropdown-menu-end ${styles.dropdown}`}
-              >
-                <li>
-                  <Link className="dropdown-item" to="/profile">
-                    Profile
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/settings">
-                    Settings
-                  </Link>
-                </li>
-                <hr />
-                <li>
-                  <button className="dropdown-item" onClick={handleLogout}>
-                    Logout
-                  </button>
-                </li>
-              </ul>
-            </li>
-          </ul>
+          <div className={styles.dropdownMenu}>
+            <Link to="/profile">Profile</Link>
+            <Link to="/settings">Settings</Link>
+            <hr />
+            <button onClick={handleLogout}>Logout</button>
+          </div>
         </div>
       </div>
     </nav>

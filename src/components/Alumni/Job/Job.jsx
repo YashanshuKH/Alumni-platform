@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 import styles from "./Job.module.css"; 
-import Sidebar from "../Sidebar/Sidebar";
-import UNavbar from "../UNavbar/UNavbar";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -12,8 +10,7 @@ const Jobs = () => {
 
   return (
     <div className={styles.jobsContainer}>
-      <UNavbar />
-      <Sidebar />
+ 
 
       {/* Left Panel */}
       <div className={styles.leftPanel} data-aos="fade-right">

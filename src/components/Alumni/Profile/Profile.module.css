@@ -1,257 +1,145 @@
-/* Container */
-.profileContainer {
-  background: #0f172a; /* dark navy */
-  min-height: 100vh;
-  width: 100vw;
+
+/* Main Content */
+.mainContent {
+  padding: 40px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding: 50px 20px;
-  font-family: "Inter", "Poppins", sans-serif;
-  color: #e2e8f0;
 }
 
 /* Profile Card */
 .profileCard {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  width: 1000px;
+  width: 100vw;
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 40px;
-  border-radius: 22px;
-  box-shadow: 0px 12px 28px rgba(0, 0, 0, 0.55);
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 50px;
-  position: relative;
-  margin-left: 20%;
-  margin-top: 7%;
-  color: #0f172a;
-
-  /* Animation */
-  animation: slideIn 0.7s ease forwards;
-  position: relative; /* stays in flow, no overlap */
+  grid-template-columns: 1.1fr 1.6fr;
+  gap: 40px;
+  animation: fadeSlide 0.7s ease-out forwards;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
 }
 
-/* LEFT SIDE */
+/* Left Section */
 .leftSection {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
-
 .profileHeader {
   display: flex;
   align-items: center;
   gap: 18px;
 }
-
 .profilePic img {
-  border-radius: 50%;
   width: 90px;
   height: 90px;
-  border: 3px solid #6366f1;
+  border-radius: 50%;
+  border: 3px solid #b57edc;
+  box-shadow: 0 0 12px #b57edc, 0 0 28px rgba(99, 102, 241, 0.6);
+  animation: float 3s ease-in-out infinite, glowPulse 2.5s ease-in-out infinite;
 }
 
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 10px #b57edc, 0 0 24px rgba(99,102,241,0.55); }
+  50% { box-shadow: 0 0 18px #b57edc, 0 0 38px rgba(99,102,241,0.9); }
+  100% { box-shadow: 0 0 10px #b57edc, 0 0 24px rgba(99,102,241,0.55); }
+}
 .profileInfo h2 {
-  margin: 0;
   font-size: 24px;
+  margin: 0;
   font-weight: 600;
-  color:#0f172a;
 }
 
-.profileInfo p {
-  margin: 6px 0 0 0;
-  color:#0f172a;
-  font-size: 15px;
-  line-height: 1.4;
-}
-
+/* Buttons */
 .profileActions {
   display: flex;
   gap: 12px;
 }
-
 .editBtn,
 .connectBtn {
-  padding: 10px 18px;
+  padding: 10px 16px;
+  font-size: 14px;
   border-radius: 8px;
-  border: none;
   cursor: pointer;
   font-weight: 500;
-  font-size: 14px;
+  border: none;
   transition: 0.3s;
 }
-
 .editBtn {
-  background: #6366f1;
+  background: #b57edc;
   color: white;
 }
-.editBtn:hover {
-  background: #4f46e5;
-}
-
+.editBtn:hover { background: #9b5ccf; }
 .connectBtn {
   background: #1e293b;
   color: #e2e8f0;
 }
-.connectBtn:hover {
-  background: #334155;
-}
-
-/* Bio */
-.bioSection {
-  margin-top: 10px;
-}
-.bioSection p {
-  font-size: 14px;
-  line-height: 1.6;
-}
+.connectBtn:hover { background: #334155; }
 
 /* Skills */
-.skillsSection {
-  margin-top: 10px;
-}
 .skillsList {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 8px;
+  gap: 10px;
 }
 .skillsList span {
-  background: #4e46e58e;
-  padding: 7px 16px;
-  border-radius: 14px;
+  background: rgba(255,255,255,0.15);
+  padding: 6px 14px;
+  border-radius: 12px;
   font-size: 13px;
-  color: #f1f5f9;
-  border: 5px solid rgba(255, 255, 255, 0.15);
-  transition: 0.2s;
+  backdrop-filter: blur(6px);
+  transition: 0.25s;
 }
-.skillsList span:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
+.skillsList span:hover { transform: scale(1.08); }
 
-/* RIGHT SIDE */
-.rightSection {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
+/* Right Section */
+.rightSection { display: flex; flex-direction: column; gap: 30px; }
 
-.rightSection h3 {
-  margin-bottom: 12px;
-  font-size: 18px;
-  font-weight: 600;
-  
-}
-
-/* Experience */
+/* Experience Cards */
 .experienceGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  margin-top: 12px;
+  gap: 20px;
 }
-
 .expCard {
-  background: rgba(255, 255, 255, 0.08);
   padding: 18px;
   border-radius: 16px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
   text-align: center;
   transition: 0.3s;
-  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 .expCard:hover {
-  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-6px) scale(1.02);
+  background: rgba(255,255,255,0.15);
 }
 .expCard.active {
-  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  background: linear-gradient(135deg, #b57edc, #4338ca);
   color: white;
   border: none;
+  transform: scale(1.04);
+  box-shadow: 0 8px 20px rgba(99,102,241,0.4);
 }
 
-.expCard h4 {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 600;
+/* Animations */
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-.expCard p {
-  margin: 6px 0;
-  font-size: 13px;
-}
-.expCard small {
-  font-size: 12px;
-  color: #cbd5e1;
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
-/* Education & Contact */
-.educationSection p,
-.contactSection p {
-  font-size: 14px;
-  margin: 6px 0;
-  line-height: 1.5;
+/* Responsive */
+@media (max-width: 1000px) {
+  .profileCard { grid-template-columns: 1fr; }
+  .mainContent { margin-left: 80px; }
 }
-
-/* Animation */
-@keyframes slideIn {
-  from {
-    transform: translateX(-40px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* ----------------- Responsive ----------------- */
-
-/* Large tablets / small desktops */
-@media (max-width: 1100px) {
-  .profileCard {
-    width: 90%;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    margin-left: 240px; /* keeps space for sidebar */
-  }
-}
-
-/* Tablets */
-@media (max-width: 900px) {
-  .profileCard {
-    margin-left: 80px; /* compact sidebar */
-  }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .profileContainer {
-    padding: 20px 10px;
-    align-items: center;
-  }
-
-  .profileCard {
-    width: 100%;
-    padding: 20px;
-    grid-template-columns: 1fr;
-    margin-left: 0; /* full width under bottom navbar */
-    gap: 25px;
-  }
-
-  .profileHeader {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .profileActions {
-    justify-content: center;
-  }
-
-  .experienceGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .skillsList {
-    justify-content: center;
-  }
+@media (max-width: 650px) {
+  .mainContent { margin-left: 0; padding: 20px; }
+  .profileCard { padding: 22px; }
+  .profileHeader { flex-direction: column; text-align: center; }
+  .experienceGrid { grid-template-columns: 1fr; }
 }

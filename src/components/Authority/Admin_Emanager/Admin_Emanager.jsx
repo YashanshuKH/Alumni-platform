@@ -6,8 +6,6 @@ import ASidebar from "../ASidebar/ASidebar";
 const Admin_Emanager = () => {
   return (
     <div className={styles.container}>
-      <UNavbar />
-      <ASidebar />
       <main className={styles.main}>
         <header className={styles.header}>
           <h1>Events</h1>
@@ -29,7 +27,7 @@ const Admin_Emanager = () => {
 
         <div className={styles.content}>
           <div className={styles.breadcrumb}>
-            <p>Home &gt; Events</p>
+            <p></p>
             <div className={styles.buttons}>
               <button className={styles.addEvent}>
                 <i className="fas fa-plus"></i> Add Event

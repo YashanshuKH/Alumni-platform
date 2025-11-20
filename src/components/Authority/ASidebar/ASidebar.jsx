@@ -8,11 +8,11 @@ const ASidebar = () => {
   // *** REMOVE: No need for useState for the active tab, NavLink handles it ***
 
   const navItems = [
-    { name: "Dashboard", icon: FaHome, path: "/admin" },
+    { name: "Dashboard", icon: FaHome, path: "/AdminDashboard" },
     { name: "Profile", icon: FaHome, path: "/admin-profile" },
-    { name: "Events", icon: MdEmojiEvents, path: "/admin-events" },
-    { name: "Alumni Database", icon: FaUserFriends, path: "/admin-alumni-database" },
-    { name: "Student Database", icon: FaRegUser, path: "/admin-student-database" },
+    { name: "Events", icon: MdEmojiEvents, path: "/Admin_Emanager" },
+    { name: "Alumni Database", icon: FaUserFriends, path: "/AlumniData" },
+    { name: "Student Database", icon: FaRegUser, path: "/StudentData" },
   ];
 
   const settingsItem = { name: "Settings", icon: FaCog, path: "/settings" };

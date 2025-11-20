@@ -13,7 +13,7 @@ import { AuthContext } from "../../../context/AuthContext";
 
 const Signup = () => {
   const navigate = useNavigate();
-  const { setEmail: setAuthEmail } = useContext(AuthContext); // context email setter
+  const { setEmail: setAuthEmail } = useContext(AuthContext);
 
   // Local states
   const [firstname, setFirstname] = useState("");
@@ -23,12 +23,14 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
+  const [role, setRole] = useState("Student");
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       const res = await signup({
         firstname,
@@ -38,10 +40,11 @@ const Signup = () => {
         email,
         password,
         confirmpassword,
+        role,
       });
 
       if (res.data.success) {
-        setAuthEmail(email); // store email in context for OTP verification
+        setAuthEmail(email);
         navigate("/verify");
       }
     } catch (err) {
@@ -55,7 +58,38 @@ const Signup = () => {
       <Navbar />
       <div className={styles.loginBox}>
         <h2>Sign Up</h2>
+
         <form onSubmit={handleSubmit}>
+
+          {/* Role Selection */}
+          <div className={styles.roleBox}>
+            <label className={styles.roleLabel}>Register as:</label>
+
+            <div className={styles.roleOptions}>
+              <label className={styles.radioOption}>
+                <input
+                  type="radio"
+                  name="role"
+                  value="Student"
+                  checked={role === "Student"}
+                  onChange={(e) => setRole(e.target.value)}
+                />
+                Student
+              </label>
+
+              <label className={styles.radioOption}>
+                <input
+                  type="radio"
+                  name="role"
+                  value="Alumni"
+                  checked={role === "Alumni"}
+                  onChange={(e) => setRole(e.target.value)}
+                />
+                Alumni
+              </label>
+            </div>
+          </div>
+
           {/* Name Row */}
           <div className={styles.row}>
             <div className={styles.formGroup}>
@@ -68,6 +102,7 @@ const Signup = () => {
                 required
               />
             </div>
+
             <div className={styles.formGroup}>
               <IoPersonSharp className={styles.icon} />
               <input
@@ -91,6 +126,7 @@ const Signup = () => {
                 required
               />
             </div>
+
             <div className={styles.formGroup}>
               <CiMobile1 className={styles.icon} />
               <input
@@ -118,13 +154,15 @@ const Signup = () => {
                 required
               />
             </div>
+
             <div className={styles.formGroup}></div>
           </div>
 
-          {/* Password / Confirm Password */}
+          {/* Passwords */}
           <div className={styles.row}>
             <div className={styles.formGroup}>
               <CgPassword className={styles.icon} />
+
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
@@ -132,6 +170,7 @@ const Signup = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+
               <div
                 className={styles.eyeIcon}
                 onClick={() => setShowPassword(!showPassword)}
@@ -139,8 +178,10 @@ const Signup = () => {
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </div>
             </div>
+
             <div className={styles.formGroup}>
               <TbLockPassword className={styles.icon} />
+
               <input
                 type={showConfirmPassword ? "text" : "password"}
                 placeholder="Confirm Password"
@@ -148,17 +189,17 @@ const Signup = () => {
                 onChange={(e) => setConfirmpassword(e.target.value)}
                 required
               />
+
               <div
                 className={styles.eyeIcon}
-                onClick={() =>
-                  setShowConfirmPassword(!showConfirmPassword)
-                }
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
               >
                 {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
               </div>
             </div>
           </div>
 
+          {/* Submit */}
           <button type="submit" className={styles.submitBtn}>
             Register
           </button>

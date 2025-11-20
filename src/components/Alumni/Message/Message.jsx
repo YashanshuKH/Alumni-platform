@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Message.module.css";
-import UNavbar from "../UNavbar/UNavbar";
-import Sidebar from "../Sidebar/Sidebar";
+
 import { FiSend, FiPaperclip, FiSettings } from "react-icons/fi";
 
 const Message = () => {
@@ -56,9 +55,6 @@ const Message = () => {
 
   return (
     <div className={styles.main}>
-      <UNavbar />
-      <Sidebar />
-
       <div className={styles.body}>
         <div className={styles.chatWrapper}>
           {/* Contacts */}

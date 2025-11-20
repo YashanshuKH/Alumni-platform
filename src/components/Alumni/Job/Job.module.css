@@ -1,12 +1,4 @@
-/* ================= Page Wrapper ================= */
-.pageWrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background: #f7f3fa; /* light lavender */
-  font-family: "Inter", sans-serif;
-  scroll-behavior: smooth;
-}
+
 
 /* ================= Jobs Container ================= */
 .jobsContainer {
@@ -15,7 +7,6 @@
   gap: 1.5rem;
   padding: 2rem;
   flex-wrap: wrap;
-  margin-left: 240px; /* Sidebar default */
   transition: margin-left 0.3s ease, padding 0.3s ease;
 }
 

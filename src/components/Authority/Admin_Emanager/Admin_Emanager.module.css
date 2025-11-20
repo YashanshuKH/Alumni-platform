@@ -21,7 +21,6 @@
 .container {
   display: flex;
   min-height: 100vh;
-  background: var(--bg-light);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   animation: fadeIn 0.6s ease-in-out;
 }
@@ -31,7 +30,6 @@
 ================================== */
 .main {
   flex: 1;
-  margin-left: 250px; /* sidebar space */
   display: flex;
   flex-direction: column;
   transition: margin-left 0.3s ease;
@@ -309,3 +307,146 @@ td a:hover {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* ===============================
+   RESPONSIVE DESIGN
+================================== */
+
+/* 📌 Large Tablets & Small Laptops (max-width: 1200px) */
+/* ===============================
+   RESPONSIVE DESIGN (CSS MODULE FIXED)
+================================== */
+
+@media (max-width: 1200px) {
+  .main {
+    margin-left: 200px;
+  }
+
+  .header h1 {
+    font-size: 1.4rem;
+  }
+
+  table td, table th {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .main {
+    margin-left: 160px;
+  }
+
+  .header {
+    padding: 14px 18px;
+  }
+
+  .content {
+    padding: 18px;
+  }
+
+  .tableContainer {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    margin-left: 0;
+  }
+
+  .header {
+    margin-top: 0;
+    padding: 12px 16px;
+  }
+
+  .header h1 {
+    font-size: 1.3rem;
+  }
+
+  .headerRight button {
+    padding: 6px 10px;
+  }
+
+  .user img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  .searchFilter {
+    flex-direction: column;
+  }
+
+  .searchFilter input,
+  .searchFilter button {
+    width: 100%;
+  }
+
+  table {
+    min-width: 600px;
+  }
+
+  .tableContainer {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .breadcrumb {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .buttons button {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .tableContainer {
+    padding: 16px;
+  }
+
+  td, th {
+    padding: 10px 8px;
+  }
+}
+
+@media (max-width: 420px) {
+  .header h1 {
+    font-size: 1.15rem;
+  }
+
+  .user div p:first-child {
+    font-size: 0.9rem;
+  }
+
+  .user div p:last-child {
+    font-size: 0.75rem;
+  }
+
+  .tableContainer h2 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  .searchFilter input {
+    padding: 6px 10px;
+  }
+
+  .searchFilter button {
+    padding: 6px 10px;
+  }
+
+  td, th {
+    font-size: 0.78rem;
+  }
+}
+

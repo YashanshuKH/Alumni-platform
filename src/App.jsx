@@ -1,89 +1,163 @@
 import { useContext } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
-import Landing from "./components/Getstarted/Landing/Landing";
+
 import Login from "./components/Auth/Login/login";
-import Dashboard from "./components/Alumni/Dashboard/Dashboard";
-import Event from "./components/Alumni/Event/Event";
-import ResetPassword from "./components/Auth/Reset/Reset";
-import ForgotPassword from "./components/Auth/Forgot/forgot";
-import Profile from "./components/Alumni/Profile/Profile";
 import Signup from "./components/Auth/Signup/Signup";
+import ForgotPassword from "./components/Auth/Forgot/forgot";
+import ResetPassword from "./components/Auth/Reset/Reset";
+import VerifyEmail from "./components/Auth/VerifyEmail/Verify";
+
+import Dashboard from "./components/Alumni/Dashboard/Dashboard";
+import Profile from "./components/Alumni/Profile/Profile";
+import Jobs from "./components/Alumni/Job/Job";
+import Event from "./components/Alumni/Event/Event";
+import Message from "./components/Alumni/Message/Message";
+
+import LandingLayout from "./components/LandingLayout";
+import AlumniLayout from "./components/AlumniLayout";
+import Landing from "./components/Getstarted/Landing/Landing";
 import Admin from "./components/Authority/Admin/Admin";
+
+import ProtectedRoute from "./components/ProtectedRoute";
+import RedirectBasedOnAuth from "./components/RedirectbasedonAuth";
+import Admin_Emanager from "./components/Authority/Admin_Emanager/Admin_Emanager";
 import AlumniData from "./components/Authority/Alumni_Database/AlumniData";
 import StudentData from "./components/Authority/Student_Database/StudentData";
-import Message from "./components/Alumni/Message/Message";
-import Admin_Emanager from "./components/Authority/Admin_Emanager/Admin_Emanager";
-import Jobs from "./components/Alumni/Job/Job";
-import VerifyEmail from "./components/Auth/VerifyEmail/Verify";
+import AdminLayout from "./components/AdminLayout";
+
 const App = () => {
-  const { isLoggedIn, loading } = useContext(AuthContext);
+  const { isLoggedIn, loading, role } = useContext(AuthContext);
 
-  if (loading) return <p>Hold for a second...</p>;
-
-  const ProtectedRoute = ({ children }) =>
-    isLoggedIn ? children : <Navigate to="/login" replace />;
+  if (loading) return <p>Loading...</p>;
 
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          isLoggedIn ? <Navigate to="/dashboard" replace /> : <Landing />
-        }
-      />
+      {/* PUBLIC ROUTE */}
+      <Route path="/" element={<RedirectBasedOnAuth />} />
+
+      {/* AUTH ROUTES */}
       <Route
         path="/login"
-        element={isLoggedIn ? <Navigate to="/dashboard" /> : <Login />}
+        element={
+          <LandingLayout>
+            <Login />
+          </LandingLayout>
+        }
       />
       <Route
         path="/signup"
-        element={isLoggedIn ? <Navigate to="/dashboard" /> : <Signup />}
+        element={
+          <LandingLayout>
+            <Signup />
+          </LandingLayout>
+        }
       />
-      <Route path="/forgot" element={<ForgotPassword />} />
-      <Route path="/reset-password/:token" element={<ResetPassword />} />
+      <Route
+        path="/forgot"
+        element={
+          <LandingLayout>
+            <ForgotPassword />
+          </LandingLayout>
+        }
+      />
+      <Route
+        path="/reset-password/:token"
+        element={
+          <LandingLayout>
+            <ResetPassword />
+          </LandingLayout>
+        }
+      />
+      <Route
+        path="/verify"
+        element={
+          <LandingLayout>
+            <VerifyEmail />
+          </LandingLayout>
+        }
+      />
 
-      <Route
-        path="/dashboard"
-        element={
-          <ProtectedRoute>
-            <Dashboard />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/profile"
-        element={
-          <ProtectedRoute>
-            <Profile />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/jobs"
-        element={
-          <ProtectedRoute>
-            <Jobs />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/events"
-        element={
-          <ProtectedRoute>
-            <Event />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/message"
-        element={
-          <ProtectedRoute>
-            <Message />
-          </ProtectedRoute>
-        }
-      />
-      {/* Add other protected/admin routes similarly */}
+      {/* PROTECTED — ALUMNI */}
+      <Route element={<ProtectedRoute allowedRoles={["Alumni"]} />}>
+        <Route
+          path="/AlumniHome"
+          element={
+            <AlumniLayout>
+              <Dashboard />
+            </AlumniLayout>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <AlumniLayout>
+              <Profile />
+            </AlumniLayout>
+          }
+        />
+        <Route
+          path="/jobs"
+          element={
+            <AlumniLayout>
+              <Jobs />
+            </AlumniLayout>
+          }
+        />
+        <Route
+          path="/events"
+          element={
+            <AlumniLayout>
+              <Event />
+            </AlumniLayout>
+          }
+        />
+        <Route
+          path="/message"
+          element={
+            <AlumniLayout>
+              <Message />
+            </AlumniLayout>
+          }
+        />
+      </Route>
+
+      {/* PROTECTED — ADMIN */}
+      <Route element={<ProtectedRoute allowedRoles={["Admin"]} />}>
+        <Route
+          path="/AdminDashboard"
+          element={
+            <AdminLayout>
+              <Admin />
+            </AdminLayout>
+          }
+        />
+        <Route
+          path="/Admin_Emanager"
+          element={
+            <AdminLayout>
+              <Admin_Emanager />
+            </AdminLayout>
+          }
+        />
+        <Route
+          path="/AlumniData"
+          element={
+            <AdminLayout>
+              <AlumniData />
+            </AdminLayout>
+          }
+        />
+        <Route
+          path="/StudentData"
+          element={
+            <AdminLayout>
+              <StudentData />
+            </AdminLayout>
+          }
+        />
+
+      </Route>
     </Routes>
   );
 };

@@ -48,9 +48,8 @@ const Dashboard = () => {
   ];
 
   return (
+
     <div className={styles.main}>
-      <UNavbar />
-      <div className={styles.sidebar}><Sidebar /></div>
 
       <div className={styles.dashboard}>
         {/* Stats */}
